@@ -89,21 +89,52 @@ $(document).ready(function() {
   }
 
   // Smooth scrolling for navigation links
-  document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile navigation toggle
+    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    
+    if (mobileNavToggle && mobileNav) {
+        mobileNavToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        // Close mobile nav when clicking on a link
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileNavToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close mobile nav when clicking outside
+        mobileNav.addEventListener('click', function(e) {
+            if (e.target === this) {
+                mobileNavToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+    
     // Smooth scrolling
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        if (targetSection) {
-          targetSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     });
 
     // Add active class to navigation links based on scroll position
@@ -185,16 +216,32 @@ $(document).ready(function() {
       });
     });
 
-    // Social media icons animation
+        // Social media icons animation (desktop only)
     const socialIcons = document.querySelectorAll('.main-description .fa, .main-description .ai');
     socialIcons.forEach(icon => {
-      icon.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-3px) scale(1.1)';
-      });
-      
-      icon.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-      });
+        // Desktop hover effects
+        icon.addEventListener('mouseenter', function() {
+            if (window.innerWidth > 750) {
+                this.style.transform = 'translateY(-3px) scale(1.1)';
+            }
+        });
+        
+        icon.addEventListener('mouseleave', function() {
+            if (window.innerWidth > 750) {
+                this.style.transform = 'translateY(0) scale(1)';
+            }
+        });
+        
+        // Mobile touch effects
+        icon.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.95)';
+        });
+        
+        icon.addEventListener('touchend', function() {
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+        });
     });
 
     // Timeline animation
