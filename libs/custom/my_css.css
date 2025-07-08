@@ -698,3 +698,136 @@ a:hover, .button:hover {
   color: var(--primary-color);
   text-decoration: none;
 }
+
+/* Section Title Consistency */
+.section-title, h4, .docs-section h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.7rem;
+  margin-top: 0;
+  letter-spacing: 0.01em;
+}
+
+/* Two-column section layout for desktop */
+.section-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+  gap: 2.5rem;
+}
+.section-row .section-title {
+  min-width: 160px;
+  flex-shrink: 0;
+  text-align: left;
+  margin-top: 0.3rem;
+}
+.section-row .section-content {
+  flex: 1;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  border: 1.5px solid var(--border-color);
+  padding: 1.2rem 1.5rem;
+}
+
+@media (max-width: 800px) {
+  .section-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .section-row .section-title {
+    min-width: unset;
+    margin-bottom: 0.5rem;
+  }
+  .section-row .section-content {
+    padding: 1rem 0.7rem;
+  }
+}
+
+/* Education/Experience/Awards/Services content styling */
+.section-content .item-title {
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: var(--primary-color);
+  margin-bottom: 0.1rem;
+}
+.section-content .item-detail {
+  color: var(--text-secondary);
+  font-size: 1.01rem;
+  margin-bottom: 0.5rem;
+}
+.section-content .item-date {
+  color: var(--secondary-color);
+  font-size: 0.98rem;
+  margin-bottom: 1.1rem;
+}
+
+/* Publications numbering and annotation */
+.publication-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.publication-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.2rem 0;
+}
+.publication-number {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+  min-width: 55px;
+  text-align: right;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+.publication-main {
+  flex: 1;
+}
+.publication-title {
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: var(--primary-color);
+  margin-bottom: 0.1rem;
+}
+.publication-authors {
+  color: var(--text-primary);
+  font-size: 1.01rem;
+  margin-bottom: 0.2rem;
+}
+.publication-venue {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  margin-bottom: 0.2rem;
+}
+.publication-links {
+  margin-top: 0.2rem;
+}
+.publication-links a {
+  color: var(--accent-color);
+  font-size: 0.98rem;
+  margin-right: 1.1rem;
+  text-decoration: underline;
+}
+.publication-links a:hover {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+.publication-equal {
+  color: var(--accent-color);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-left: 0.2rem;
+}
+
+/* Remove default h4 margin for better alignment */
+h4, .docs-section h4 {
+  margin-top: 0;
+  margin-bottom: 0.7rem;
+}

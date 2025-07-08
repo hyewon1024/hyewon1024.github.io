@@ -10,156 +10,64 @@ title: Home
   </p> 
 </div>
 
-<!--
-<div class="docs-section" id="prospective-students">  
-  <h4>Prospective Students</h4>
-  <p>
-  <span style="display: inline-block; margin-bottom: 5px">
-    <b>I'm recruiting PhD students to start Fall 2025 at the University of Washington!</b> 
-  </span>
-  <br/> 
-  <span style="display: inline-block; margin-bottom: 5px">
-    I'm looking for students passionate about developing new <u>social media algorithms</u>, both broadly and within the scope of this <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2403434" target="_blank">NSF grant</a> (collaboration with Stanford and Northwestern). For other examples, please see my recent publications. <br/>
-  </span>
-  <span style="display: inline-block; margin-bottom: 5px">
-    Students with strong technical skills and background or interest in social network analysis, machine learning, causal inference, or natural language processing would be a great fit.
-  </span>
-  <br/>
-  <span style="display: inline-block; margin-bottom: 5px">
-    If you are interested, please apply to the UW iSchool <a href="https://ischool.uw.edu/programs/phd/admissions" target="_blank">PhD program</a> and mention me in your application.
-  </span>
-  <br/>
-  <span>
-    If you have any questions, feel free to reach out.
-  </span>
-  </p> 
-</div>
--->
-
-<!-- ========== PUBLICATIONS ========== -->
-<div class="docs-section" id="publications">
-  <h4>Publications</h4>
-
-  <p>Most recent publications on <a href="{{ site.data.main_info.google_scholar }}" target="_blank">Google Scholar</a>.<br/>
-  <sup>‡</sup> indicates equal contribution.
-  </p>
-
-  <ul class="tab-nav">
-    <li><div class="button active" data-ref="#papers-selected">Selected</div></li>
-    <li><div class="button" data-ref="#papers-all">All</div></li>
-  </ul>
-
-  <div class="tab-content">
-    <div class="tab-pane active" id="papers-selected">
-      {% assign selected_papers = site.data.publications.papers | where: "selected", "y" %}
-      {% for paper in selected_papers %}
-        <div class="paper">
-          <p class="title"><b>{{ paper.title }}</b></p>
-          <p>{{ paper.authors }}</p>
-          <p><i>{{ paper.venue }}</i></p>
-           <div class="paper-buttons">
-            {% if paper.paper_pdf %}
-              <a class="button" href="{{ paper.paper_pdf | prepend: site.baseurl }}" target="_blank">Paper</a>
-            {% endif %}
-
-            {% if paper.slides %}
-              <a class="button" href="{{ paper.slides | prepend: site.baseurl }}" target="_blank">Slides</a>
-            {% endif %}
-
-            {% if paper.poster %}
-              <a class="button" href="{{ paper.poster | prepend: site.baseurl }}" target="_blank">Poster</a>
-            {% endif %}
-
-            {% if paper.video %}
-              <a class="button" href="{{ paper.video }}" target="_blank">Video</a>
-            {% endif %}
-
-            {% if paper.code %}
-              <a class="button" href="{{ paper.code }}" target="_blank">Code</a>
-            {% endif %}
-
-            {% if paper.data %}
-              <a class="button" href="{{ paper.data }}" target="_blank">Data</a>
-            {% endif %}
-
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-
-    <div class="tab-pane" id="papers-all">
-      {% for paper in site.data.publications.papers %}
-        <div class="paper">
-          <p class="title"><b>{{ paper.title }}</b></p>
-          <p>{{ paper.authors }}</p>
-          <p><i>{{ paper.venue }}</i></p>
-           <div class="paper-buttons">
-            {% if paper.paper_pdf %}
-              <a class="button" href="{{ paper.paper_pdf | prepend: site.baseurl }}" target="_blank">Paper</a>
-            {% endif %}
-
-            {% if paper.slides %}
-              <a class="button" href="{{ paper.slides | prepend: site.baseurl }}" target="_blank">Slides</a>
-            {% endif %}
-
-            {% if paper.poster %}
-              <a class="button" href="{{ paper.poster | prepend: site.baseurl }}" target="_blank">Poster</a>
-            {% endif %}
-
-            {% if paper.video %}
-              <a class="button" href="{{ paper.video }}" target="_blank">Video</a>
-            {% endif %}
-
-            {% if paper.code %}
-              <a class="button" href="{{ paper.code }}" target="_blank">Code</a>
-            {% endif %}
-
-            {% if paper.data %}
-              <a class="button" href="{{ paper.data }}" target="_blank">Data</a>
-            {% endif %}
-
-          </div>
-        </div>
-      {% endfor %}
-    </div>
+<!-- ========== EDUCATION ========== -->
+<div class="section-row" id="education">
+  <div class="section-title">Education</div>
+  <div class="section-content">
+    <div class="item-title">Ph.D. in Electrical Engineering @ <b>KAIST</b> <span class="item-detail">(Korea Advanced Institute of Science and Technology)</span></div>
+    <div class="item-date">Aug. 2021 - Present</div>
+    <div class="item-title">M.S. in Artificial Intelligence @ <b>SKKU</b> <span class="item-detail">(Sungkyunkwan University)</span></div>
+    <div class="item-date">Aug. 2019 - Aug. 2021</div>
+    <div class="item-title">B.S. in Electrical Engineering and Computer Science @ <b>SUNY</b> <span class="item-detail">(State University of New York) <b>at Buffalo</b></span></div>
+    <div class="item-date">Aug. 2012 - Feb. 2019</div>
   </div>
 </div>
 
-<!-- ========== EDUCATION ========== -->
-<div class="docs-section" id="education">
-  <h4>Education</h4>
-  <ul class="simple-list">
-    <li><b>Ph.D. in Electrical Engineering</b>, KAIST <span class="date">Aug. 2021 - Present</span></li>
-    <li><b>M.S. in Artificial Intelligence</b>, SKKU <span class="date">Aug. 2019 - Aug. 2021</span></li>
-    <li><b>B.S. in Electrical Engineering and Computer Science</b>, SUNY at Buffalo <span class="date">Aug. 2012 - Feb. 2019</span></li>
-  </ul>
-</div>
-
 <!-- ========== EXPERIENCE ========== -->
-<div class="docs-section" id="experience">
-  <h4>Experience</h4>
-  <ul class="simple-list">
-    <li><b>Research Assistant</b>, ETRI (Electronics and Telecommunications Research Institute) <span class="date">Aug. 2022 - Dec. 2022</span></li>
-  </ul>
+<div class="section-row" id="experience">
+  <div class="section-title">Experience</div>
+  <div class="section-content">
+    <div class="item-title">Research Assistant @ <b>ETRI</b> <span class="item-detail">(Electronics and Telecommunications Research Institute)</span></div>
+    <div class="item-date">Aug. 2022 - Dec. 2022</div>
+  </div>
 </div>
 
 <!-- ========== ACADEMIC SERVICES ========== -->
-<div class="docs-section" id="academic-services">
-  <h4>Academic Services</h4>
-  <h5>Conference Reviewer</h5>
-  <ul>
-    <li>ICML: 2025</li>
-    <li>ICCV: 2025</li>
-    <li>ACM MM: 2025</li>
-    <li>NeurIPS: 2025</li>
-  </ul>
+<div class="section-row" id="academic-services">
+  <div class="section-title">Academic Services</div>
+  <div class="section-content">
+    <div class="item-title">Conference Reviewer</div>
+    <div class="item-detail">ICML: 2025</div>
+    <div class="item-detail">ICCV: 2025</div>
+    <div class="item-detail">ACM MM: 2025</div>
+    <div class="item-detail">NeurIPS: 2025</div>
+  </div>
 </div>
 
 <!-- ========== HONOR & AWARDS ========== -->
-<div class="docs-section" id="honors-awards">
-  <h4>Honor & Awards</h4>
-  <ul class="simple-list">
-    <li><b>Bronze Prize, 31st Samsung HumanTech Paper Awards</b>, Samsung <span class="date">Feb. 2025</span></li>
-    <li><b>Best Paper Award, Workshop on AI for Content Creation @ CVPR 2022</b>, Google <span class="date">Jun. 2022</span></li>
+<div class="section-row" id="honors-awards">
+  <div class="section-title">Honor & Awards</div>
+  <div class="section-content">
+    <div class="item-title">Bronze Prize, 31st Samsung HumanTech Paper Awards <span class="item-detail">(Samsung)</span></div>
+    <div class="item-date">Feb. 2025</div>
+    <div class="item-title">Best Paper Award, Workshop on AI for Content Creation @ CVPR 2022 <span class="item-detail">(Google)</span></div>
+    <div class="item-date">Jun. 2022</div>
+  </div>
+</div>
+
+<!-- ========== PUBLICATIONS ========== -->
+<div class="docs-section" id="publications">
+  <h4>Publications <span style="font-weight:400; font-size:0.95em; color:var(--text-secondary);">| Conference(C), Workshop(W), Journal(J), Preprint(P), Equal Contribution(*)</span></h4>
+  <ul class="tab-nav">
+    <li><div class="button" data-ref="#papers-selected">Selected</div></li>
+    <li><div class="button active" data-ref="#papers-all">All</div></li>
   </ul>
+  <div class="tab-content">
+    <div class="tab-pane" id="papers-selected">
+      <!-- Selected papers will go here if needed -->
+    </div>
+    <div class="tab-pane active" id="papers-all">
+      <!-- Publication list will be rendered here (numbering/annotation logic to be added) -->
+    </div>
+  </div>
 </div>
