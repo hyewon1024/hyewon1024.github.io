@@ -1,90 +1,92 @@
+# Academic Portfolio Website
 
-<h1 align="center">
-  <br>
-  <a href="https://github.com/karlgrossmann/two-column-layout"><img src="https://i.ibb.co/3FdZL3J/Screenshot-2023-10-24-at-15-33-28.png" alt="Two Column Portfolio" width="200"></a>
-  <br>
-  Two-Column-Portfolio Template
-  <br>
-</h1>
+A clean, modern two-column portfolio website built with Next.js, perfect for academics and researchers.
 
-<h4 align="center">A simple two-column portfolio template built with <a href="[https://nextjs.org](https://nextjs.org)" target="_blank">Next.js</a> and <a href="[https://tailwindcss.com](https://tailwindcss.com)" target="_blank">Tailwind CSS</a>.</h4>
+## 🚀 Quick Start
 
-<p align="center">
-  <a href="https://two-column-portfolio.vercel.app/">See the current version live!</a>
-</p>
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-<p align="center">
-  <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How To Use</a> •
-  <a href="#customization">Customization</a> •
-  <a href="#credits">Credits</a> •
-  <a href="#license">License</a>
-</p>
+2. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-<div align="center">
-  <img alt="Mockup of website" src="https://i.ibb.co/HqmLMCf/Mockups-Two-Column-Portfolio.png">
-</div>
+3. **Open your browser:**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-## Key Features
+## 📝 Customization
 
-* Simple and easy to edit - your version is up and running in minutes.
-  - All information of the page is loaded from a JSON file, which can be modified without coding knowledge.
-* Colors are easily customizable to your taste.
-  - There are a few presets, but even adding your own color palette is very easy.
-* Mobile ready.
-  - Optimized for desktop, but looks good on mobile as well.
-* Deployed very easily using Vercel.
-  - Create a private fork of this repository on your GitHub account, change the details and deploy the page using Vercel's GitHub integration.
+### Personal Information
+Edit `public/translations/en.json` to update:
 
-## How To Use
+- **Name and headline** in the `general` section
+- **About section** with your bio
+- **Social links** (email, LinkedIn, GitHub, Google Scholar)
+- **Experience** with your work history
+- **Education** with your academic background
+- **Volunteering** with your academic services
+- **Projects** with your research work
 
-To clone and run this website, you'll need to paste the following steps in your command line:
+### Key Sections to Update:
 
-```bash
-# Clone this repository
-$ git clone https://github.com/karlgrossmann/two-column-portfolio
+1. **General Information:**
+   ```json
+   "general": {
+     "name": "Your Name",
+     "headline": "Your Title",
+     "about": ["Your bio paragraphs"],
+     "socials": {
+       "email": "your.email@institution.edu",
+       "linkedin": "https://linkedin.com/in/yourprofile",
+       "github": "https://github.com/yourusername",
+       "google_scholar": "https://scholar.google.com/citations?user=yourprofile"
+     }
+   }
+   ```
 
-# Go into the repository
-$ cd two-column-portfolio
+2. **Experience:** Add your research positions, internships, etc.
+3. **Education:** Your degrees and institutions
+4. **Volunteering:** Conference reviewing, academic services
+5. **Projects:** Your research projects and publications
 
-# Install dependencies
-$ yarn install
+### Styling
+The website uses Tailwind CSS. You can customize colors and styling in:
+- `tailwind.config.js` - Color scheme and design tokens
+- `app/globals.css` - Global styles
 
-# Run the app
-$ yarn dev
+## 🎨 Features
 
-# Build the app
-$ yarn build
-```
+- **Responsive Design** - Works on desktop, tablet, and mobile
+- **Two-Column Layout** - Fixed sidebar with main content area
+- **Modern Typography** - Clean, readable fonts
+- **Smooth Animations** - Subtle hover effects and transitions
+- **Academic Focus** - Perfect for researchers and academics
 
-> **Note**
-> After running the app the live version of it is available at `localhost:3000`.
+## 📱 Mobile Friendly
 
-## Customization
+The layout automatically adapts to mobile devices with a stacked design.
 
-In order to customize the template to your own needs, please do the following.
+## 🚀 Deployment
 
-1. Edit the title and description of the website in the file `app/layout.js`.
-2. Add your personal details by editing the file `translations/en.json`
-   - You can specify an arbitrary number of positions in experiences (+ their skills), education, voluntering and projects.
-   - In the About section, multiple paragraphs can be created by creating multiple entries in the array `General:about`.
-3. Replace the file `app/favicon.ico` with a favicon of your choice.
-4. (Optional) Change the color palette by editing the file `tailwind.config.js`.
-5. (Optional) Edit the imprint and privacy statement if it is necessary in your country.
-6. Enjoy!
+### Vercel (Recommended)
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy automatically
 
-## Credits
+### GitHub Pages
+1. Build the project: `npm run build`
+2. Export static files: `npm run export`
+3. Deploy to GitHub Pages
 
-This software uses the following open source packages:
+## 🛠️ Built With
 
-- [Next.js](https://nextjs.org)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Heroicons](https://heroicons.com)
+- [Next.js](https://nextjs.org/) - React framework
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [React](https://reactjs.org/) - UI library
 
-## Support
+## 📄 License
 
-<a href="https://www.buymeacoffee.com/karlgrossmann" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
-
-## License
-
-GNU GENERAL PUBLIC LICENSE 3.0
+This project is open source and available under the [MIT License](LICENSE).
