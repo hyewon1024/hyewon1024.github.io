@@ -5,35 +5,54 @@
   <title>{{ site.data.main_info.name }} | {{ page.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='https://fonts.googleapis.com/css?family=Inter:400,600,700|Playfair+Display:700' rel='stylesheet'>
-  <link rel="stylesheet" href={{ "/libs/external/skeleton/normalize.css" | prepend: site.baseurl }}>
   <link rel="stylesheet" href={{ "/libs/external/fontawesome-free-6.6.0-web/css/all.min.css" | prepend: site.baseurl }}>
   <link rel="stylesheet" href={{ "/libs/external/academicons-1.8.6/css/academicons.min.css" | prepend: site.baseurl }}>
   <link rel="stylesheet" href={{ "/libs/custom/my_css.css" | prepend: site.baseurl }}>
   <link rel="icon" type="image/png" href={{ "/libs/icon.png" | prepend: site.baseurl }}>
-  <script src={{ "/libs/custom/my_js.js" | prepend: site.baseurl }}></script>
 </head>
 <body>
-  <div class="two-col-layout">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="sidebar-profile">
-        <img class="sidebar-profile-pic" src='{{ site.baseurl }}{{ site.data.main_info.profile_pic }}' alt="Profile picture">
-        <h1 class="sidebar-name">{{ site.data.main_info.name }}</h1>
-        <div class="sidebar-title">{{ site.data.main_info.title }}</div>
-        <div class="sidebar-email">{{ site.data.main_info.email }}</div>
-        <div class="sidebar-links">
-          <a href="{{ site.data.main_info.linkedin }}" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="{{ site.data.main_info.github }}" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="{{ site.data.main_info.google_scholar }}" target="_blank" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+  <div class="portfolio-layout">
+    <!-- Fixed Sidebar -->
+    <header class="sidebar">
+      <div class="sidebar-content">
+        <div class="profile-section">
+          <img class="profile-image" src='{{ site.baseurl }}{{ site.data.main_info.profile_pic }}' alt="Profile picture">
+          <h1 class="profile-name">{{ site.data.main_info.name }}</h1>
+          <h2 class="profile-title">{{ site.data.main_info.title }}</h2>
+        </div>
+        
+        <nav class="navigation">
+          <ul class="nav-list">
+            <li><a href="#bio" class="nav-link">Bio</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#publications" class="nav-link">Publications</a></li>
+            <li><a href="#academic-services" class="nav-link">Academic Services</a></li>
+            <li><a href="#honors-awards" class="nav-link">Honors & Awards</a></li>
+          </ul>
+        </nav>
+        
+        <div class="social-links">
+          <a href="{{ site.data.main_info.linkedin }}" target="_blank" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="{{ site.data.main_info.github }}" target="_blank" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="{{ site.data.main_info.google_scholar }}" target="_blank" aria-label="Google Scholar">
+            <i class="ai ai-google-scholar"></i>
+          </a>
         </div>
       </div>
-      <!-- Optionally add skills/languages here -->
-    </aside>
+    </header>
+    
     <!-- Main Content -->
     <main class="main-content">
       {{ content }}
     </main>
   </div>
+  
+  <script src={{ "/libs/custom/my_js.js" | prepend: site.baseurl }}></script>
   {% include google_analytics.html %}
 </body>
 </html>
