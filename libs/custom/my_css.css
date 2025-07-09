@@ -13,18 +13,24 @@
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
 }
 
+/* Override Skeleton's font-size reset */
+html {
+  font-size: 16px !important;
+}
+
 /* Mobile-first responsive design */
 * {
   box-sizing: border-box;
 }
 
 body {
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  font-size: 18px;
-  line-height: 1.7;
-  margin: 0;
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
+  font-size: 18px !important;
+  line-height: 1.7 !important;
+  margin: 0 !important;
+  font-weight: 400 !important;
 }
 
 .two-col-layout {
@@ -157,6 +163,64 @@ body {
 .container, .header, .main-description, .footer, .navbar, .navbar-spacer, .row, .three.columns, .nine.columns {
   all: unset;
   display: revert;
+}
+
+/* Force two-column layout to take precedence */
+body > .container {
+  display: none !important;
+}
+
+body > .header {
+  display: none !important;
+}
+
+/* Override Skeleton CSS container styles */
+.container {
+  max-width: none !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: static !important;
+}
+
+/* Override any Skeleton column styles */
+.column, .columns {
+  width: auto !important;
+  float: none !important;
+  margin-left: 0 !important;
+}
+
+/* Ensure the two-column layout is always visible */
+.two-col-layout {
+  display: flex !important;
+  min-height: 100vh !important;
+  background: var(--bg-primary) !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Debug: Add visible borders to see the layout */
+.sidebar {
+  border: 2px solid var(--primary-color) !important;
+  background: rgba(140, 110, 90, 0.1) !important;
+}
+
+.main-content {
+  border: 2px solid var(--accent-color) !important;
+  background: rgba(90, 106, 79, 0.1) !important;
+}
+
+/* Additional debugging */
+.two-col-layout::before {
+  content: "TWO-COLUMN LAYOUT ACTIVE" !important;
+  position: fixed !important;
+  top: 10px !important;
+  right: 10px !important;
+  background: red !important;
+  color: white !important;
+  padding: 5px !important;
+  z-index: 9999 !important;
+  font-size: 12px !important;
 }
 
 h1, h2, h3, h4, h5, h6, .section-header {
