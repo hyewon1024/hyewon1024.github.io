@@ -375,14 +375,71 @@
                 justify-content: center;
             }
 
-            .experience-item, .education-item {
-                flex-direction: row;
-                gap: 2rem;
+            /* Change to vertical layout for better mobile readability */
+            .experience-item, .education-item, .award-item {
+                flex-direction: column !important;
+                gap: 1rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .experience-item .content-column,
+            .education-item .content-column,
+            .award-item .content-column {
+                margin-top: 0.5rem;
             }
 
             .date-column {
-                flex: 0 0 150px;
+                flex: none;
                 text-align: left;
+                font-size: 0.9rem;
+                color: #a8a397;
+                font-weight: 600;
+                white-space: normal; /* Allow text to wrap on mobile */
+            }
+
+            /* Publication cards vertical layout */
+            .publication-card {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 0.5rem;
+                padding: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .pub-year {
+                text-align: left;
+                min-width: auto;
+                font-size: 0.9rem;
+                margin-bottom: 0;
+            }
+
+            /* Create a container for number + title */
+            .pub-count {
+                display: inline !important;
+                margin-right: 0.5rem;
+                font-size: 0.9rem;
+                font-weight: 700;
+                color: #f8f6f0;
+                text-align: left !important;
+                min-width: auto !important;
+            }
+
+            .pub-content {
+                display: inline !important;
+                margin-left: 0;
+            }
+
+            .pub-title {
+                font-size: 0.95rem;
+                margin: 0;
+                display: inline;
+                word-wrap: break-word;
+            }
+
+            .pub-authors {
+                display: block;
+                margin-top: 0.5rem;
+                clear: both;
             }
         }
     </style>
