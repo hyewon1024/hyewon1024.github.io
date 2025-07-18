@@ -225,7 +225,7 @@
         }
 
         .date-column {
-            flex: 0 0 150px; /* Increased width for date column */
+            flex: 0 0 150px; /* Increased width to account for pub-year + pub-count */
             text-align: right;
             color: #a8a397;
             font-size: 0.85rem;
@@ -234,6 +234,34 @@
         }
 
         .content-column {
+            flex: 1;
+        }
+
+        /* Publication Cards */
+        .publication-card {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .pub-year {
+            font-size: 1.0rem;
+            font-weight: 700;
+            color: #a8a397;
+            min-width: 60px;
+            text-align: right;
+        }
+
+        .pub-count {
+            font-size: 1.0rem;
+            font-weight: 700;
+            color: #f8f6f0;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .pub-content {
             flex: 1;
         }
 
@@ -303,33 +331,7 @@
             color: #7a9185;
         }
 
-        /* Publication Cards */
-        .publication-card {
-            display: flex;
-            gap: 1rem;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-        }
 
-        .pub-year {
-            font-size: 1.0rem;
-            font-weight: 700;
-            color: #a8a397;
-            min-width: 60px;
-            text-align: right;
-        }
-
-        .pub-count {
-            font-size: 1.0rem;
-            font-weight: 700;
-            color: #f8f6f0;
-            min-width: 40px;
-            text-align: center;
-        }
-
-        .pub-content {
-            flex: 1;
-        }
 
         .pub-title {
             font-size: 1.0rem;
@@ -506,7 +508,7 @@
                             <span class="date">June 2025 - Present</span>
                         </div>
                         <div class="content-column">
-                            <h3 class="title">Research Assistant @ Korea AISI</h3>
+                            <h3 class="title">Research Assistant @ Korea AISI (ETRI)</h3>
                             <p class="description">Korea AI Safety Institute</p>
                         </div>
                     </div>
