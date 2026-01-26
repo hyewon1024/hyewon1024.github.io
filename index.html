@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaehyun Choi | PRE▶︎ENT</title>
-    <link rel="icon" type="image/svg+xml" href="icon.png">
-    
-    <!-- Google Analytics -->
+    <title>Jaehyun Choi | Ph.D.</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZ7FTRYYRD"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -14,919 +11,535 @@
         gtag('js', new Date());
         gtag('config', 'G-CZ7FTRYYRD');
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            /* Modern Tech Palette */
+            --bg-body: #f8f9fa;
+            --bg-sidebar: #1a1f2c; /* Deep Slate */
+            --text-main: #2d3748;
+            --text-muted: #718096;
+            --text-sidebar: #e2e8f0;
+            --accent: #38b2ac; /* Teal for AI/Tech vibe */
+            --accent-hover: #319795;
+            --border: #e2e8f0;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+        
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #8b5a3c;
-            transition: background-color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
         }
 
-        .container {
-            display: flex;
-            min-height: 100vh;
-        }
+        /* Layout */
+        .container { display: flex; min-height: 100vh; }
 
-        /* Left Sidebar */
+        /* --- Sidebar & Neural Animation --- */
         .sidebar {
-            width: 350px;
-            background-color: #8b5a3c;
-            color: #f8f6f0;
-            padding: 3rem;
+            width: 320px;
+            background-color: var(--bg-sidebar);
+            color: var(--text-sidebar);
             position: fixed;
             height: 100vh;
-            overflow-y: auto;
-        }
-
-        .sidebar-content {
             display: flex;
             flex-direction: column;
-            height: 100%;
+            padding: 3rem 2rem;
+            z-index: 10;
+            overflow: hidden; /* For canvas */
         }
 
-        .profile {
-            margin-bottom: 3rem;
-        }
-
-        .name {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #f8f6f0;
-        }
-
-        .title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #7a9185;
-            margin-bottom: 1rem;
-        }
-
-        .description {
-            font-size: 0.95rem;
-            color: #8892b0;
-            line-height: 1.6;
-        }
-
-        /* Navigation */
-        .navigation {
-            margin-bottom: 3rem;
-        }
-
-        .navigation ul {
-            list-style: none;
-        }
-
-        .navigation li {
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-line {
-            width: 20px;
-            height: 2px;
-            background-color: #7a9185;
-            margin-right: 1rem;
-            opacity: 0;
-            transition: opacity 0.3s ease, width 0.3s ease;
-        }
-
-        .navigation li.active .nav-line {
-            opacity: 1;
-            width: 40px;
-        }
-
-        .navigation li:hover .nav-line {
-            opacity: 1;
-            width: 30px;
-        }
-
-        .navigation a {
-            color: #c4a494;
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-        }
-
-        .navigation li.active a {
-            color: #ffffff;
-        }
-
-        .navigation li:hover a {
-            color: #7a9185;
-        }
-
-        /* Social Links */
-        .social-links {
-            margin-top: auto;
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .social-links a {
-            color: #c4a494;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(122, 145, 133, 0.1);
-        }
-
-        .social-links a:hover {
-            color: #7a9185;
-            background-color: rgba(122, 145, 133, 0.2);
-        }
-
-        /* Main Content Area */
-        .main-content {
-            flex: 1;
-            margin-left: 350px;
-            padding: 1.5rem;
-            background-color: #8b5a3c;
-            color: #f8f6f0;
-        }
-
-        .content-wrapper {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .content-wrapper h2 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #f8f6f0;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-
-        .content-wrapper p {
-            font-size: 1.0rem;
-            color: #f8f6f0;
-            line-height: 1.6;
-        }
-
-        /* Remove underline from links */
-        .content-wrapper a {
-            text-decoration: none;
-        }
-
-        .content-wrapper a:hover {
-            text-decoration: underline;
-        }
-
-        /* Content Sections */
-        .content-section {
-            margin-bottom: 4rem;
-            padding-top: 2rem;
-        }
-
-        .content-section:first-child {
-            padding-top: 0;
-        }
-
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Scroll-based background transition */
-        body {
-            transition: background-color 0.3s ease;
-        }
-
-        .scroll-bg {
-            background-color: #8b5a3c;
-        }
-
-        /* Experience and Education Items */
-        .education-item, .experience-item, .publication-item, .service-item, .award-item {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .date-column {
-            flex: 0 0 150px; /* Increased width to account for pub-year + pub-count */
-            text-align: right;
-            color: #a8a397;
-            font-size: 0.85rem;
-            font-weight: 500;
-            white-space: nowrap; /* Prevent line breaks */
-        }
-
-        .content-column {
-            flex: 1;
-        }
-
-        /* Publication Cards */
-        .publication-card {
-            display: flex;
-            gap: 1rem;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .pub-year {
-            font-size: 1.0rem;
-            font-weight: 700;
-            color: #a8a397;
-            min-width: 60px;
-            text-align: right;
-        }
-
-        .pub-count {
-            font-size: 1.0rem;
-            font-weight: 700;
-            color: #f8f6f0;
-            min-width: 40px;
-            text-align: center;
-        }
-
-        .pub-content {
-            flex: 1;
-        }
-
-        .content-column h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #f8f6f0;
-            margin-bottom: 0.5rem;
-        }
-
-        .content-column p {
-            font-size: 1.0rem;
-            color: #f8f6f0;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tag {
-            background-color: rgba(122, 145, 133, 0.2);
-            color: #7a9185;
-            padding: 0.3rem 0.7rem;
-            border-radius: 15px;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-
-        /* Publication Tabs */
-        .publication-tabs {
-            display: flex;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid rgba(122, 145, 133, 0.2);
-        }
-
-        .tab-button {
-            background: none;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #c4a494;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .tab-button.active {
-            color: #f8f6f0;
-        }
-
-        .tab-button.active::after {
-            content: '';
+        /* Canvas for AI Network Background */
+        #neural-canvas {
             position: absolute;
-            bottom: -1px;
+            top: 0;
             left: 0;
-            right: 0;
-            height: 2px;
-            background-color: #7a9185;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            z-index: -1;
+            pointer-events: none;
         }
 
-        .tab-button:hover {
-            color: #7a9185;
+        .profile-section { position: relative; z-index: 2; margin-bottom: 3rem; }
+        
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            overflow: hidden;
+            border: 3px solid rgba(255,255,255,0.1);
+        }
+        
+        .profile-img img { width: 100%; height: 100%; object-fit: cover; }
+
+        .name { font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 0.5rem; }
+        .role { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 0.9rem; margin-bottom: 1.5rem; }
+
+        /* Nav */
+        .nav-menu { list-style: none; flex-grow: 1; z-index: 2; }
+        .nav-item { margin-bottom: 1rem; }
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-sidebar);
+            opacity: 0.6;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        .nav-link:hover, .nav-link.active { opacity: 1; color: white; transform: translateX(5px); }
+        .nav-link.active { border-left: 2px solid var(--accent); padding-left: 10px; margin-left: -12px; }
+
+        /* Socials */
+        .social-links { display: flex; gap: 1rem; margin-top: auto; z-index: 2; }
+        .social-icon {
+            color: var(--text-sidebar);
+            opacity: 0.7;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+        .social-icon:hover { opacity: 1; color: var(--accent); transform: translateY(-2px); }
+
+        /* --- Main Content --- */
+        .main-content {
+            margin-left: 320px;
+            flex: 1;
+            padding: 4rem 5rem;
+            max-width: 1200px;
         }
 
+        section { margin-bottom: 6rem; opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+        section.visible { opacity: 1; transform: translateY(0); }
 
-
-        .pub-title {
-            font-size: 1.0rem;
-            font-weight: 600;
-            color: #f8f6f0;
-            margin-bottom: 0.5rem;
-        }
-
-        .pub-authors {
+        .section-title {
             font-size: 0.9rem;
-            color: #8892b0;
-            margin-bottom: 0.5rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1rem;
+            display: inline-block;
         }
 
-        .pub-conference {
+        /* About */
+        .about-text { font-size: 1.1rem; max-width: 800px; color: #4a5568; }
+        .about-text a { color: var(--accent); text-decoration: none; font-weight: 600; border-bottom: 1px dotted var(--accent); }
+        .about-text a:hover { color: var(--accent-hover); border-bottom: 1px solid var(--accent-hover); }
+
+        /* Timeline Items (Education/Exp) */
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            align-items: baseline;
+        }
+
+        .timeline-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: right;
+        }
+
+        .timeline-content h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-main); }
+        .timeline-content p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* Publications */
+        .filters { margin-bottom: 2rem; display: flex; gap: 1rem; }
+        .filter-btn {
+            background: none;
+            border: 1px solid var(--border);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+        .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .filter-btn.active { background-color: var(--accent); color: white; border-color: var(--accent); }
+
+        .pub-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .pub-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: var(--accent); }
+        
+        .pub-stats {
+            min-width: 60px;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.8rem;
-            color: #7a9185;
+            color: var(--accent);
+            background: rgba(56, 178, 172, 0.1);
+            padding: 0.5rem;
+            border-radius: 6px;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-            
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                padding: 3rem 2rem;
-            }
-            
-            .navigation {
-                display: none;
-            }
-            
-            .main-content {
-                margin-left: 0;
-                padding: 3rem 2rem;
-            }
-            
-            .social-links {
-                justify-content: center;
-            }
+        .pub-details h4 { font-size: 1.05rem; margin-bottom: 0.5rem; line-height: 1.4; }
+        .pub-authors { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+        .pub-venue { font-size: 0.85rem; font-weight: 600; color: #2d3748; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;}
+        
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+        }
+        .badge.cvpr { background-color: #1e3a8a; } /* Blue */
+        .badge.neurips { background-color: #702459; } /* Purple */
+        .badge.eccv { background-color: #047857; } /* Green */
+        .badge.wacv { background-color: #b45309; } /* Orange */
+        .badge.generic { background-color: #4a5568; }
 
-            /* Change to vertical layout for better mobile readability */
-            .education-item, .experience-item, .award-item {
-                flex-direction: column !important;
-                gap: 1rem;
-                margin-bottom: 2.5rem;
-            }
-
-            .education-item .content-column,
-            .experience-item .content-column,
-            .award-item .content-column {
-                margin-top: 0.5rem;
-            }
-
-            .date-column {
-                flex: none;
-                text-align: left;
-                font-size: 0.9rem;
-                color: #a8a397;
-                font-weight: 600;
-                white-space: normal; /* Allow text to wrap on mobile */
-            }
-
-            /* Publication cards vertical layout */
-            .publication-card {
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 0.5rem;
-                padding: 1rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .pub-year {
-                text-align: left;
-                min-width: auto;
-                font-size: 0.9rem;
-                margin-bottom: 0;
-            }
-
-            /* Create a container for number + title */
-            .pub-count {
-                display: inline !important;
-                margin-right: 0.5rem;
-                font-size: 0.9rem;
-                font-weight: 700;
-                color: #f8f6f0;
-                text-align: left !important;
-                min-width: auto !important;
-            }
-
-            .pub-content {
-                display: inline !important;
-                margin-left: 0;
-            }
-
-            .pub-title {
-                font-size: 0.95rem;
-                margin: 0;
-                display: inline;
-                word-wrap: break-word;
-            }
-
-            .pub-authors {
-                display: block;
-                margin-top: 0.5rem;
-                clear: both;
-            }
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .container { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; padding: 2rem; }
+            #neural-canvas { display: none; } /* Disable animation on mobile for performance */
+            .main-content { margin-left: 0; padding: 2rem; }
+            .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+            .timeline-date { text-align: left; margin-bottom: 0.2rem; }
+            .pub-card { flex-direction: column; gap: 1rem; }
+            .pub-stats { width: auto; display: inline-block; }
+            .nav-menu { display: none; } /* Hide nav on mobile, relying on scroll */
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Left Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-content">
-                <div class="profile">
-                    <h1 class="name">Jaehyun Choi</h1>
-                    <p class="title">Ph.D. Candidate in EE</p>
-                </div>
-                
-                <nav class="navigation">
-                    <ul>
-                        <li class="active">
-                            <span class="nav-line"></span>
-                            <a href="#about">About</a>
-                        </li>
-                        <li>
-                            <span class="nav-line"></span>
-                            <a href="#education">Education</a>
-                        </li>
-                        <li>
-                            <span class="nav-line"></span>
-                            <a href="#experience">Experience</a>
-                        </li>
-                        <li>
-                            <span class="nav-line"></span>
-                            <a href="#publication">Publication</a>
-                        </li>
 
-                        <li>
-                            <span class="nav-line"></span>
-                            <a href="#honor-awards">Honor & Awards</a>
-                        </li>
-                    </ul>
-                </nav>
-                
-                <div class="social-links">
-                    <a href="https://github.com/PRE6ENT" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/jaehyun-choi-6aa204101/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://scholar.google.com/citations?user=n-OTCygAAAAJ&hl=ko&authuser=3" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+    <div class="container">
+        <aside class="sidebar">
+            <canvas id="neural-canvas"></canvas> <div class="profile-section">
+                <div class="profile-img">
+                    <img src="profile.jpg" alt="JC" onerror="this.style.display='none';this.parentElement.innerHTML='JC'">
                 </div>
+                <h1 class="name">Jaehyun Choi</h1>
+                <p class="role">Ph.D. in Electrical Engineering</p>
+                <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 1rem;">
+                    AI Safety Institute (AISI)<br>
+                    Deepfake Detection & Generative Models
+                </p>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#about" class="nav-link active">About</a></li>
+                <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
+                <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+                <li class="nav-item"><a href="#publication" class="nav-link">Publications</a></li>
+                <li class="nav-item"><a href="#honors" class="nav-link">Honors & Awards</a></li>
+            </ul>
+
+            <div class="social-links">
+                <a href="https://github.com/PRE6ENT" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/jaehyun-choi-6aa204101/" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://scholar.google.com/citations?user=n-OTCygAAAAJ&hl=ko&authuser=3" class="social-icon" aria-label="Scholar"><i class="fas fa-graduation-cap"></i></a>
+                <a href="mailto:your.email@example.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
         </aside>
-        
-        <!-- Main Content Area -->
+
         <main class="main-content">
-            <div class="content-wrapper">
-                <!-- About Section -->
-                <section id="about" class="content-section">
-                    <h2>About</h2>
-                    <p>I am a Ph.D. student at the <a href="http://siit.kaist.ac.kr/" target="_blank" style="color: #7a9185;">SIIT Lab at KAIST</a>, supervised by Prof. Junmo Kim, interested in distribution matching (dataset condensation and domain adaptation / generalization), AI Safety (Explainable Deepfake Detection), and generative models. During my M.S., I was a member of the <a href="https://sites.google.com/site/vclabskku/" target="_blank" style="color: #7a9185;">VC Lab at SKKU</a>, supervised by Prof. Jae-Pil Heo. I am actively seeking internship opportunities to apply my research in practical settings and contribute to innovative AI projects.</p>
-                </section>
+            
+            <section id="about" class="visible">
+                <div class="section-title">Biography</div>
+                <p class="about-text">
+                    I am a Ph.D. graduate from <a href="http://siit.kaist.ac.kr/" target="_blank">KAIST</a>, where I was advised by Prof. Junmo Kim. My research centers on **AI Safety** and **Efficient Learning**, specifically focusing on explainable deepfake detection, dataset condensation, and domain generalization.
+                    <br><br>
+                    Currently, I am a researcher at the <strong>Korea AI Safety Institute (AISI)</strong>, working on robust frameworks for detecting AI-generated misinformation. I am passionate about bridging the gap between theoretical AI safety and practical, scalable deployment.
+                </p>
+            </section>
 
-                <!-- Education Section -->
-                <section id="education" class="content-section">
-                    <h2>Education</h2>
-                    
-                    <div class="education-item">
-                        <div class="date-column">
-                            <span class="date">Aug. 2021 - Present</span>
-                        </div>
-                        <div class="content-column">
-                            <h3 class="title">Ph.D. in Electrical Engineering @ KAIST</h3>
-                            <p class="description">Korea Advanced Institute of Science and Technology</p>
-                        </div>
+            <section id="education">
+                <div class="section-title">Education</div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 - 2026</div>
+                    <div class="timeline-content">
+                        <h3>Korea Advanced Institute of Science and Technology (KAIST)</h3>
+                        <p>Ph.D. in Electrical Engineering (Advisor: Junmo Kim)</p>
                     </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2019 - 2021</div>
+                    <div class="timeline-content">
+                        <h3>Sungkyunkwan University (SKKU)</h3>
+                        <p>M.S. in Artificial Intelligence</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2012 - 2019</div>
+                    <div class="timeline-content">
+                        <h3>State University of New York at Buffalo</h3>
+                        <p>B.S. in Electrical Engineering</p>
+                    </div>
+                </div>
+            </section>
 
-                    <div class="education-item">
-                        <div class="date-column">
-                            <span class="date">Aug. 2019 - Aug. 2021</span>
-                        </div>
-                        <div class="content-column">
-                            <h3 class="title">M.S. in Artificial Intelligence @ SKKU</h3>
-                            <p class="description">Sungkyunkwan University</p>
-                        </div>
+            <section id="experience">
+                <div class="section-title">Experience</div>
+                <div class="timeline-item">
+                    <div class="timeline-date">June 2025 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Korea AI Safety Institute (AISI)</h3>
+                        <p>Researcher (via ETRI)</p>
+                        <p style="font-size:0.85rem; margin-top:0.5rem; color:var(--text-muted);">Developing public-facing services for deepfake and LLM misinformation detection.</p>
                     </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Aug 2022 - Dec 2022</div>
+                    <div class="timeline-content">
+                        <h3>ETRI</h3>
+                        <p>Research Assistant</p>
+                    </div>
+                </div>
+            </section>
 
-                    <div class="education-item">
-                        <div class="date-column">
-                            <span class="date">Aug. 2012 - Feb. 2019</span>
-                        </div>
-                        <div class="content-column">
-                            <h3 class="title">B.S. in Electrical Engineering @ SUNY at Buffalo</h3>
-                            <p class="description">State University of New York at Buffalo</p>
-                        </div>
-                    </div>
-                </section>
+            <section id="publication">
+                <div class="section-title">Publications</div>
+                
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="selected">Selected</button>
+                </div>
 
-                <!-- Experience Section -->
-                <section id="experience" class="content-section">
-                    <h2>Experience</h2>
-                    
-                    <div class="experience-item">
-                        <div class="date-column">
-                            <span class="date">June 2025 - Present</span>
-                        </div>
-                        <div class="content-column">
-                            <h3 class="title">Research Assistant @ Korea AISI (ETRI)</h3>
-                            <p class="description">Korea AI Safety Institute</p>
-                        </div>
+                <div class="pub-card" data-category="selected">
+                    <div class="pub-stats">2025<br>[C13]</div>
+                    <div class="pub-details">
+                        <h4>AH-OCDA: Amplitude-based Curriculum Learning and Hopfield Segmentation Model</h4>
+                        <p class="pub-authors"><strong>Jaehyun Choi*</strong>, Junwon Ko*, Dong-Jae Lee*, Junmo Kim</p>
+                        <p class="pub-venue"><span class="badge wacv">WACV 2025</span></p>
                     </div>
+                </div>
 
-                    <div class="experience-item">
-                        <div class="date-column">
-                            <span class="date">Aug. 2022 - Dec. 2022</span>
-                        </div>
-                        <div class="content-column">
-                            <h3 class="title">Research Assistant @ ETRI</h3>
-                            <p class="description">Electronics and Telecommunications Research Institute</p>
-                        </div>
+                <div class="pub-card" data-category="selected">
+                    <div class="pub-stats">2024<br>[C11]</div>
+                    <div class="pub-details">
+                        <h4>Unlocking the Capabilities of Masked Generative Models for Image Synthesis</h4>
+                        <p class="pub-authors">Jiwan Hur, Dong-Jae Lee, Gyojin Han, <strong>Jaehyun Choi</strong>, Junmo Kim</p>
+                        <p class="pub-venue">
+                            <span class="badge neurips">NeurIPS 2024</span>
+                            <span style="font-size:0.8rem; color:#b45309; font-weight:600;">Bronze Prize @ Samsung HumanTech</span>
+                        </p>
                     </div>
-                </section>
+                </div>
 
-                <!-- Publication Section -->
-                <section id="publication" class="content-section">
-                    <div style="display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1rem;">
-                        <h2>PUBLICATION</h2>
-                        <span style="font-size: 0.8rem; color: #a8a397;">| Conference(C), Workshop(W), Journal(J), Preprint(P), Equal Contribution(*)</span>
+                <div class="pub-card" data-category="all">
+                    <div class="pub-stats">2024<br>[C10]</div>
+                    <div class="pub-details">
+                        <h4>Learning Neural Deformation Representation for 4D Dynamic Shape Generation</h4>
+                        <p class="pub-authors">Gyojin Han, Jiwan Hur, <strong>Jaehyun Choi</strong>, Junmo Kim</p>
+                        <p class="pub-venue"><span class="badge eccv">ECCV 2024</span></p>
                     </div>
-                    
-                    <!-- Publication Tabs -->
-                    <div class="publication-tabs">
-                        <button class="tab-button active" data-tab="all">ALL</button>
-                        <button class="tab-button" data-tab="selected">SELECTED</button>
-                    </div>
+                </div>
 
-                    <div class="publication-card">
-                        <div class="pub-year">2025</div>
-                        <div class="pub-count">[W5]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">PSGM-TR: A Transformer-Based Approach for Pulmonary Segment Segmentation Using Gaussian Mixture Models</h3>
-                            <p class="pub-authors">Seunghee Koh, Chanho Lee, <strong><u>Jaehyun Choi</u></strong>, Minseo Kim, Youngno Yoon, Changyoung Lee, Junmo Kim</p>
-                            <p class="pub-conference">Workshop on Shape in Medical Imaging @ MICCAI 2025</p>
-                        </div>
+                <div class="pub-card" data-category="selected">
+                    <div class="pub-stats">2023<br>[C5]</div>
+                    <div class="pub-details">
+                        <h4>Data Poisoning Attack Aiming the Vulnerability of Continual Learning</h4>
+                        <p class="pub-authors">Gyojin Han*, <strong>Jaehyun Choi*</strong>, Hyeong Gwon Hong, Junmo Kim</p>
+                        <p class="pub-venue"><span class="badge generic">ICIP 2023</span> <span>(ML Safety @ NeurIPS'22)</span></p>
                     </div>
-                    
-                    <div class="publication-card" data-category="selected">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[C13]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">AH-OCDA: Amplitude-based Curriculum Learning and Hopfield Segmentation Model for Open Compound Domain Adaptation</h3>
-                            <p class="pub-authors"><strong><u>Jaehyun Choi</u></strong>*, Junwon Ko*, Dong-Jae Lee*, Junmo Kim</p>
-                            <p class="pub-conference">WACV 2025</p>
-                        </div>
-                    </div>
+                </div>
 
-                    <div class="publication-card">
-                        <div class="pub-year">2024</div>
-                        <div class="pub-count">[C12]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">Self-supervised Transformation Learning for Equivariant Representations</h3>
-                            <p class="pub-authors">Jaemyung Yu, <strong><u>Jaehyun Choi</u></strong>, Dong-Jae Lee, HyeongGwon Hong, Junmo Kim</p>
-                            <p class="pub-conference">NeurIPS 2024</p>
-                        </div>
+                <div class="pub-card" data-category="selected">
+                    <div class="pub-stats">2023<br>[C2]</div>
+                    <div class="pub-details">
+                        <h4>Fix the Noise: Disentangling Source Feature for Controllable Domain Translation</h4>
+                        <p class="pub-authors">Dongyeun Lee, Jae Young Lee, Doyeon Kim, <strong>Jaehyun Choi</strong>, Jaejun Yoo, Junmo Kim</p>
+                        <p class="pub-venue">
+                            <span class="badge cvpr">CVPR 2023</span>
+                            <span style="font-size:0.8rem; color:#b45309; font-weight:600;">Best Paper @ AI4CC Workshop</span>
+                        </p>
                     </div>
+                </div>
 
-                    <div class="publication-card" data-category="selected">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[C11]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">Unlocking the Capabilities of Masked Generative Models for Image Synthesis via Self-Guidance</h3>
-                            <p class="pub-authors">Jiwan Hur, Dong-Jae Lee, Gyojin Han, <strong><u>Jaehyun Choi</u></strong>, Junmo Kim</p>
-                            <p class="pub-conference">NeurIPS 2024 (Bronze Prize - Samsung HumanTech Paper Awards)</p>
-                        </div>
+                 <div class="pub-card" data-category="selected">
+                    <div class="pub-stats">Pre<br>[P6]</div>
+                    <div class="pub-details">
+                        <h4>PRISM: Video Dataset Condensation with Progressive Refinement</h4>
+                        <p class="pub-authors"><strong>Jaehyun Choi</strong>, Jiwan Hur, Gyojin Han, Jaemyung Yu, Junmo Kim</p>
+                        <p class="pub-venue"><span class="badge generic">Preprint</span></p>
                     </div>
+                </div>
+            </section>
 
-                    <div class="publication-card">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[W4]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">PSGMM: Pulmonary Segment Segmentation Based on Gaussian Mixture Model</h3>
-                            <p class="pub-authors">Seunghee Koh, Chanho Lee, Jae Young Lee, <strong><u>Jaehyun Choi</u></strong>, Youngno Yoon, Changyoung Lee, Junmo Kim</p>
-                            <p class="pub-conference">Workshop on Shape in Medical Imaging @ MICCAI 2024</p>
-                        </div>
+            <section id="honors">
+                <div class="section-title">Honors & Awards</div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Feb. 2025</div>
+                    <div class="timeline-content">
+                        <h3>Bronze Prize</h3>
+                        <p>31st Samsung HumanTech Paper Awards</p>
                     </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jun. 2022</div>
+                    <div class="timeline-content">
+                        <h3>Best Paper Award</h3>
+                        <p>Workshop on AI for Content Creation @ CVPR 2022 (Sponsored by Google)</p>
+                    </div>
+                </div>
+            </section>
 
-                    <div class="publication-card">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[C10]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">Learning Neural Deformation Representation for 4D Dynamic Shape Generation</h3>
-                            <p class="pub-authors">Gyojin Han, Jiwan Hur, <strong><u>Jaehyun Choi</u></strong>, Junmo Kim</p>
-                            <p class="pub-conference">ECCV 2024</p>
-                        </div>
-                    </div>
+            <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-muted);">
+                <p>&copy; 2026 Jaehyun Choi. Hosted on GitHub Pages.</p>
+            </footer>
 
-                    <div class="publication-card">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[C9]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">Stereo-Matching Knowledge Distilled Monocular Depth Estimation Filtered by Multiple Disparity Consistency</h3>
-                            <p class="pub-authors">Woonghyun Ka*, Jae Young Lee*, <strong><u>Jaehyun Choi</u></strong>, Junmo Kim</p>
-                            <p class="pub-conference">ICASSP 2024</p>
-                        </div>
-                    </div>
-
-                    <div class="publication-card">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[C8]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">Modeling Stereo-Confidence Out of the End-to-End Stereo-Matching Network via Disparity Plane Sweep</h3>
-                            <p class="pub-authors">Jae Young Lee*, Woonghyun Ka*, <strong><u>Jaehyun Choi</u></strong>, Junmo Kim</p>
-                            <p class="pub-conference">AAAI 2024</p>
-                        </div>
-                    </div>
-
-                    <div class="publication-card">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[C7]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">Expanding Expressiveness of Diffusion Models with Limited Data via Self-Distillation based Fine-Tuning</h3>
-                            <p class="pub-authors">Jiwan Hur, <strong><u>Jaehyun Choi</u></strong>, Gyojin Han, Dong-Jae Lee, Junmo Kim</p>
-                            <p class="pub-conference">WACV 2024</p>
-                        </div>
-                    </div>
-
-                    <div class="publication-card">
-                        <div class="pub-year">2023</div>
-                        <div class="pub-count">[C6]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">Few-Shot Anomaly Detection with Adversarial Loss for Robust Feature Representation</h3>
-                            <p class="pub-authors">Jae Young Lee, Wonjun Lee, <strong><u>Jaehyun Choi</u></strong>, Yongkwi Lee, Young Seog Yoon</p>
-                            <p class="pub-conference">BMVC 2023</p>
-                        </div>
-                    </div>
-
-                    <div class="publication-card" data-category="selected">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[J3]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">TCX: Texture and Channel Swappings for Domain Generalization</h3>
-                            <p class="pub-authors"><strong><u>Jaehyun Choi</u></strong>, Hyun Seok Seong, Sang Uk Park, Jae-Pil Heo</p>
-                            <p class="pub-conference">Pattern Recognition Letters (Impact Factor: 5.1)</p>
-                        </div>
-                    </div>
-
-                    <div class="publication-card" data-category="selected">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[C5/W2]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">Data Poisoning Attack Aiming the Vulnerability of Continual Learning</h3>
-                            <p class="pub-authors">Gyojin Han*, <strong><u>Jaehyun Choi</u></strong>*, Hyeong Gwon Hong, Junmo Kim</p>
-                            <p class="pub-conference">ICIP 2023 (ML Safety@NeurIPS'22)</p>
-                        </div>
-                    </div>
-
-                    <div class="publication-card" data-category="selected">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[C4]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">Deep Cross-Modal Steganography using Neural Representations</h3>
-                            <p class="pub-authors">Gyojin Han, Dong-Jae Lee, Jiwan Hur, <strong><u>Jaehyun Choi</u></strong>, Junmo Kim</p>
-                            <p class="pub-conference">ICIP 2023 (Oral)</p>
-                        </div>
-                    </div>
-
-                    <div class="publication-card">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[J2]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">Multi-Scale Foreground-Background Separation for Light Field Depth Estimation with Deep Convolutional Networks</h3>
-                            <p class="pub-authors">Jae Young Lee, Jiwan Hur, <strong><u>Jaehyun Choi</u></strong>, Junmo Kim</p>
-                            <p class="pub-conference">Pattern Recognition Letters (Impact Factor: 5.1)</p>
-                        </div>
-                    </div>
-
-                    <div class="publication-card">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[C3]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">Reinforcement Learning-Based Black-Box Model Inversion Attacks</h3>
-                            <p class="pub-authors">Gyojin Han, <strong><u>Jaehyun Choi</u></strong>, Haeil Lee, Junmo Kim</p>
-                            <p class="pub-conference">CVPR 2023</p>
-                        </div>
-                    </div>
-
-                    <div class="publication-card" data-category="selected">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[C2/W1]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">Fix the Noise: Disentangling Source Feature for Controllable Domain Translation</h3>
-                            <p class="pub-authors">Dongyeun Lee, Jae Young Lee, Doyeon Kim, <strong><u>Jaehyun Choi</u></strong>, Jaejun Yoo, Junmo Kim</p>
-                            <p class="pub-conference">CVPR 2023 (AI4CC@CVPR'22 - Best Paper Awards)</p>
-                        </div>
-                    </div>
-
-                    <div class="publication-card" data-category="selected">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[W3]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">Text-Image Generation Model for Multi-Person Fixation (Translated Title)</h3>
-                            <p class="pub-authors"><strong><u>Jaehyun Choi</u></strong>, Jae Young Lee, Dong-Jae Lee, Chanho Lee, Cheol Sig Pyo, Seok Yoon, Junmo Kim</p>
-                            <p class="pub-conference">IPIU (Workshop on Image Processing and Image Understanding) 2023</p>
-                        </div>
-                    </div>
-
-                    <div class="publication-card">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[C1]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">I See-Through You: A Framework for Removing Foreground Occlusion in Both Sparse and Dense Light Field Images</h3>
-                            <p class="pub-authors">Jiwan Hur*, Jae Young Lee*, <strong><u>Jaehyun Choi</u></strong>, Junmo Kim</p>
-                            <p class="pub-conference">WACV 2023</p>
-                        </div>
-                    </div>
-
-                    <div class="publication-card">
-                        <div class="pub-year">2022</div>
-                        <div class="pub-count">[J1]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">Pivot-Guided Embedding for Domain Generalization</h3>
-                            <p class="pub-authors">Hyun Seok Seong, <strong><u>Jaehyun Choi</u></strong>, Woojin Jeong, Jae-Pil Heo</p>
-                            <p class="pub-conference">IEEE Access (Impact Factor: 3.5)</p>
-                        </div>
-                    </div>
-
-                    <div style="border-top: 1px solid #7a9185; margin: 2rem 0; opacity: 0.3;"></div>
-                                        
-                    <div class="publication-card" data-category="selected">
-                        <div class="pub-year">Preprint</div>
-                        <div class="pub-count">[P6]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">PRISM: Video Dataset Condensation with Progressive Refinement and Insertion for Sparse Motion</h3>
-                            <p class="pub-authors"><strong><u>Jaehyun Choi</u></strong>, Jiwan Hur, Gyojin Han, Jaemyung Yu, Junmo Kim</p>
-                        </div>
-                    </div>
-
-                    <div class="publication-card" data-category="selected">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[P5]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">DAM: Domain-Aware Module for Multi-Domain Dataset Condensation</h3>
-                            <p class="pub-authors"><strong><u>Jaehyun Choi</u></strong>, Gyojin Han, Dong-Jae Lee, SungHyun Baek, Junmo Kim</p>
-                        </div>
-                    </div>
-
-                    <div class="publication-card" data-category="selected">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[P4]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">Unveiling Temporal Telltales: Are Unconditional Video Generation Models Implicitly Encoding Temporal Information?</h3>
-                            <p class="pub-authors"><strong><u>Jaehyun Choi</u></strong>, Gyojin Han, Jiwan Hur, Jae Young Lee, Junmo Kim</p>
-                        </div>
-                    </div>
-                    
-                    <div class="publication-card">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[P3]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">Towards Robust and Aggressive Token Reduction for Efficient ViT</h3>
-                            <p class="pub-authors">Dong-Jae Lee, Jiwan Hur, <strong><u>Jaehyun Choi</u></strong>, Jaemyung Yu, Junmo Kim</p>
-                        </div>
-                    </div>
-
-                    <div class="publication-card">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[P2]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">DDE: Efficient Continual Test Time Adaptation with Dynamic Domain Experts</h3>
-                            <p class="pub-authors">SungHyun Baek, <strong><u>Jaehyun Choi</u></strong>, Jaemyung Yu, Seoyeon Gye, Minsu Kim, Hyeonseong Jeon, Junmo Kim</p>
-                        </div>
-                    </div>
-
-                    <div class="publication-card">
-                        <div class="pub-year"></div>
-                        <div class="pub-count">[P1]</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title">Frequency-Aware Token Reduction for Efficient Vision Transformer</h3>
-                            <p class="pub-authors">Dong-Jae Lee, Jiwan Hur, <strong><u>Jaehyun Choi</u></strong>, Jaemyung Yu, Junmo Kim</p>
-                        </div>
-                    </div>
-
-                <!-- Honor & Awards Section -->
-                <section id="honor-awards" class="content-section">
-                    <h2>Honor & Awards</h2>
-                    
-                    <div class="award-item">
-                        <div class="date-column">
-                            <span class="date">Feb. 2025</span>
-                        </div>
-                        <div class="content-column">
-                            <h3 class="title">Bronze Prize</h3>
-                            <p class="description">31st Samsung HumanTech Paper Awards (Sponsored by Samsung)</p>
-                        </div>
-                    </div>
-
-                    <div class="award-item">
-                        <div class="date-column">
-                            <span class="date">Jun. 2022</span>
-                        </div>
-                        <div class="content-column">
-                            <h3 class="title">Best Paper Award</h3>
-                            <p class="description">Workshop on AI for Content Creation @ CVPR 2022 (Sponsored by Google)</p>
-                        </div>
-                    </div>
-                </section>
-            </div>
         </main>
     </div>
 
     <script>
-        // Scroll-based background color change
-        window.addEventListener('scroll', function() {
-            const scrollPosition = window.scrollY;
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
-            
-            // Calculate scroll percentage
-            const scrollPercentage = scrollPosition / (documentHeight - windowHeight);
-            
-            // Change background color based on scroll position
-            if (scrollPercentage > 0.1) { // After 10% scroll
-                document.body.classList.add('scroll-bg');
-            } else {
-                document.body.classList.remove('scroll-bg');
-            }
-        });
+        // 1. Navigation Active State on Scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
 
-        // Navigation highlighting based on scroll position
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('.content-section');
-            const navItems = document.querySelectorAll('.navigation li');
-            
-            let currentSection = '';
-            
+        window.addEventListener('scroll', () => {
+            let current = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100; // Offset for better detection
-                const sectionHeight = section.offsetHeight;
-                const scrollPosition = window.scrollY;
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
                 
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    currentSection = section.getAttribute('id');
+                // Reveal on Scroll
+                if (scrollY + window.innerHeight > sectionTop + 100) {
+                    section.classList.add('visible');
                 }
             });
-            
-            // Update navigation highlighting
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                const link = item.querySelector('a');
-                if (link.getAttribute('href') === '#' + currentSection) {
-                    item.classList.add('active');
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
                 }
             });
         });
 
-        // Publication tabs functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabButtons = document.querySelectorAll('.tab-button');
-            const publicationCards = document.querySelectorAll('.publication-card');
+        // 2. Publication Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.pub-card');
 
-            function showPublications(category) {
-                publicationCards.forEach(card => {
-                    if (category === 'all') {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Button styling
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                cards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
                         card.style.display = 'flex';
-                    } else if (category === 'selected') {
-                        if (card.hasAttribute('data-category') && card.getAttribute('data-category') === 'selected') {
-                            card.style.display = 'flex';
-                        } else {
-                            card.style.display = 'none';
-                        }
+                        setTimeout(() => card.style.opacity = '1', 10);
+                    } else {
+                        card.style.display = 'none';
+                        card.style.opacity = '0';
                     }
                 });
-            }
-
-            tabButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    // Show publications based on selected tab
-                    const category = this.getAttribute('data-tab');
-                    showPublications(category);
-                });
             });
-
-            // Initialize with 'all' tab active (default)
-            showPublications('all');
         });
+
+        // 3. Neural Network Canvas Animation (Sidebar)
+        const canvas = document.getElementById('neural-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+
+        function resize() {
+            width = canvas.width = document.querySelector('.sidebar').offsetWidth;
+            height = canvas.height = document.querySelector('.sidebar').offsetHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 1;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < 30; i++) particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            // Draw connections
+            particles.forEach((p, index) => {
+                p.update();
+                p.draw();
+                for (let j = index + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dx = p.x - p2.x;
+                    const dy = p.y - p2.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist < 100) {
+                        ctx.strokeStyle = `rgba(56, 178, 172, ${1 - dist/100})`; // Teal connections
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+        initParticles();
+        animate();
+
     </script>
 </body>
-</html> 
+</html>
