@@ -3,27 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaehyun Choi | AI Research</title>
+    <title>Jaehyun Choi, Ph.D. | AI Research</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            /* PRETTY THEME: "Intellectual Teal" */
-            --bg-body: #eef2f6;       /* Soft Blue-Grey Background */
-            --bg-card: #ffffff;
+            /* THEME: "Intellectual Teal" - Premium & Trusted */
+            --primary: #0f766e;       /* Deep Teal */
+            --primary-dark: #115e59;
+            --accent: #0d9488;        /* Bright Teal */
             
-            --text-main: #1e293b;     /* Slate 800 */
-            --text-muted: #64748b;    /* Slate 500 */
+            --bg-body: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
             
-            --accent: #0f766e;        /* Deep Teal */
-            --accent-light: #14b8a6;  /* Bright Teal */
-            --accent-bg: #f0fdfa;     /* Light Teal BG */
-            
-            --border: #e2e8f0;
-            --radius: 16px;
-            --shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
+            --max-width: 760px; /* Optimal reading width */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -33,192 +30,185 @@
             background-color: var(--bg-body);
             color: var(--text-main);
             line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            align-items: center; /* Center vertically on large screens */
-            justify-content: center;
-            padding: 2rem;
+            padding-bottom: 5rem;
         }
 
-        /* --- THE SPLIT CARD CONTAINER --- */
-        .card-wrapper {
-            background: var(--bg-card);
+        /* --- 1. FULL WIDTH BANNER (The Anchor) --- */
+        .banner {
             width: 100%;
-            max-width: 1100px; /* Wide layout */
-            min-height: 85vh;  /* Substantial height */
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            display: flex;
-            overflow: hidden; /* Clips children */
-            border: 1px solid rgba(255,255,255,0.5);
+            height: 240px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Subtle pattern in banner */
+        .banner::after {
+            content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
+            background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px; opacity: 0.3;
         }
 
-        /* --- LEFT PANEL (Profile) --- */
-        .left-panel {
-            width: 320px;
-            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-            border-right: 1px solid var(--border);
-            padding: 3rem 2rem;
-            display: flex;
-            flex-direction: column;
-            flex-shrink: 0;
-            text-align: center; /* Center profile items */
+        /* --- 2. PROFILE SECTION (The Overlap) --- */
+        .profile-header {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            margin-top: -80px; /* Pulls profile up into banner */
+            margin-bottom: 3rem;
         }
 
-        .profile-img {
-            width: 140px; height: 140px;
+        .profile-top {
+            display: flex;
+            align-items: flex-end;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-pic {
+            width: 160px; height: 160px;
             border-radius: 50%;
+            border: 5px solid #ffffff;
+            background: white;
             object-fit: cover;
-            margin: 0 auto 1.5rem auto;
-            border: 4px solid white;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            background-color: var(--accent-bg);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .profile-info {
+            padding-bottom: 10px; /* Align with bottom of image */
         }
 
         .name {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 0.5rem;
             color: var(--text-main);
+            line-height: 1;
+            margin-bottom: 0.5rem;
         }
 
         .role {
-            font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; font-weight: 500;
+            font-size: 1.1rem; color: var(--text-muted); font-weight: 500;
         }
-        .role strong { color: var(--accent); }
+        .role strong { color: var(--primary); }
 
-        /* Expertise Tags (Left Panel) */
-        .expertise-col {
-            display: flex; flex-direction: column; gap: 0.5rem; align-items: center; margin-bottom: 2rem;
+        /* Social Icons - Clean Row */
+        .socials { display: flex; gap: 1rem; margin-top: 1rem; }
+        .social-link {
+            color: var(--text-muted); font-size: 1.2rem; transition: 0.2s;
         }
+        .social-link:hover { color: var(--primary); transform: translateY(-2px); }
+
+        /* Expertise Tags */
+        .tags { display: flex; gap: 0.8rem; margin-top: 1.5rem; flex-wrap: wrap; }
         .tag {
-            background: var(--accent-bg); color: var(--accent);
-            padding: 6px 14px; border-radius: 20px;
-            font-size: 0.8rem; font-weight: 600;
-            display: flex; align-items: center; gap: 8px;
-            width: fit-content;
+            background: #f0fdfa; color: var(--primary); border: 1px solid #ccfbf1;
+            padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;
+            display: flex; align-items: center; gap: 6px;
         }
 
-        /* Social Icons */
-        .socials {
-            margin-top: auto; /* Push to bottom */
-            display: flex; justify-content: center; gap: 1rem;
-        }
-        .social-btn {
-            width: 38px; height: 38px;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 50%; border: 1px solid var(--border);
-            color: var(--text-muted); transition: 0.2s;
-        }
-        .social-btn:hover { background: var(--accent); color: white; border-color: var(--accent); }
-
-
-        /* --- RIGHT PANEL (Scrollable Content) --- */
-        .right-panel {
-            flex: 1;
-            padding: 3rem 4rem;
-            overflow-y: auto; /* Scroll ONLY the content */
-            height: 85vh; /* Match container height */
-            scroll-behavior: smooth;
+        /* --- 3. MAIN CONTENT (Centered Column) --- */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
-        /* Section Styling */
-        section { margin-bottom: 4rem; }
-        
+        section { margin-bottom: 5rem; scroll-margin-top: 2rem; }
+
         .section-header {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 2rem; padding-bottom: 1rem;
-            border-bottom: 2px solid #f1f5f9;
+            display: flex; justify-content: space-between; align-items: flex-end;
+            border-bottom: 2px solid #f3f4f6;
+            padding-bottom: 1rem; margin-bottom: 2rem;
         }
-        .section-title { font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text-main); }
+        
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem; font-weight: 700; color: var(--text-main);
+        }
 
-        /* Filter Switch */
-        .toggle-switch {
-            display: flex; background: #f1f5f9; padding: 4px; border-radius: 8px;
+        /* --- PUBLICATIONS (The "Pretty" List) --- */
+        .filter-toggle {
+            display: flex; background: #f3f4f6; padding: 3px; border-radius: 8px;
         }
-        .switch-btn {
-            background: none; border: none; padding: 6px 16px;
+        .toggle-btn {
+            border: none; background: none; padding: 6px 14px;
             font-size: 0.85rem; font-weight: 600; color: var(--text-muted);
             border-radius: 6px; cursor: pointer; transition: 0.2s;
         }
-        .switch-btn.active { background: white; color: var(--accent); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .toggle-btn.active { background: white; color: var(--primary); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
 
-        /* --- PUBLICATION ITEMS (Compact & Pretty) --- */
+        /* Publication Item */
         .pub-item {
-            display: flex; gap: 1.5rem; margin-bottom: 2rem;
-            transition: transform 0.2s ease;
+            display: flex; gap: 1.5rem; margin-bottom: 2.5rem;
+            align-items: flex-start;
         }
-        .pub-item:hover { transform: translateX(5px); }
 
-        /* Thumbnail - Fixed Small Size */
         .pub-thumb {
-            width: 140px; height: 90px;
+            width: 160px; height: 100px; /* Fixed Small Thumbnail */
             flex-shrink: 0;
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid var(--border);
-            background: #f8fafc;
+            background: #f9fafb;
         }
-        .pub-thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .pub-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .pub-item:hover .pub-thumb img { transform: scale(1.05); }
 
-        .pub-details { flex: 1; display: flex; flex-direction: column; }
-        
+        .pub-content { flex: 1; }
+
         .pub-title {
-            font-family: 'Manrope', sans-serif;
-            font-size: 1.05rem; font-weight: 700; line-height: 1.4;
-            color: var(--text-main); margin-bottom: 0.4rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem; font-weight: 700; color: var(--text-main);
+            line-height: 1.35; margin-bottom: 0.4rem;
         }
-        
-        .pub-authors { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+
+        .pub-authors { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.6rem; }
         .pub-authors u { text-decoration: none; font-weight: 700; color: var(--text-main); }
 
         .pub-meta {
-            margin-top: auto; display: flex; gap: 12px; align-items: center;
-            font-size: 0.8rem; font-family: 'JetBrains Mono', monospace;
+            display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+            font-size: 0.85rem; font-family: 'JetBrains Mono', monospace;
         }
-        
-        .venue { font-weight: 700; color: var(--accent); }
+
+        .venue { color: var(--primary); font-weight: 700; }
         .award { color: #d97706; font-weight: 600; display: flex; align-items: center; gap: 4px; }
         
-        .links a { 
-            color: var(--text-muted); text-decoration: none; font-weight: 600; 
-            margin-right: 8px; transition: 0.2s; 
+        .links a {
+            text-decoration: none; color: var(--text-muted); font-weight: 600;
+            border: 1px solid var(--border); padding: 1px 8px; border-radius: 4px;
+            font-size: 0.75rem; transition: 0.2s;
         }
-        .links a:hover { color: var(--accent); text-decoration: underline; }
+        .links a:hover { border-color: var(--primary); color: var(--primary); }
 
-        /* EXPERIENCE & EDUCATION */
+
+        /* --- TIMELINE (Education & Exp) --- */
         .timeline-item {
-            display: grid; grid-template-columns: 120px 1fr;
+            display: grid; grid-template-columns: 130px 1fr;
             margin-bottom: 1.5rem;
         }
         .time-date {
-            font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--accent);
-            padding-top: 2px;
+            font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; 
+            color: var(--text-muted); padding-top: 3px;
         }
-        .time-content h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
-        .time-org { font-size: 0.9rem; color: var(--text-muted); }
+        .time-content h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 2px; }
+        .time-org { font-size: 0.95rem; color: var(--text-muted); }
 
-        /* --- MOBILE RESPONSIVE --- */
-        @media (max-width: 900px) {
-            body { padding: 0; display: block; }
-            .card-wrapper {
-                flex-direction: column; /* Stack layout on mobile */
-                width: 100%; border-radius: 0; min-height: 100vh;
-                box-shadow: none; border: none;
-            }
-            .left-panel {
-                width: 100%; border-right: none; border-bottom: 1px solid var(--border);
-                padding: 3rem 1.5rem;
-            }
-            .right-panel {
-                padding: 2rem 1.5rem; height: auto; overflow-y: visible;
-            }
+
+        /* --- MOBILE ADJUSTMENTS --- */
+        @media (max-width: 640px) {
+            .banner { height: 140px; }
+            .profile-top { flex-direction: column; align-items: center; text-align: center; gap: 1rem; margin-top: -60px; }
+            .profile-pic { width: 130px; height: 130px; }
+            .tags { justify-content: center; }
+            .socials { justify-content: center; }
             
-            /* Keep publication layout compact on mobile */
-            .pub-item { flex-direction: row; }
+            /* Stack publications slightly on mobile but keep thumb small */
+            .pub-item { gap: 1rem; }
             .pub-thumb { width: 100px; height: 70px; }
+            .pub-title { font-size: 1rem; }
             
             .timeline-item { grid-template-columns: 1fr; gap: 0.2rem; }
         }
@@ -226,99 +216,101 @@
 </head>
 <body>
 
-<div class="card-wrapper">
-    
-    <aside class="left-panel">
-        <div class="profile-img">
-            <img src="profile.jpg" alt="Jaehyun Choi" onerror="this.src='https://ui-avatars.com/api/?name=JC&background=0f766e&color=fff&size=200'">
+    <div class="banner"></div>
+
+    <header class="profile-header">
+        <div class="profile-top">
+            <img src="profile.jpg" alt="Jaehyun Choi" class="profile-pic" onerror="this.src='https://ui-avatars.com/api/?name=JC&background=0f766e&color=fff&size=200'">
+            
+            <div class="profile-info">
+                <h1 class="name">Jaehyun Choi, Ph.D.</h1>
+                <div class="role">Researcher at <strong>Korea AI Safety Institute</strong> (ETRI)</div>
+                
+                <div class="socials">
+                    <a href="#" class="social-link" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="#" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:email@example.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
         </div>
-        
-        <h1 class="name">Jaehyun Choi</h1>
-        <p class="role">Ph.D. Researcher at<br><strong>Korea AISI</strong></p>
-        
-        <div class="expertise-col">
+
+        <div class="tags">
             <span class="tag"><i class="fas fa-shield-alt"></i> AI Safety</span>
-            <span class="tag"><i class="fas fa-search"></i> Deepfake Detection</span>
+            <span class="tag"><i class="fas fa-user-secret"></i> Deepfake Detection</span>
             <span class="tag"><i class="fas fa-database"></i> Dataset Condensation</span>
         </div>
-
-        <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 2rem; line-height: 1.6;">
-            Building robust and data-efficient AI systems. Bridging the gap between theory and national-scale deployment.
-        </p>
-
-        <div class="socials">
-            <a href="#" class="social-btn" title="Scholar"><i class="fas fa-graduation-cap"></i></a>
-            <a href="#" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="#" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:email@example.com" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
-        </div>
-    </aside>
-
-    <main class="right-panel">
         
-        <section id="research">
+        <p style="margin-top: 1.5rem; max-width: 600px; color: var(--text-main);">
+            I build robust and data-efficient AI systems. Bridging the gap between theoretical safety and national-scale deployment.
+        </p>
+    </header>
+
+    <main class="container">
+
+        <section id="publications">
             <div class="section-header">
                 <h2 class="section-title">Publications</h2>
-                <div class="toggle-switch">
-                    <button class="switch-btn active" onclick="filter('selected', this)">Selected</button>
-                    <button class="switch-btn" onclick="filter('all', this)">All</button>
+                <div class="filter-toggle">
+                    <button class="toggle-btn active" onclick="filter('selected', this)">Selected</button>
+                    <button class="toggle-btn" onclick="filter('all', this)">All</button>
                 </div>
             </div>
 
             <div class="pub-item" data-category="selected">
                 <div class="pub-thumb">
-                    <img src="paper1.jpg" onerror="this.src='https://placehold.co/200x120/f1f5f9/94a3b8?text=WACV'">
+                    <img src="paper1.jpg" onerror="this.src='https://placehold.co/320x200/f3f4f6/9ca3af?text=WACV'">
                 </div>
-                <div class="pub-details">
+                <div class="pub-content">
                     <div class="pub-title">AH-OCDA: Amplitude-based Curriculum Learning for Domain Adaptation</div>
                     <div class="pub-authors"><strong>J. Choi*</strong>, J. Ko*, D. Lee*, J. Kim</div>
                     <div class="pub-meta">
                         <span class="venue">WACV 2025</span>
-                        <span class="links"><a href="#">PDF</a> <a href="#">Code</a></span>
+                        <span class="links"><a href="#">PDF</a> <a href="#">CODE</a></span>
                     </div>
                 </div>
             </div>
 
             <div class="pub-item" data-category="selected">
                 <div class="pub-thumb">
-                    <img src="paper2.jpg" onerror="this.src='https://placehold.co/200x120/f1f5f9/94a3b8?text=NeurIPS'">
+                    <img src="paper2.jpg" onerror="this.src='https://placehold.co/320x200/f3f4f6/9ca3af?text=NeurIPS'">
                 </div>
-                <div class="pub-details">
+                <div class="pub-content">
                     <div class="pub-title">Unlocking the Capabilities of Masked Generative Models via Self-Guidance</div>
                     <div class="pub-authors">J. Hur, D. Lee, G. Han, <strong>J. Choi</strong>, J. Kim</div>
                     <div class="pub-meta">
                         <span class="venue">NeurIPS 2024</span>
                         <span class="award"><i class="fas fa-trophy"></i> Bronze Prize</span>
-                        <span class="links"><a href="#">PDF</a> <a href="#">Code</a></span>
+                        <span class="links"><a href="#">PDF</a> <a href="#">CODE</a></span>
                     </div>
                 </div>
             </div>
 
             <div class="pub-item" data-category="all">
                 <div class="pub-thumb">
-                    <img src="paper3.jpg" onerror="this.src='https://placehold.co/200x120/f1f5f9/94a3b8?text=ECCV'">
+                    <img src="paper3.jpg" onerror="this.src='https://placehold.co/320x200/f3f4f6/9ca3af?text=ECCV'">
                 </div>
-                <div class="pub-details">
+                <div class="pub-content">
                     <div class="pub-title">Learning Neural Deformation Representation for 4D Dynamic Shape Generation</div>
                     <div class="pub-authors">G. Han, J. Hur, <strong>J. Choi</strong>, J. Kim</div>
                     <div class="pub-meta">
                         <span class="venue">ECCV 2024</span>
-                        <span class="links"><a href="#">PDF</a> <a href="#">Code</a></span>
+                        <span class="links"><a href="#">PDF</a> <a href="#">CODE</a></span>
                     </div>
                 </div>
             </div>
 
             <div class="pub-item" data-category="selected">
                 <div class="pub-thumb">
-                    <img src="paper4.jpg" onerror="this.src='https://placehold.co/200x120/f1f5f9/94a3b8?text=CVPR'">
+                    <img src="paper4.jpg" onerror="this.src='https://placehold.co/320x200/f3f4f6/9ca3af?text=CVPR'">
                 </div>
-                <div class="pub-details">
+                <div class="pub-content">
                     <div class="pub-title">Fix the Noise: Disentangling Source Feature for Controllable Translation</div>
                     <div class="pub-authors">D. Lee, J. Lee, D. Kim, <strong>J. Choi</strong>, J. Kim</div>
                     <div class="pub-meta">
                         <span class="venue">CVPR 2023</span>
                         <span class="award"><i class="fas fa-trophy"></i> Best Paper</span>
-                        <span class="links"><a href="#">PDF</a> <a href="#">Code</a></span>
+                        <span class="links"><a href="#">PDF</a> <a href="#">CODE</a></span>
                     </div>
                 </div>
             </div>
@@ -329,10 +321,10 @@
                 <h2 class="section-title">Experience</h2>
             </div>
             <div class="timeline-item">
-                <div class="time-date">Jun 2025 -</div>
+                <div class="time-date">Jun 2025 - Now</div>
                 <div class="time-content">
                     <h3>Researcher @ Korea AISI</h3>
-                    <div class="time-org">ETRI (Electronics and Telecommunications Research Institute)</div>
+                    <div class="time-org">Electronics and Telecommunications Research Institute (ETRI)</div>
                 </div>
             </div>
             <div class="timeline-item">
@@ -399,28 +391,29 @@
         </section>
 
     </main>
-</div>
 
-<script>
-    function filter(category, btn) {
-        // Toggle Active
-        document.querySelectorAll('.switch-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        // Filter logic
-        document.querySelectorAll('.pub-item').forEach(item => {
-            if (category === 'all') {
-                item.style.display = 'flex';
-            } else {
-                if (item.getAttribute('data-category') === 'selected') {
+    <footer style="text-align: center; font-size: 0.9rem; color: #9ca3af; border-top: 1px solid #e5e7eb; padding-top: 2rem;">
+        &copy; 2026 Jaehyun Choi.
+    </footer>
+
+    <script>
+        function filter(category, btn) {
+            document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            document.querySelectorAll('.pub-item').forEach(item => {
+                if (category === 'all') {
                     item.style.display = 'flex';
                 } else {
-                    item.style.display = 'none';
+                    if (item.getAttribute('data-category') === 'selected') {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
                 }
-            }
-        });
-    }
-</script>
+            });
+        }
+    </script>
 
 </body>
 </html>
