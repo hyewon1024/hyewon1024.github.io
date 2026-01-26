@@ -10,18 +10,14 @@
     
     <style>
         :root {
-            /* THEME: Korea National Lab (Trustworthy, Scientific, Official) */
-            --bg-header: #0f172a;  /* Dark Navy Header */
+            /* THEME: Korea National Lab */
             --bg-body: #f8fafc;
-            --accent-primary: #0284c7; /* Safety Blue */
-            --accent-dark: #0369a1;
+            --bg-header: #0f172a; /* Deep Navy */
+            --accent: #0284c7;    /* Safety Blue */
             --text-main: #334155;
-            --text-heading: #0f172a;
-            --text-header: #e2e8f0;
+            --text-dark: #0f172a;
             --card-bg: #ffffff;
-            --card-border: #e2e8f0;
-            --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
-            --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            --border: #e2e8f0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,449 +27,351 @@
             background-color: var(--bg-body);
             color: var(--text-main);
             line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
         }
 
-        /* --- HEADER SECTION (Formerly Sidebar) --- */
-        /* This now acts as a top banner on ALL screens */
-        .header {
-            background-color: var(--bg-header);
-            color: var(--text-header);
-            padding: 4rem 2rem;
-            text-align: center;
-            border-bottom: 5px solid var(--accent-primary);
-            width: 100%;
-        }
-
-        .profile-container {
+        /* --- 1. CENTERED CONTAINER --- */
+        /* This forces the "Mobile Look" on desktop screens too */
+        .container {
             max-width: 800px;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 40px rgba(0,0,0,0.05);
+        }
+
+        /* --- 2. HEADER PROFILE --- */
+        .header {
+            background-color: var(--bg-header);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 5px solid var(--accent);
         }
 
         .profile-img {
-            width: 130px; height: 130px;
-            border-radius: 50%; /* Circle looks better in center layout */
-            background-color: var(--accent-primary);
-            margin-bottom: 1.5rem;
+            width: 120px; height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.2);
+            margin: 0 auto 1.5rem auto;
             overflow: hidden;
-            border: 4px solid rgba(255,255,255,0.1);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            background-color: var(--accent);
         }
         .profile-img img { width: 100%; height: 100%; object-fit: cover; }
 
         .name {
             font-family: 'Manrope', sans-serif;
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 800;
-            color: #fff;
-            line-height: 1.2;
             margin-bottom: 0.5rem;
+            line-height: 1.2;
         }
 
-        .role { color: #94a3b8; font-size: 1.1rem; margin-bottom: 1.5rem; }
-        .role strong { color: var(--accent-primary); }
+        .role { color: #cbd5e1; font-size: 1rem; margin-bottom: 1.5rem; }
+        .role strong { color: var(--accent); color: #38bdf8; } /* Lighter blue for dark bg */
 
-        /* Social Icons - Centered */
-        .socials { 
-            display: flex; 
-            gap: 1.5rem; 
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-        .socials a { 
-            color: #94a3b8; 
-            font-size: 1.4rem; 
-            transition: 0.2s; 
-        }
-        .socials a:hover { color: #fff; transform: translateY(-2px); }
+        /* Social Icons */
+        .socials { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; }
+        .socials a { color: #94a3b8; font-size: 1.3rem; transition: 0.2s; }
+        .socials a:hover { color: white; transform: translateY(-2px); }
 
-        /* Navigation - Horizontal Row */
+        /* Navigation Menu (Horizontal Row) */
         .nav-menu {
             display: flex;
-            gap: 1.5rem;
             justify-content: center;
+            gap: 0.5rem;
             flex-wrap: wrap;
         }
-
         .nav-link {
-            text-decoration: none;
             color: #cbd5e1;
+            text-decoration: none;
             padding: 0.5rem 1rem;
-            font-weight: 600;
+            font-weight: 500;
             border-radius: 20px;
-            transition: all 0.2s;
-            background: rgba(255,255,255,0.05);
+            font-size: 0.9rem;
+            transition: 0.2s;
         }
-        .nav-link:hover, .nav-link.active { 
-            background: var(--accent-primary); 
-            color: #fff; 
-        }
+        .nav-link:hover, .nav-link.active { background: rgba(255,255,255,0.1); color: white; }
 
-        /* --- MAIN CONTENT AREA --- */
-        /* Centered column layout */
-        .main-content {
-            width: 100%;
-            max-width: 900px; /* Limits width so lines aren't too long */
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            flex: 1;
-        }
+        /* --- 3. MAIN CONTENT --- */
+        .main-content { padding: 3rem 2rem; }
 
-        section { margin-bottom: 5rem; scroll-margin-top: 2rem; }
+        section { margin-bottom: 4rem; scroll-margin-top: 2rem; }
 
-        h2.section-title {
+        .section-title {
             font-family: 'Manrope', sans-serif;
-            font-size: 1.6rem;
-            color: var(--text-heading);
-            font-weight: 800;
-            margin-bottom: 2rem;
-            text-align: center; /* Center section titles */
-            position: relative;
-            padding-bottom: 1rem;
-        }
-        
-        /* Small underline for titles */
-        h2.section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 4px;
-            background: var(--accent-primary);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        /* --- Filter Buttons --- */
-        .filter-container { margin-bottom: 2rem; display: flex; gap: 1rem; justify-content: center; }
-        .filter-btn {
-            padding: 0.5rem 1.2rem;
-            border: 1px solid #cbd5e1;
-            background: transparent;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            color: #64748b;
-            transition: all 0.2s;
-        }
-        .filter-btn:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
-        .filter-btn.active { background: var(--accent-primary); color: white; border-color: var(--accent-primary); }
-
-        /* --- Publication Card (Stacked for Mobile Look) --- */
-        .pub-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            padding: 1.5rem;
-            border-radius: 12px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
             margin-bottom: 1.5rem;
+        }
+
+        /* --- 4. PUBLICATION LIST (The Fix) --- */
+        /* Flexbox Row: Image LEFT, Text RIGHT */
+        .pub-card {
             display: flex;
-            flex-direction: column; /* Stack vertically on all screens */
-            gap: 1.2rem;
-            transition: all 0.2s;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            align-items: flex-start;
         }
 
-        /* On larger screens, we can let them be side-by-side if you prefer, 
-           but to keep the "mobile look", we keep them stacked or slightly responsive */
-        @media (min-width: 768px) {
-            .pub-card {
-                flex-direction: row;
-                align-items: flex-start;
-            }
-            .pub-image {
-                width: 200px; /* Fixed width on desktop */
-                height: 130px;
-            }
-        }
-        
-        .pub-card:hover {
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-2px);
-            border-color: #cbd5e1;
-        }
-
+        /* Fixed Thumbnail Size */
         .pub-image {
-            width: 100%;
-            height: 180px; /* Taller on mobile view */
-            flex-shrink: 0;
+            width: 160px;       /* Fixed width */
+            height: 100px;      /* Fixed height */
+            flex-shrink: 0;     /* Prevent shrinking */
             background-color: #f1f5f9;
-            border-radius: 8px;
+            border-radius: 6px;
             overflow: hidden;
-            border: 1px solid #e2e8f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #94a3b8;
+            border: 1px solid var(--border);
         }
         .pub-image img { width: 100%; height: 100%; object-fit: cover; }
 
         .pub-content { flex: 1; }
-        
+
         .pub-title {
             font-family: 'Manrope', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            color: var(--text-heading);
-            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            margin-bottom: 0.4rem;
             line-height: 1.4;
         }
+
+        .pub-authors { font-size: 0.9rem; color: #64748b; margin-bottom: 0.5rem; }
+        .pub-authors u { text-decoration: none; font-weight: 700; color: var(--text-dark); }
+
+        .pub-meta { display: flex; gap: 0.8rem; flex-wrap: wrap; font-size: 0.8rem; align-items: center; }
         
-        .pub-authors { font-size: 0.95rem; color: #475569; margin-bottom: 0.8rem; }
-        .pub-authors u { text-decoration: none; font-weight: 700; color: var(--text-heading); }
-
-        .tags { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: auto; }
-        .badge {
-            font-size: 0.75rem; padding: 0.2rem 0.6rem;
-            border-radius: 4px; font-weight: 700; text-transform: uppercase;
+        .venue-tag { font-weight: 700; color: var(--accent); }
+        .award-tag { color: #b45309; font-weight: 600; }
+        
+        .links a { 
+            text-decoration: none; color: #64748b; font-weight: 600; margin-right: 8px; 
+            border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;
         }
-        .badge.conf { background-color: #e0f2fe; color: #0284c7; }
-        .badge.award { background-color: #fef3c7; color: #b45309; border: 1px solid #fcd34d; }
-        .badge.year { background-color: #f1f5f9; color: #64748b; font-family: monospace; }
+        .links a:hover { border-color: var(--accent); color: var(--accent); }
 
-        /* Experience Cards */
-        .exp-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            border-left: 4px solid transparent;
+        /* Filter Buttons */
+        .filter-container { margin-bottom: 2rem; display: flex; gap: 0.8rem; }
+        .filter-btn {
+            background: none; border: 1px solid var(--border);
+            padding: 0.4rem 1rem; border-radius: 20px;
+            font-size: 0.85rem; font-weight: 600; color: #64748b; cursor: pointer;
         }
-        .exp-card.current { border-left-color: var(--accent-primary); }
-        .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem; }
-        .exp-title { font-weight: 700; font-size: 1.1rem; color: var(--text-heading); }
-        .exp-date { font-family: 'Manrope', monospace; font-size: 0.85rem; color: var(--accent-primary); font-weight: 600; }
+        .filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); }
+        .filter-btn.active { background-color: #e0f2fe; }
 
+        /* Experience Item */
+        .exp-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .exp-date {
+            min-width: 120px;
+            font-size: 0.9rem; font-weight: 600; color: var(--accent);
+            text-align: right;
+        }
+        .exp-detail h3 { font-size: 1rem; font-weight: 700; color: var(--text-dark); }
+        .exp-detail p { font-size: 0.95rem; }
+
+        /* Footer */
         footer {
-            text-align: center;
-            padding: 2rem;
-            color: #94a3b8;
-            font-size: 0.85rem;
-            border-top: 1px solid #e2e8f0;
-            margin-top: auto;
+            text-align: center; padding: 2rem; font-size: 0.85rem; color: #94a3b8;
+            border-top: 1px solid var(--border);
         }
 
-        /* Mobile Optimization tweaks */
+        /* Mobile Adjustments */
         @media (max-width: 600px) {
-            .header { padding: 3rem 1.5rem; }
-            .name { font-size: 1.8rem; }
-            .main-content { padding: 3rem 1.5rem; }
-            .pub-image { height: 160px; }
+            .header { padding: 2rem 1.5rem; }
+            .main-content { padding: 2rem 1.5rem; }
+            
+            /* On very small screens, stack image again if needed, or keep row */
+            .pub-card { gap: 1rem; }
+            .pub-image { width: 100px; height: 70px; } /* Smaller thumbs on mobile */
+            .exp-item { flex-direction: column; gap: 0.2rem; }
+            .exp-date { text-align: left; }
         }
     </style>
 </head>
 <body>
 
-    <header class="header">
-        <div class="profile-container">
+    <div class="container">
+        <header class="header">
             <div class="profile-img">
                 <img src="profile.jpg" alt="Jaehyun Choi" onerror="this.style.display='none'">
             </div>
             
             <h1 class="name">Jaehyun Choi, Ph.D.</h1>
-            <p class="role">Researcher at <strong>Korea AISI</strong> (ETRI)</p>
+            <p class="role">Researcher at <strong>Korea AISI</strong></p>
 
             <div class="socials">
-                <a href="https://scholar.google.com/citations?user=n-OTCygAAAAJ&hl=ko&authuser=3" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                <a href="https://github.com/PRE6ENT" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/jaehyun-choi-6aa204101/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:your.email@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="#"><i class="fas fa-graduation-cap"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:email@example.com"><i class="fas fa-envelope"></i></a>
             </div>
 
             <nav class="nav-menu">
-                <a href="#about" class="nav-link active">About</a>
+                <a href="#about" class="nav-link">About</a>
                 <a href="#publications" class="nav-link">Publications</a>
                 <a href="#experience" class="nav-link">Experience</a>
-                <a href="#honors" class="nav-link">Honors</a>
+                <a href="#honors" class="nav-link">Awards</a>
             </nav>
-        </div>
-    </header>
+        </header>
 
-    <main class="main-content">
-        
-        <section id="about">
-            <h2 class="section-title">Biography</h2>
-            <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 700px; margin: 0 auto;">
-                I am a researcher at the <strong>Korea AI Safety Institute (AISI)</strong>. I received my Ph.D. from KAIST in 2026, advised by Prof. Junmo Kim. My research focuses on <strong>AI Safety</strong> (Deepfake Detection) and <strong>Efficient Learning</strong> (Dataset Condensation). I aim to build robust AI systems that are both safe for deployment and efficient to train.
-            </p>
-        </section>
-
-        <section id="publications">
-            <h2 class="section-title">Publications</h2>
+        <main class="main-content">
             
-            <div class="filter-container">
-                <button class="filter-btn active" onclick="filterPubs('all', this)">View All</button>
-                <button class="filter-btn" onclick="filterPubs('selected', this)">Highlights</button>
-            </div>
+            <section id="about">
+                <div class="section-title">Biography</div>
+                <p>
+                    I am a researcher at the <strong>Korea AI Safety Institute (AISI)</strong>, working within ETRI. I received my Ph.D. from KAIST in 2026, advised by Prof. Junmo Kim.
+                </p>
+                <p style="margin-top: 1rem;">
+                    My research focuses on <strong>AI Safety</strong> (Deepfake Detection) and <strong>Efficient Learning</strong> (Dataset Condensation). I aim to build robust AI systems that are both safe for deployment and efficient to train.
+                </p>
+            </section>
 
-            <div class="pub-card" data-category="selected">
-                <div class="pub-image">
-                    <img src="paper1.jpg" alt="Teaser" onerror="this.style.display='none'; this.parentElement.innerText='No Image'">
+            <section id="publications">
+                <div class="section-title">Publications</div>
+                
+                <div class="filter-container">
+                    <button class="filter-btn active" onclick="filter('all', this)">All</button>
+                    <button class="filter-btn" onclick="filter('selected', this)">Highlights</button>
                 </div>
-                <div class="pub-content">
-                    <div class="pub-title">AH-OCDA: Amplitude-based Curriculum Learning and Hopfield Segmentation Model</div>
-                    <div class="pub-authors"><u>Jaehyun Choi</u>*, Junwon Ko*, Dong-Jae Lee*, Junmo Kim</div>
-                    <div class="tags">
-                        <span class="badge year">2025</span>
-                        <span class="badge conf">WACV 2025</span>
+
+                <div class="pub-card" data-category="selected">
+                    <div class="pub-image">
+                        <img src="paper1.jpg" onerror="this.src='https://placehold.co/160x100/e2e8f0/94a3b8?text=Img'">
+                    </div>
+                    <div class="pub-content">
+                        <div class="pub-title">AH-OCDA: Amplitude-based Curriculum Learning for Domain Adaptation</div>
+                        <div class="pub-authors"><u>Jaehyun Choi</u>*, Junwon Ko*, Dong-Jae Lee*, Junmo Kim</div>
+                        <div class="pub-meta">
+                            <span class="venue-tag">WACV 2025</span>
+                            <span class="links">
+                                <a href="#">PDF</a> <a href="#">Code</a>
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="pub-card" data-category="selected">
-                <div class="pub-image">
-                    <img src="paper2.jpg" alt="Teaser" onerror="this.style.display='none'; this.parentElement.innerText='No Image'">
-                </div>
-                <div class="pub-content">
-                    <div class="pub-title">Unlocking the Capabilities of Masked Generative Models for Image Synthesis</div>
-                    <div class="pub-authors">Jiwan Hur, Dong-Jae Lee, Gyojin Han, <u>Jaehyun Choi</u>, Junmo Kim</div>
-                    <div class="tags">
-                        <span class="badge year">2024</span>
-                        <span class="badge conf">NeurIPS 2024</span>
-                        <span class="badge award">Bronze Prize @ Samsung HumanTech</span>
+                <div class="pub-card" data-category="selected">
+                    <div class="pub-image">
+                        <img src="paper2.jpg" onerror="this.src='https://placehold.co/160x100/e2e8f0/94a3b8?text=Img'">
+                    </div>
+                    <div class="pub-content">
+                        <div class="pub-title">Unlocking the Capabilities of Masked Generative Models for Image Synthesis</div>
+                        <div class="pub-authors">Jiwan Hur, Dong-Jae Lee, Gyojin Han, <u>Jaehyun Choi</u>, Junmo Kim</div>
+                        <div class="pub-meta">
+                            <span class="venue-tag">NeurIPS 2024</span>
+                            <span class="award-tag">Bronze Prize (Samsung)</span>
+                            <span class="links">
+                                <a href="#">PDF</a> <a href="#">Code</a>
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="pub-card" data-category="all">
-                <div class="pub-image">
-                    <img src="paper3.jpg" alt="Teaser" onerror="this.style.display='none'; this.parentElement.innerText='No Image'">
-                </div>
-                <div class="pub-content">
-                    <div class="pub-title">Learning Neural Deformation Representation for 4D Dynamic Shape Generation</div>
-                    <div class="pub-authors">Gyojin Han, Jiwan Hur, <u>Jaehyun Choi</u>, Junmo Kim</div>
-                    <div class="tags">
-                        <span class="badge year">2024</span>
-                        <span class="badge conf">ECCV 2024</span>
+                <div class="pub-card" data-category="all">
+                    <div class="pub-image">
+                        <img src="paper3.jpg" onerror="this.src='https://placehold.co/160x100/e2e8f0/94a3b8?text=Img'">
+                    </div>
+                    <div class="pub-content">
+                        <div class="pub-title">Learning Neural Deformation Representation for 4D Dynamic Shape Generation</div>
+                        <div class="pub-authors">Gyojin Han, Jiwan Hur, <u>Jaehyun Choi</u>, Junmo Kim</div>
+                        <div class="pub-meta">
+                            <span class="venue-tag">ECCV 2024</span>
+                            <span class="links">
+                                <a href="#">PDF</a> <a href="#">Code</a>
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="pub-card" data-category="selected">
-                <div class="pub-image">
-                    <img src="paper4.jpg" alt="Teaser" onerror="this.style.display='none'; this.parentElement.innerText='No Image'">
-                </div>
-                <div class="pub-content">
-                    <div class="pub-title">Data Poisoning Attack Aiming the Vulnerability of Continual Learning</div>
-                    <div class="pub-authors">Gyojin Han*, <u>Jaehyun Choi</u>*, Hyeong Gwon Hong, Junmo Kim</div>
-                    <div class="tags">
-                        <span class="badge year">2023</span>
-                        <span class="badge conf">ICIP 2023</span>
+                <div class="pub-card" data-category="selected">
+                    <div class="pub-image">
+                        <img src="paper4.jpg" onerror="this.src='https://placehold.co/160x100/e2e8f0/94a3b8?text=Img'">
+                    </div>
+                    <div class="pub-content">
+                        <div class="pub-title">Fix the Noise: Disentangling Source Feature for Controllable Domain Translation</div>
+                        <div class="pub-authors">Dongyeun Lee, Jae Young Lee, Doyeon Kim, <u>Jaehyun Choi</u>, Junmo Kim</div>
+                        <div class="pub-meta">
+                            <span class="venue-tag">CVPR 2023</span>
+                            <span class="award-tag">Best Paper Award</span>
+                            <span class="links">
+                                <a href="#">PDF</a> <a href="#">Code</a>
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="pub-card" data-category="selected">
-                <div class="pub-image">
-                    <img src="paper5.jpg" alt="Teaser" onerror="this.style.display='none'; this.parentElement.innerText='No Image'">
-                </div>
-                <div class="pub-content">
-                    <div class="pub-title">Fix the Noise: Disentangling Source Feature for Controllable Domain Translation</div>
-                    <div class="pub-authors">Dongyeun Lee, Jae Young Lee, Doyeon Kim, <u>Jaehyun Choi</u>, Junmo Kim</div>
-                    <div class="tags">
-                        <span class="badge year">2023</span>
-                        <span class="badge conf">CVPR 2023</span>
-                        <span class="badge award">Best Paper @ AI4CC Workshop</span>
+            </section>
+
+            <section id="experience">
+                <div class="section-title">Experience</div>
+                
+                <div class="exp-item">
+                    <div class="exp-date">2025 - Present</div>
+                    <div class="exp-detail">
+                        <h3>Korea AI Safety Institute (AISI)</h3>
+                        <p>Researcher (ETRI)</p>
                     </div>
                 </div>
-            </div>
-
-            <div class="pub-card" data-category="all">
-                <div class="pub-image">
-                    <img src="paper6.jpg" alt="Teaser" onerror="this.style.display='none'; this.parentElement.innerText='No Image'">
-                </div>
-                <div class="pub-content">
-                    <div class="pub-title">Reinforcement Learning-Based Black-Box Model Inversion Attacks</div>
-                    <div class="pub-authors">Gyojin Han, <u>Jaehyun Choi</u>, Haeil Lee, Junmo Kim</div>
-                    <div class="tags">
-                        <span class="badge year">2023</span>
-                        <span class="badge conf">CVPR 2023</span>
+                
+                <div class="exp-item">
+                    <div class="exp-date">2021 - 2026</div>
+                    <div class="exp-detail">
+                        <h3>KAIST (SIIT Lab)</h3>
+                        <p>Ph.D. Candidate</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="experience">
-            <h2 class="section-title">Experience</h2>
+            </section>
             
-            <div class="exp-card current">
-                <div class="exp-header">
-                    <div class="exp-title">Korea AI Safety Institute (AISI)</div>
-                    <div class="exp-date">June 2025 - Present</div>
+            <section id="honors">
+                <div class="section-title">Honors</div>
+                <div class="exp-item">
+                    <div class="exp-date">2025</div>
+                    <div class="exp-detail">
+                        <h3>Bronze Prize</h3>
+                        <p>Samsung HumanTech Paper Awards</p>
+                    </div>
                 </div>
-                <p>Researcher (ETRI) | Developing national standards for deepfake detection.</p>
-            </div>
-
-            <div class="exp-card">
-                <div class="exp-header">
-                    <div class="exp-title">KAIST (SIIT Lab)</div>
-                    <div class="exp-date">Aug 2021 - Feb 2026</div>
+                <div class="exp-item">
+                    <div class="exp-date">2022</div>
+                    <div class="exp-detail">
+                        <h3>Best Paper Award</h3>
+                        <p>CVPR Workshop on AI for Content Creation</p>
+                    </div>
                 </div>
-                <p>Ph.D. Candidate | Advised by Prof. Junmo Kim</p>
-            </div>
-        </section>
+            </section>
 
-        <section id="honors">
-            <h2 class="section-title">Honors & Awards</h2>
-            <div style="display: grid; gap: 1rem; text-align: center;">
-                <div class="exp-card" style="padding: 1rem;">
-                    <strong>Bronze Prize</strong>, Samsung HumanTech Paper Awards (2025)
-                </div>
-                <div class="exp-card" style="padding: 1rem;">
-                    <strong>Best Paper Award</strong>, CVPR Workshop on AI for Content Creation (2022)
-                </div>
-            </div>
-        </section>
+        </main>
 
-    </main>
+        <footer>
+            &copy; 2026 Jaehyun Choi.
+        </footer>
+    </div>
 
-    <footer>
-        &copy; 2026 Jaehyun Choi. Korea AI Safety Institute.
-    </footer>
-
-</div>
-
-<script>
-    // Navigation Scroll Highlight
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            if (scrollY >= section.offsetTop - 250) {
-                current = section.getAttribute('id');
-            }
-        });
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').includes(current)) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    // Filter Logic
-    function filterPubs(category, btn) {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        document.querySelectorAll('.pub-card[data-category]').forEach(card => {
-            if (category === 'all' || card.dataset.category === 'selected') {
-                if(category === 'selected' && card.dataset.category !== 'selected') {
-                    card.style.display = 'none';
+    <script>
+        function filter(category, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            document.querySelectorAll('.pub-card[data-category]').forEach(card => {
+                if (category === 'all' || card.dataset.category === 'selected') {
+                    if (category === 'selected' && card.dataset.category !== 'selected') {
+                        card.style.display = 'none';
+                    } else {
+                        card.style.display = 'flex';
+                    }
                 } else {
-                    card.style.display = 'flex';
+                    card.style.display = 'none';
                 }
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    }
-</script>
-
+            });
+        }
+    </script>
 </body>
 </html>
