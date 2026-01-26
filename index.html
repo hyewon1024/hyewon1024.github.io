@@ -11,16 +11,16 @@
     <style>
         :root {
             /* THEME: "Intellectual Teal" */
-            --bg-body: #f0f2f5;       /* Cool Grey */
+            --bg-body: #f0f2f5;       
             --bg-paper: #ffffff;      
             
-            --text-main: #111827;     /* Near Black */
+            --text-main: #111827;     
             --text-muted: #6b7280;    
             
-            /* The "Premium" Accent Color */
+            /* Premium Accent Colors */
             --accent-primary: #0f766e; /* Deep Teal */
             --accent-light: #14b8a6;   /* Bright Teal */
-            --accent-subtle: #f0fdfa;  /* Very light teal bg */
+            --accent-subtle: #f0fdfa;  
             
             --radius-lg: 24px;
             --radius-sm: 12px;
@@ -40,7 +40,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- 1. THE FLOATING CONTAINER --- */
+        /* --- CONTAINER --- */
         .wrapper {
             max-width: 850px;
             margin: 2rem auto;
@@ -51,11 +51,10 @@
             position: relative;
         }
 
-        /* --- 2. HERO BANNER --- */
+        /* --- HERO BANNER --- */
         .hero {
             position: relative;
-            padding: 4.5rem 3rem 3rem 3rem;
-            /* Subtle radial gradient background */
+            padding: 4.5rem 2rem 3rem 2rem;
             background: radial-gradient(circle at 50% 0%, #f0fdfa 0%, #ffffff 70%);
             text-align: center;
         }
@@ -72,7 +71,6 @@
             object-fit: cover;
             border: 4px solid white;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            position: relative; z-index: 2;
             background-color: #ccfbf1;
         }
         
@@ -90,73 +88,55 @@
             margin-bottom: 1.5rem;
         }
         
-        /* EXPERTISE TAGS (The Fix) */
+        /* EXPERTISE TAGS */
         .expertise-row {
             display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2rem;
         }
         
         .exp-tag {
             display: inline-flex; align-items: center; gap: 6px;
-            background: white; 
-            border: 1px solid #e5e7eb;
-            color: var(--text-main);
-            padding: 6px 14px; 
-            border-radius: 99px;
-            font-size: 0.85rem; font-weight: 600;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-            transition: all 0.2s;
+            background: white; border: 1px solid #e5e7eb;
+            color: var(--text-main); padding: 6px 14px; 
+            border-radius: 99px; font-size: 0.85rem; font-weight: 600;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: all 0.2s;
         }
-        
         .exp-tag i { color: var(--accent-light); font-size: 0.9rem; }
-        
-        .exp-tag:hover {
-            border-color: var(--accent-primary);
-            color: var(--accent-primary);
-            transform: translateY(-1px);
-        }
+        .exp-tag:hover { border-color: var(--accent-primary); color: var(--accent-primary); transform: translateY(-1px); }
 
-        /* Social Row */
+        /* SOCIAL ICONS */
         .social-row { display: flex; justify-content: center; gap: 1rem; }
         .social-btn {
-            width: 42px; height: 42px;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 50%; background: white;
-            border: 1px solid #e5e7eb; color: var(--text-muted);
+            width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; background: white; border: 1px solid #e5e7eb; color: var(--text-muted);
             transition: all 0.2s; text-decoration: none; font-size: 1.1rem;
         }
         .social-btn:hover {
-            transform: translateY(-2px);
-            border-color: var(--accent-primary); color: var(--accent-primary);
+            transform: translateY(-2px); border-color: var(--accent-primary); color: var(--accent-primary);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
-        /* --- 3. STICKY NAV --- */
+        /* --- STICKY NAV --- */
         .nav-bar {
             position: sticky; top: 1rem; z-index: 100;
             margin: 0 1.5rem;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
             border-radius: 16px;
             border: 1px solid rgba(0,0,0,0.05);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
             padding: 0.8rem;
-            display: flex; justify-content: center; gap: 1rem;
+            display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap;
         }
 
         .nav-item {
-            padding: 0.5rem 1.2rem;
-            border-radius: 10px;
-            text-decoration: none;
-            color: var(--text-muted);
-            font-weight: 600;
-            font-size: 0.9rem;
+            padding: 0.5rem 1rem; border-radius: 10px;
+            text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem;
             transition: all 0.2s;
         }
         .nav-item:hover { color: var(--text-main); background: #f3f4f6; }
         .nav-item.active { background: var(--text-main); color: white; }
 
-
-        /* --- 4. CONTENT SECTIONS --- */
+        /* --- CONTENT --- */
         .content { padding: 4rem 3rem; }
         
         .section-header {
@@ -165,53 +145,43 @@
         }
         .section-title { font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text-main); }
         
-        /* ABOUT TEXT */
         .about-text {
             font-size: 1.1rem; color: #374151; max-width: 720px; margin: 0 auto 3rem auto; text-align: center;
         }
         .about-text strong { color: var(--accent-primary); }
 
-        /* --- 5. PUBLICATION ROW --- */
-        .pub-row {
-            display: flex; gap: 1.5rem;
-            padding: 1.5rem;
-            margin-bottom: 1.2rem;
-            background: white;
-            border: 1px solid #f3f4f6;
-            border-radius: var(--radius-sm);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            position: relative;
+        /* --- PUBLICATION LIST --- */
+        .filter-tabs { display: flex; gap: 10px; }
+        .filter-btn {
+            background: none; border: 1px solid #e5e7eb; padding: 4px 12px;
+            border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: var(--text-muted);
+            cursor: pointer; transition: 0.2s;
         }
+        .filter-btn.active { background: var(--accent-primary); color: white; border-color: var(--accent-primary); }
+        .filter-btn:hover:not(.active) { border-color: var(--accent-primary); color: var(--accent-primary); }
 
-        .pub-row:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-            border-color: #cbd5e1;
+        /* Publication Row (Compact Mobile Style) */
+        .pub-row {
+            display: flex; gap: 1.5rem; padding: 1.5rem; margin-bottom: 1.2rem;
+            background: white; border: 1px solid #f3f4f6; border-radius: var(--radius-sm);
+            transition: all 0.3s; position: relative;
         }
+        .pub-row:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: #cbd5e1; }
 
         .pub-thumb {
-            width: 150px; height: 100px;
-            flex-shrink: 0;
-            border-radius: 8px;
-            overflow: hidden;
-            background: #f3f4f6;
-            border: 1px solid #e5e7eb;
+            width: 150px; height: 100px; flex-shrink: 0;
+            border-radius: 8px; overflow: hidden; background: #f3f4f6; border: 1px solid #e5e7eb;
         }
         .pub-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
         .pub-data { flex: 1; display: flex; flex-direction: column; }
-        
         .pub-title { font-weight: 700; font-size: 1.1rem; line-height: 1.35; margin-bottom: 6px; color: var(--text-main); }
         
         .pub-meta { 
             display: flex; align-items: center; gap: 12px; flex-wrap: wrap; 
-            font-size: 0.85rem; font-family: 'JetBrains Mono', monospace; 
-            margin-top: auto;
+            font-size: 0.85rem; font-family: 'JetBrains Mono', monospace; margin-top: auto;
         }
-
-        .badge-conf { 
-            color: var(--accent-primary); font-weight: 700;
-        }
+        .badge-conf { color: var(--accent-primary); font-weight: 700; }
         .badge-award { 
             color: #d97706; font-weight: 700; display: flex; align-items: center; gap: 4px; 
             background: #fffbeb; padding: 2px 8px; border-radius: 4px;
@@ -222,40 +192,37 @@
             border: 1px solid #e5e7eb; padding: 2px 8px; border-radius: 6px;
             font-size: 0.75rem; transition: 0.2s;
         }
-        .pub-links a:hover {
-            border-color: var(--accent-primary); color: var(--accent-primary);
-        }
+        .pub-links a:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
 
-        /* EXPERIENCE TIMELINE */
+        /* --- EDUCATION & EXPERIENCE --- */
         .exp-item {
-            display: flex; gap: 1.5rem; margin-bottom: 2.5rem;
-            position: relative;
+            display: flex; gap: 1.5rem; margin-bottom: 2.5rem; position: relative;
         }
         .exp-line {
             width: 2px; background: #e5e7eb; position: absolute; top: 12px; bottom: -40px; left: 6px;
         }
         .exp-item:last-child .exp-line { display: none; }
-        
         .exp-dot {
             width: 14px; height: 14px; border-radius: 50%; background: white;
-            border: 3px solid var(--accent-primary); z-index: 2; flex-shrink: 0;
-            margin-top: 6px;
+            border: 3px solid var(--accent-primary); z-index: 2; flex-shrink: 0; margin-top: 6px;
         }
-        
         .exp-content h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; }
         .exp-content .org { color: var(--text-muted); font-size: 0.95rem; font-weight: 500; margin-bottom: 4px; }
         .exp-content .time { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #9ca3af; }
 
+        /* AWARDS LIST */
+        .award-item {
+            display: flex; gap: 1rem; align-items: baseline; margin-bottom: 1rem;
+            padding: 1rem; background: #f9fafb; border-radius: 12px; border: 1px solid #f3f4f6;
+        }
+        .award-year { font-weight: 700; color: var(--accent-primary); font-family: 'JetBrains Mono'; min-width: 50px; }
 
-        /* MOBILE OPTIMIZATION */
         @media (max-width: 600px) {
             .wrapper { margin: 0; border-radius: 0; box-shadow: none; }
             .content { padding: 2rem 1.5rem; }
             .hero { padding: 4rem 1.5rem 3rem 1.5rem; }
-            
             .pub-row { flex-direction: column; gap: 1rem; }
             .pub-thumb { width: 100%; height: 160px; }
-            
             .nav-bar { overflow-x: auto; justify-content: flex-start; margin: 0; border-radius: 0; border: none; border-bottom: 1px solid rgba(0,0,0,0.05); }
             .nav-item { white-space: nowrap; }
         }
@@ -280,17 +247,19 @@
         </div>
 
         <div class="social-row">
-            <a href="https://scholar.google.com/citations?user=n-OTCygAAAAJ&hl=ko&authuser=3" class="social-btn" title="Scholar"><i class="fas fa-graduation-cap"></i></a>
-            <a href="https://github.com/PRE6ENT" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/jaehyun-choi-6aa204101/" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:your.email@example.com" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://scholar.google.com/citations?user=n-OTCygAAAAJ&hl=ko&authuser=3" class="social-btn"><i class="fas fa-graduation-cap"></i></a>
+            <a href="https://github.com/PRE6ENT" class="social-btn"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/jaehyun-choi-6aa204101/" class="social-btn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:your.email@example.com" class="social-btn"><i class="fas fa-envelope"></i></a>
         </div>
     </header>
 
     <nav class="nav-bar">
         <a href="#about" class="nav-item active">About</a>
         <a href="#publications" class="nav-item">Research</a>
+        <a href="#education" class="nav-item">Education</a>
         <a href="#experience" class="nav-item">Experience</a>
+        <a href="#awards" class="nav-item">Awards</a>
     </nav>
 
     <main class="content">
@@ -303,13 +272,14 @@
 
         <section id="publications">
             <div class="section-header">
-                <h2 class="section-title">Selected Works</h2>
-                <div style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">
-                    13+ Top-tier Papers
+                <h2 class="section-title">Publications</h2>
+                <div class="filter-tabs">
+                    <button class="filter-btn active" onclick="filter('selected', this)">Selected</button>
+                    <button class="filter-btn" onclick="filter('all', this)">All</button>
                 </div>
             </div>
 
-            <div class="pub-row">
+            <div class="pub-row" data-category="selected">
                 <div class="pub-thumb">
                     <img src="paper1.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=WACV+25'">
                 </div>
@@ -321,14 +291,13 @@
                     <div class="pub-meta">
                         <span class="badge-conf">WACV 2025</span>
                         <div class="pub-links">
-                            <a href="#">PDF</a>
-                            <a href="#">CODE</a>
+                            <a href="#">PDF</a> <a href="#">CODE</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="pub-row" style="border-left: 4px solid var(--accent-light);">
+            <div class="pub-row" data-category="selected" style="border-left: 4px solid var(--accent-light);">
                 <div class="pub-thumb">
                     <img src="paper2.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=NeurIPS+24'">
                 </div>
@@ -341,14 +310,13 @@
                         <span class="badge-conf">NeurIPS 2024</span>
                         <span class="badge-award"><i class="fas fa-trophy"></i> Bronze Prize</span>
                         <div class="pub-links">
-                            <a href="#">PDF</a>
-                            <a href="#">CODE</a>
+                            <a href="#">PDF</a> <a href="#">CODE</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="pub-row">
+            <div class="pub-row" data-category="all">
                 <div class="pub-thumb">
                     <img src="paper3.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=ECCV+24'">
                 </div>
@@ -360,14 +328,13 @@
                     <div class="pub-meta">
                         <span class="badge-conf">ECCV 2024</span>
                         <div class="pub-links">
-                            <a href="#">PDF</a>
-                            <a href="#">CODE</a>
+                            <a href="#">PDF</a> <a href="#">CODE</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="pub-row" style="border-left: 4px solid var(--accent-light);">
+            <div class="pub-row" data-category="selected" style="border-left: 4px solid var(--accent-light);">
                 <div class="pub-thumb">
                     <img src="paper4.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=CVPR+23'">
                 </div>
@@ -380,30 +347,36 @@
                         <span class="badge-conf">CVPR 2023</span>
                         <span class="badge-award"><i class="fas fa-trophy"></i> Best Paper</span>
                         <div class="pub-links">
-                            <a href="#">PDF</a>
-                            <a href="#">CODE</a>
+                            <a href="#">PDF</a> <a href="#">CODE</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-        </section>
-
-        <section id="experience">
-            <div class="section-header">
-                <h2 class="section-title">Experience</h2>
-            </div>
-            
-            <div class="exp-item">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-                <div class="exp-content">
-                    <h3>Researcher @ Korea AI Safety Institute (AISI)</h3>
-                    <div class="org">Electronics and Telecommunications Research Institute (ETRI)</div>
-                    <div class="time">Jun 2025 - Present</div>
+             <div class="pub-row" data-category="all">
+                <div class="pub-thumb">
+                    <img src="paper5.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=ICIP+23'">
+                </div>
+                <div class="pub-data">
+                    <div class="pub-title">Data Poisoning Attack Aiming the Vulnerability of Continual Learning</div>
+                    <div style="font-size: 0.9rem; color: #4b5563; margin-bottom: 0.5rem;">
+                        G. Han*, <strong>J. Choi*</strong>, H. Hong, J. Kim
+                    </div>
+                    <div class="pub-meta">
+                        <span class="badge-conf">ICIP 2023</span>
+                        <div class="pub-links">
+                            <a href="#">PDF</a> <a href="#">CODE</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
+        <section id="education">
+            <div class="section-header">
+                <h2 class="section-title">Education</h2>
+            </div>
+            
             <div class="exp-item">
                 <div class="exp-dot"></div>
                 <div class="exp-line"></div>
@@ -418,9 +391,63 @@
                 <div class="exp-dot"></div>
                 <div class="exp-line"></div>
                 <div class="exp-content">
-                    <h3>Research Assistant</h3>
-                    <div class="org">ETRI (Internship)</div>
-                    <div class="time">2022</div>
+                    <h3>M.S. in Artificial Intelligence</h3>
+                    <div class="org">Sungkyunkwan University (SKKU)</div>
+                    <div class="time">Aug 2019 - Aug 2021</div>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-dot"></div>
+                <div class="exp-line"></div>
+                <div class="exp-content">
+                    <h3>B.S. in Electrical Engineering</h3>
+                    <div class="org">State University of New York at Buffalo</div>
+                    <div class="time">Aug 2012 - Feb 2019</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="section-header">
+                <h2 class="section-title">Experience</h2>
+            </div>
+            
+            <div class="exp-item">
+                <div class="exp-dot"></div>
+                <div class="exp-line"></div>
+                <div class="exp-content">
+                    <h3>Researcher @ Korea AISI (ETRI)</h3>
+                    <div class="org">Electronics and Telecommunications Research Institute</div>
+                    <div class="time">Jun 2025 - Present</div>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-dot"></div>
+                <div class="exp-line"></div>
+                <div class="exp-content">
+                    <h3>Research Assistant @ ETRI</h3>
+                    <div class="org">Internship</div>
+                    <div class="time">Aug 2022 - Dec 2022</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="awards">
+            <div class="section-header">
+                <h2 class="section-title">Honors & Awards</h2>
+            </div>
+            <div class="award-item">
+                <div class="award-year">2025</div>
+                <div>
+                    <strong>Bronze Prize</strong>, Samsung HumanTech Paper Awards
+                </div>
+            </div>
+            <div class="award-item">
+                <div class="award-year">2022</div>
+                <div>
+                    <strong>Best Paper Award</strong>, CVPR Workshop on AI for Content Creation
                 </div>
             </div>
         </section>
@@ -429,7 +456,28 @@
 </div>
 
 <script>
-    // Smooth scrolling & Active Nav
+    // 1. FILTER FUNCTION
+    function filter(category, btn) {
+        // Toggle Button Active State
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Toggle Publication Items
+        const items = document.querySelectorAll('.pub-row');
+        items.forEach(item => {
+            if (category === 'all') {
+                item.style.display = 'flex';
+            } else {
+                if (item.getAttribute('data-category') === 'selected') {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            }
+        });
+    }
+
+    // 2. NAV HIGHLIGHTING
     const navItems = document.querySelectorAll('.nav-item');
     const sections = document.querySelectorAll('section');
     
@@ -456,6 +504,9 @@
             }
         });
     });
+
+    // Initialize with Selected
+    filter('selected', document.querySelector('.filter-btn.active'));
 </script>
 
 </body>
