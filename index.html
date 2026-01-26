@@ -5,28 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jaehyun Choi | AI Research</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            /* THEME: "Intellectual Teal" */
-            --bg-body: #f0f2f5;       
-            --bg-paper: #ffffff;      
+            /* THEME: "Harmonious Teal" */
+            --primary: #0f766e;       /* Deep Teal */
+            --primary-light: #14b8a6; /* Bright Teal */
+            --bg-body: #f8fafc;       /* Very light cool grey */
+            --bg-card: #ffffff;
             
-            --text-main: #111827;     
-            --text-muted: #6b7280;    
+            --text-main: #1e293b;     /* Slate 800 */
+            --text-muted: #64748b;    /* Slate 500 */
             
-            /* Accents */
-            --accent-primary: #0f766e; /* Deep Teal */
-            --accent-light: #14b8a6;   /* Bright Teal */
-            --accent-subtle: #f0fdfa;  
-            
-            --radius-lg: 24px;
-            --radius-sm: 12px;
-            
-            --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            --border: #e2e8f0;
+            --max-width: 720px;       /* Tighter width for better reading */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,198 +30,206 @@
             background-color: var(--bg-body);
             color: var(--text-main);
             line-height: 1.7;
-            padding-bottom: 5rem;
+            padding-bottom: 6rem;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- 1. FLOATING CONTAINER --- */
+        /* --- LAYOUT CONTAINER --- */
         .wrapper {
-            max-width: 850px;
-            margin: 2rem auto;
-            background: var(--bg-paper);
-            border-radius: var(--radius-lg);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            position: relative;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            background: var(--bg-body); /* Blend with body */
+            min-height: 100vh;
         }
 
-        /* --- 2. HERO BANNER --- */
+        /* --- 1. HERO PROFILE --- */
+        /* Clean, centered, no boxes */
         .hero {
-            position: relative;
-            padding: 4.5rem 2rem 3rem 2rem;
-            /* The Gradient you liked */
-            background: radial-gradient(circle at 50% 0%, #f0fdfa 0%, #ffffff 70%);
+            padding: 5rem 1.5rem 2rem 1.5rem;
             text-align: center;
         }
-        
-        .profile-wrap {
-            position: relative;
-            width: 130px; height: 130px;
-            margin: 0 auto 1.5rem auto;
-        }
-        
+
         .profile-img {
-            width: 100%; height: 100%;
+            width: 140px; height: 140px;
             border-radius: 50%;
             object-fit: cover;
+            margin: 0 auto 1.5rem auto;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
             border: 4px solid white;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            background-color: #ccfbf1;
         }
-        
+
         .name {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.5rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
             color: var(--text-main);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
         }
 
-        .tagline {
-            font-size: 1.1rem; color: var(--text-muted); font-weight: 500;
-            margin-bottom: 1.5rem;
+        .role {
+            font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.2rem;
         }
-        
-        /* EXPERTISE TAGS */
-        .expertise-row {
-            display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2rem;
-        }
-        
-        .exp-tag {
-            display: inline-flex; align-items: center; gap: 6px;
-            background: white; border: 1px solid #e5e7eb;
-            color: var(--text-main); padding: 6px 14px; 
-            border-radius: 99px; font-size: 0.85rem; font-weight: 600;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: all 0.2s;
-        }
-        .exp-tag i { color: var(--accent-light); font-size: 0.9rem; }
-        .exp-tag:hover { border-color: var(--accent-primary); color: var(--accent-primary); transform: translateY(-1px); }
+        .role strong { color: var(--primary); font-weight: 600; }
 
-        /* SOCIAL ICONS */
-        .social-row { display: flex; justify-content: center; gap: 1rem; }
-        .social-btn {
-            width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
-            border-radius: 50%; background: white; border: 1px solid #e5e7eb; color: var(--text-muted);
-            transition: all 0.2s; text-decoration: none; font-size: 1.1rem;
-        }
-        .social-btn:hover {
-            transform: translateY(-2px); border-color: var(--accent-primary); color: var(--accent-primary);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        .degree {
+            font-size: 1rem; color: var(--text-muted); margin-bottom: 1.5rem;
         }
 
-        /* --- 3. STICKY NAV --- */
-        .nav-bar {
-            position: sticky; top: 1rem; z-index: 100;
-            margin: 0 1.5rem;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            border-radius: 16px;
-            border: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-            padding: 0.8rem;
-            display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap;
+        /* Expertise Pills */
+        .tags {
+            display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 1.5rem; flex-wrap: wrap;
+        }
+        .tag {
+            font-family: 'DM Sans', sans-serif;
+            background: white; border: 1px solid var(--border);
+            color: var(--text-muted); padding: 4px 12px;
+            border-radius: 20px; font-size: 0.85rem; font-weight: 500;
         }
 
-        .nav-item {
-            padding: 0.5rem 1rem; border-radius: 10px;
-            text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem;
+        /* Social Icons */
+        .socials { display: flex; justify-content: center; gap: 1.2rem; }
+        .social-link {
+            color: var(--text-muted); font-size: 1.2rem; transition: 0.2s;
+        }
+        .social-link:hover { color: var(--primary); transform: translateY(-2px); }
+
+
+        /* --- 2. HARMONIOUS NAVIGATION --- */
+        /* No box, just clean text that sticks */
+        .nav-container {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(248, 250, 252, 0.9); /* Matches body bg */
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+
+        .nav-menu {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex; justify-content: center; gap: 2rem;
+        }
+
+        .nav-link {
+            padding: 1rem 0;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-bottom: 2px solid transparent;
             transition: all 0.2s;
         }
-        .nav-item:hover { color: var(--text-main); background: #f3f4f6; }
-        .nav-item.active { background: var(--text-main); color: white; }
+        .nav-link:hover { color: var(--primary); }
+        .nav-link.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 700; }
 
-        /* --- 4. CONTENT --- */
-        .content { padding: 4rem 3rem; }
+
+        /* --- 3. CONTENT SECTIONS --- */
+        .content { padding: 0 1.5rem; }
         
+        section { margin-bottom: 5rem; scroll-margin-top: 5rem; }
+
         .section-header {
-            display: flex; justify-content: space-between; align-items: flex-end;
-            margin-bottom: 2rem; border-bottom: 2px solid #f3f4f6; padding-bottom: 12px;
+            display: flex; justify-content: space-between; align-items: baseline;
+            margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.8rem;
         }
-        .section-title { font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text-main); }
         
-        /* About Text */
-        .about-text {
-            font-size: 1.1rem; color: #374151; max-width: 720px; margin: 0 auto 3rem auto; text-align: center;
+        .section-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.4rem; font-weight: 700; color: var(--text-main);
         }
-        .about-text strong { color: var(--accent-primary); }
 
-        /* --- PUBLICATION LIST --- */
-        .filter-tabs { display: flex; gap: 10px; }
+        /* ABOUT TEXT STYLING */
+        .about-content {
+            font-size: 1.05rem; color: var(--text-main);
+        }
+        .about-content a {
+            color: var(--primary); text-decoration: none; border-bottom: 1px solid transparent;
+            font-weight: 500; transition: border 0.2s;
+        }
+        .about-content a:hover { border-bottom-color: var(--primary); }
+
+
+        /* --- PUBLICATIONS --- */
+        .filter-group { display: flex; gap: 15px; }
         .filter-btn {
-            background: none; border: 1px solid #e5e7eb; padding: 4px 12px;
-            border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: var(--text-muted);
-            cursor: pointer; transition: 0.2s;
+            background: none; border: none; padding: 0;
+            font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500;
+            color: var(--text-muted); cursor: pointer; transition: 0.2s;
         }
-        .filter-btn.active { background: var(--accent-primary); color: white; border-color: var(--accent-primary); }
-        .filter-btn:hover:not(.active) { border-color: var(--accent-primary); color: var(--accent-primary); }
+        .filter-btn.active { color: var(--primary); font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+        .filter-btn:hover { color: var(--text-main); }
 
-        /* Publication Row (Compact Mobile Style) */
-        .pub-row {
-            display: flex; gap: 1.5rem; padding: 1.5rem; margin-bottom: 1.2rem;
-            background: white; border: 1px solid #f3f4f6; border-radius: var(--radius-sm);
-            transition: all 0.3s; position: relative;
+        /* Publication Card - Clean & Uniform */
+        .pub-item {
+            display: flex; gap: 1.5rem; margin-bottom: 2.5rem;
+            align-items: flex-start;
+            /* No left border, just clean layout */
         }
-        .pub-row:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: #cbd5e1; }
 
         .pub-thumb {
-            width: 150px; height: 100px; flex-shrink: 0;
-            border-radius: 8px; overflow: hidden; background: #f3f4f6; border: 1px solid #e5e7eb;
+            width: 160px; height: 100px;
+            flex-shrink: 0;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: #e2e8f0;
         }
-        .pub-thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .pub-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .pub-item:hover .pub-thumb img { transform: scale(1.03); }
 
-        .pub-data { flex: 1; display: flex; flex-direction: column; }
-        .pub-title { font-weight: 700; font-size: 1.1rem; line-height: 1.35; margin-bottom: 6px; color: var(--text-main); }
-        
-        .pub-meta { 
-            display: flex; align-items: center; gap: 12px; flex-wrap: wrap; 
-            font-size: 0.85rem; font-family: 'JetBrains Mono', monospace; margin-top: auto;
+        .pub-details { flex: 1; }
+
+        .pub-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.1rem; font-weight: 700; color: var(--text-main);
+            margin-bottom: 0.4rem; line-height: 1.35;
         }
-        .badge-conf { color: var(--accent-primary); font-weight: 700; }
-        .badge-award { 
-            color: #d97706; font-weight: 700; display: flex; align-items: center; gap: 4px; 
-            background: #fffbeb; padding: 2px 8px; border-radius: 4px;
+
+        .pub-authors { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.6rem; }
+        .pub-authors u { text-decoration: none; font-weight: 600; color: var(--text-main); border-bottom: 1px solid #cbd5e1; }
+
+        .pub-meta {
+            display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+            font-size: 0.85rem; font-family: 'JetBrains Mono', monospace;
         }
+
+        .venue { color: var(--primary); font-weight: 700; }
+        .award { color: #d97706; font-weight: 600; display: flex; align-items: center; gap: 4px; }
         
-        .pub-links a {
-            color: var(--text-muted); text-decoration: none; font-weight: 600; 
-            border: 1px solid #e5e7eb; padding: 2px 8px; border-radius: 6px;
+        .links a {
+            text-decoration: none; color: var(--text-muted); font-weight: 600;
+            border: 1px solid var(--border); padding: 1px 8px; border-radius: 4px;
             font-size: 0.75rem; transition: 0.2s;
         }
-        .pub-links a:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
+        .links a:hover { border-color: var(--primary); color: var(--primary); }
 
-        /* --- EDUCATION & EXPERIENCE --- */
-        .exp-item {
-            display: flex; gap: 1.5rem; margin-bottom: 2.5rem; position: relative;
-        }
-        .exp-line {
-            width: 2px; background: #e5e7eb; position: absolute; top: 12px; bottom: -40px; left: 6px;
-        }
-        .exp-item:last-child .exp-line { display: none; }
-        .exp-dot {
-            width: 14px; height: 14px; border-radius: 50%; background: white;
-            border: 3px solid var(--accent-primary); z-index: 2; flex-shrink: 0; margin-top: 6px;
-        }
-        .exp-content h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; }
-        .exp-content .org { color: var(--text-muted); font-size: 0.95rem; font-weight: 500; margin-bottom: 4px; }
-        .exp-content .time { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #9ca3af; }
 
-        /* AWARDS LIST */
-        .award-item {
-            display: flex; gap: 1rem; align-items: baseline; margin-bottom: 1rem;
-            padding: 1rem; background: #f9fafb; border-radius: 12px; border: 1px solid #f3f4f6;
+        /* --- EXPERIENCE & EDUCATION --- */
+        .timeline-item {
+            display: grid; grid-template-columns: 120px 1fr;
+            margin-bottom: 1.8rem;
         }
-        .award-year { font-weight: 700; color: var(--accent-primary); font-family: 'JetBrains Mono'; min-width: 50px; }
+        .time-date {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-muted);
+            padding-top: 3px;
+        }
+        .time-content h3 { 
+            font-family: 'DM Sans', sans-serif; font-size: 1.05rem; font-weight: 700; 
+            margin-bottom: 2px; color: var(--text-main);
+        }
+        .time-org { font-size: 0.95rem; color: var(--text-muted); }
+
 
         /* RESPONSIVE */
-        @media (max-width: 600px) {
-            .wrapper { margin: 0; border-radius: 0; box-shadow: none; }
-            .content { padding: 2rem 1.5rem; }
-            .hero { padding: 4rem 1.5rem 3rem 1.5rem; }
-            .pub-row { flex-direction: column; gap: 1rem; }
-            .pub-thumb { width: 100%; height: 160px; }
-            .nav-bar { overflow-x: auto; justify-content: flex-start; margin: 0; border-radius: 0; border: none; border-bottom: 1px solid rgba(0,0,0,0.05); }
-            .nav-item { white-space: nowrap; }
+        @media (max-width: 640px) {
+            .nav-menu { gap: 1.5rem; overflow-x: auto; justify-content: flex-start; padding-bottom: 5px; }
+            .nav-link { white-space: nowrap; }
+            .pub-item { flex-direction: column; gap: 0.8rem; }
+            .pub-thumb { width: 140px; height: 90px; }
+            .timeline-item { grid-template-columns: 1fr; gap: 0.2rem; }
         }
     </style>
 </head>
@@ -236,221 +238,193 @@
 <div class="wrapper">
     
     <header class="hero">
-        <div class="profile-wrap">
-            <img src="profile.jpg" alt="Jaehyun Choi" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=JC&background=0f766e&color=fff&size=200'">
+        <img src="profile.jpg" alt="Jaehyun Choi" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=JC&background=0f766e&color=fff&size=200'">
+        
+        <h1 class="name">Jaehyun Choi</h1>
+        
+        <div class="role">
+            Researcher at <strong>Korea AI Safety Institute</strong> (ETRI)
+        </div>
+        <div class="degree">
+            Ph.D. in Electrical Engineering
         </div>
         
-        <h1 class="name">Jaehyun Choi, Ph.D.</h1>
-        <p class="tagline">Researcher at <strong>Korea AI Safety Institute</strong> (ETRI)</p>
-        
-        <div class="expertise-row">
-            <span class="exp-tag"><i class="fas fa-shield-alt"></i> AI Safety</span>
-            <span class="exp-tag"><i class="fas fa-user-secret"></i> Deepfake Detection</span>
-            <span class="exp-tag"><i class="fas fa-database"></i> Dataset Condensation</span>
+        <div class="tags">
+            <span class="tag">AI Safety</span>
+            <span class="tag">Deepfake Detection</span>
+            <span class="tag">Dataset Condensation</span>
         </div>
 
-        <div class="social-row">
-            <a href="https://scholar.google.com/citations?user=n-OTCygAAAAJ&hl=ko&authuser=3" class="social-btn"><i class="fas fa-graduation-cap"></i></a>
-            <a href="https://github.com/PRE6ENT" class="social-btn"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/jaehyun-choi-6aa204101/" class="social-btn"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:your.email@example.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+        <div class="socials">
+            <a href="#" class="social-link" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+            <a href="#" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:your.email@example.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
         </div>
     </header>
 
-    <nav class="nav-bar">
-        <a href="#about" class="nav-item active">About</a>
-        <a href="#publications" class="nav-item">Research</a>
-        <a href="#education" class="nav-item">Education</a>
-        <a href="#experience" class="nav-item">Experience</a>
-        <a href="#awards" class="nav-item">Awards</a>
-    </nav>
+    <div class="nav-container">
+        <nav class="nav-menu">
+            <a href="#about" class="nav-link active">About</a>
+            <a href="#publications" class="nav-link">Publications</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#awards" class="nav-link">Awards</a>
+        </nav>
+    </div>
 
     <main class="content">
 
         <section id="about">
-            <p class="about-text">
-                I am a Ph.D. researcher building <strong>robust and efficient AI systems</strong>. My work bridges the gap between theoretical AI safety and scalable deployment, with a focus on <strong>synthesized media detection</strong> and <strong>data-efficient learning</strong>.
-            </p>
+            <div class="section-title">About</div>
+            <div class="about-content">
+                <p>
+                    I am a Researcher at the <a href="#" target="_blank">Korea AI Safety Institute (AISI)</a> within ETRI. 
+                    I received my Ph.D. in Electrical Engineering from <a href="http://siit.kaist.ac.kr/" target="_blank">KAIST</a> in 2026, where I was advised by Prof. Junmo Kim.
+                </p>
+                <br>
+                <p>
+                    My research interests lie in <strong>distribution matching</strong> (dataset condensation and domain adaptation/generalization), <strong>AI Safety</strong> (Explainable Deepfake Detection), and generative models.
+                </p>
+                <br>
+                <p>
+                    During my M.S., I was a member of the <a href="https://sites.google.com/site/vclabskku/" target="_blank">VC Lab at SKKU</a>, supervised by Prof. Jae-Pil Heo. I am actively seeking to apply my research in practical settings and contribute to innovative AI safety standards.
+                </p>
+            </div>
         </section>
 
         <section id="publications">
             <div class="section-header">
-                <h2 class="section-title">Publications</h2>
-                <div class="filter-tabs">
+                <div class="section-title" style="margin-bottom: 0;">Publications</div>
+                <div class="filter-group">
                     <button class="filter-btn active" onclick="filter('selected', this)">Selected</button>
                     <button class="filter-btn" onclick="filter('all', this)">All</button>
                 </div>
             </div>
 
-            <div class="pub-row" data-category="selected">
+            <div class="pub-item" data-category="selected">
                 <div class="pub-thumb">
-                    <img src="paper1.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=WACV+25'">
+                    <img src="paper1.jpg" onerror="this.src='https://placehold.co/320x200/f1f5f9/94a3b8?text=WACV'">
                 </div>
-                <div class="pub-data">
-                    <div class="pub-title">AH-OCDA: Amplitude-based Curriculum Learning for Domain Adaptation</div>
-                    <div style="font-size: 0.9rem; color: #4b5563; margin-bottom: 0.5rem;">
-                        <strong>J. Choi*</strong>, J. Ko*, D. Lee*, J. Kim
-                    </div>
+                <div class="pub-details">
+                    <div class="pub-title">AH-OCDA: Amplitude-based Curriculum Learning and Hopfield Segmentation Model</div>
+                    <div class="pub-authors"><strong>Jaehyun Choi*</strong>, Junwon Ko*, Dong-Jae Lee*, Junmo Kim</div>
                     <div class="pub-meta">
-                        <span class="badge-conf">WACV 2025</span>
-                        <div class="pub-links">
-                            <a href="#">PDF</a> <a href="#">CODE</a>
-                        </div>
+                        <span class="venue">WACV 2025</span>
+                        <span class="links"><a href="#">PDF</a> <a href="#">Code</a></span>
                     </div>
                 </div>
             </div>
 
-            <div class="pub-row" data-category="selected" style="border-left: 4px solid var(--accent-light);">
+            <div class="pub-item" data-category="selected">
                 <div class="pub-thumb">
-                    <img src="paper2.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=NeurIPS+24'">
+                    <img src="paper2.jpg" onerror="this.src='https://placehold.co/320x200/f1f5f9/94a3b8?text=NeurIPS'">
                 </div>
-                <div class="pub-data">
-                    <div class="pub-title">Unlocking Capabilities of Masked Generative Models via Self-Guidance</div>
-                    <div style="font-size: 0.9rem; color: #4b5563; margin-bottom: 0.5rem;">
-                        J. Hur, D. Lee, G. Han, <strong>J. Choi</strong>, J. Kim
-                    </div>
+                <div class="pub-details">
+                    <div class="pub-title">Unlocking the Capabilities of Masked Generative Models via Self-Guidance</div>
+                    <div class="pub-authors">Jiwan Hur, Dong-Jae Lee, Gyojin Han, <strong>Jaehyun Choi</strong>, Junmo Kim</div>
                     <div class="pub-meta">
-                        <span class="badge-conf">NeurIPS 2024</span>
-                        <span class="badge-award"><i class="fas fa-trophy"></i> Bronze Prize</span>
-                        <div class="pub-links">
-                            <a href="#">PDF</a> <a href="#">CODE</a>
-                        </div>
+                        <span class="venue">NeurIPS 2024</span>
+                        <span class="award"><i class="fas fa-trophy"></i> Bronze Prize</span>
+                        <span class="links"><a href="#">PDF</a> <a href="#">Code</a></span>
                     </div>
                 </div>
             </div>
 
-            <div class="pub-row" data-category="all">
+            <div class="pub-item" data-category="all">
                 <div class="pub-thumb">
-                    <img src="paper3.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=ECCV+24'">
+                    <img src="paper3.jpg" onerror="this.src='https://placehold.co/320x200/f1f5f9/94a3b8?text=ECCV'">
                 </div>
-                <div class="pub-data">
+                <div class="pub-details">
                     <div class="pub-title">Learning Neural Deformation Representation for 4D Dynamic Shape Generation</div>
-                    <div style="font-size: 0.9rem; color: #4b5563; margin-bottom: 0.5rem;">
-                        G. Han, J. Hur, <strong>J. Choi</strong>, J. Kim
-                    </div>
+                    <div class="pub-authors">Gyojin Han, Jiwan Hur, <strong>Jaehyun Choi</strong>, Junmo Kim</div>
                     <div class="pub-meta">
-                        <span class="badge-conf">ECCV 2024</span>
-                        <div class="pub-links">
-                            <a href="#">PDF</a> <a href="#">CODE</a>
-                        </div>
+                        <span class="venue">ECCV 2024</span>
+                        <span class="links"><a href="#">PDF</a> <a href="#">Code</a></span>
                     </div>
                 </div>
             </div>
 
-            <div class="pub-row" data-category="selected" style="border-left: 4px solid var(--accent-light);">
+            <div class="pub-item" data-category="selected">
                 <div class="pub-thumb">
-                    <img src="paper4.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=CVPR+23'">
+                    <img src="paper4.jpg" onerror="this.src='https://placehold.co/320x200/f1f5f9/94a3b8?text=CVPR'">
                 </div>
-                <div class="pub-data">
+                <div class="pub-details">
                     <div class="pub-title">Fix the Noise: Disentangling Source Feature for Controllable Translation</div>
-                    <div style="font-size: 0.9rem; color: #4b5563; margin-bottom: 0.5rem;">
-                        D. Lee, J. Lee, D. Kim, <strong>J. Choi</strong>, J. Kim
-                    </div>
+                    <div class="pub-authors">Dongyeun Lee, Jae Young Lee, Doyeon Kim, <strong>Jaehyun Choi</strong>, Junmo Kim</div>
                     <div class="pub-meta">
-                        <span class="badge-conf">CVPR 2023</span>
-                        <span class="badge-award"><i class="fas fa-trophy"></i> Best Paper</span>
-                        <div class="pub-links">
-                            <a href="#">PDF</a> <a href="#">CODE</a>
-                        </div>
+                        <span class="venue">CVPR 2023</span>
+                        <span class="award"><i class="fas fa-trophy"></i> Best Paper</span>
+                        <span class="links"><a href="#">PDF</a> <a href="#">Code</a></span>
                     </div>
-                </div>
-            </div>
-
-             <div class="pub-row" data-category="all">
-                <div class="pub-thumb">
-                    <img src="paper5.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=ICIP+23'">
-                </div>
-                <div class="pub-data">
-                    <div class="pub-title">Data Poisoning Attack Aiming the Vulnerability of Continual Learning</div>
-                    <div style="font-size: 0.9rem; color: #4b5563; margin-bottom: 0.5rem;">
-                        G. Han*, <strong>J. Choi*</strong>, H. Hong, J. Kim
-                    </div>
-                    <div class="pub-meta">
-                        <span class="badge-conf">ICIP 2023</span>
-                        <div class="pub-links">
-                            <a href="#">PDF</a> <a href="#">CODE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="education">
-            <div class="section-header">
-                <h2 class="section-title">Education</h2>
-            </div>
-            
-            <div class="exp-item">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-                <div class="exp-content">
-                    <h3>Ph.D. in Electrical Engineering</h3>
-                    <div class="org">Korea Advanced Institute of Science and Technology (KAIST)</div>
-                    <div class="time">Aug 2021 - Feb 2026</div>
-                </div>
-            </div>
-            
-            <div class="exp-item">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-                <div class="exp-content">
-                    <h3>M.S. in Artificial Intelligence</h3>
-                    <div class="org">Sungkyunkwan University (SKKU)</div>
-                    <div class="time">Aug 2019 - Aug 2021</div>
-                </div>
-            </div>
-
-            <div class="exp-item">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-                <div class="exp-content">
-                    <h3>B.S. in Electrical Engineering</h3>
-                    <div class="org">State University of New York at Buffalo</div>
-                    <div class="time">Aug 2012 - Feb 2019</div>
                 </div>
             </div>
         </section>
 
         <section id="experience">
-            <div class="section-header">
-                <h2 class="section-title">Experience</h2>
-            </div>
-            
-            <div class="exp-item">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-                <div class="exp-content">
-                    <h3>Researcher @ Korea AISI (ETRI)</h3>
-                    <div class="org">Electronics and Telecommunications Research Institute</div>
-                    <div class="time">Jun 2025 - Present</div>
+            <div class="section-title">Experience</div>
+            <div class="timeline-item">
+                <div class="time-date">Jun 2025 - Now</div>
+                <div class="time-content">
+                    <h3>Researcher @ Korea AISI</h3>
+                    <div class="time-org">Electronics and Telecommunications Research Institute (ETRI)</div>
                 </div>
             </div>
+            <div class="timeline-item">
+                <div class="time-date">2021 - 2026</div>
+                <div class="time-content">
+                    <h3>Ph.D. Researcher</h3>
+                    <div class="time-org">KAIST (SIIT Lab)</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-date">2022</div>
+                <div class="time-content">
+                    <h3>Research Assistant</h3>
+                    <div class="time-org">ETRI (Internship)</div>
+                </div>
+            </div>
+        </section>
 
-            <div class="exp-item">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-                <div class="exp-content">
-                    <h3>Research Assistant @ ETRI</h3>
-                    <div class="org">Internship</div>
-                    <div class="time">Aug 2022 - Dec 2022</div>
+        <section id="education">
+            <div class="section-title">Education</div>
+            <div class="timeline-item">
+                <div class="time-date">2021 - 2026</div>
+                <div class="time-content">
+                    <h3>Ph.D. in Electrical Engineering</h3>
+                    <div class="time-org">KAIST</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-date">2019 - 2021</div>
+                <div class="time-content">
+                    <h3>M.S. in Artificial Intelligence</h3>
+                    <div class="time-org">Sungkyunkwan University (SKKU)</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-date">2012 - 2019</div>
+                <div class="time-content">
+                    <h3>B.S. in Electrical Engineering</h3>
+                    <div class="time-org">SUNY at Buffalo</div>
                 </div>
             </div>
         </section>
 
         <section id="awards">
-            <div class="section-header">
-                <h2 class="section-title">Honors & Awards</h2>
-            </div>
-            <div class="award-item">
-                <div class="award-year">2025</div>
-                <div>
-                    <strong>Bronze Prize</strong>, Samsung HumanTech Paper Awards
+            <div class="section-title">Honors & Awards</div>
+            <div class="timeline-item">
+                <div class="time-date">2025</div>
+                <div class="time-content">
+                    <h3>Bronze Prize</h3>
+                    <div class="time-org">Samsung HumanTech Paper Awards</div>
                 </div>
             </div>
-            <div class="award-item">
-                <div class="award-year">2022</div>
-                <div>
-                    <strong>Best Paper Award</strong>, CVPR Workshop on AI for Content Creation
+            <div class="timeline-item">
+                <div class="time-date">2022</div>
+                <div class="time-content">
+                    <h3>Best Paper Award</h3>
+                    <div class="time-org">CVPR Workshop on AI for Content Creation</div>
                 </div>
             </div>
         </section>
@@ -459,15 +433,12 @@
 </div>
 
 <script>
-    // 1. FILTER FUNCTION
+    // FILTER LOGIC
     function filter(category, btn) {
-        // Toggle Button Active State
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         
-        // Toggle Publication Items
-        const items = document.querySelectorAll('.pub-row');
-        items.forEach(item => {
+        document.querySelectorAll('.pub-item').forEach(item => {
             if (category === 'all') {
                 item.style.display = 'flex';
             } else {
@@ -480,35 +451,21 @@
         });
     }
 
-    // 2. NAV HIGHLIGHTING
-    const navItems = document.querySelectorAll('.nav-item');
+    // SCROLL SPY
     const sections = document.querySelectorAll('section');
-    
-    // Click Handler
-    navItems.forEach(item => {
-        item.addEventListener('click', function() {
-            navItems.forEach(nav => nav.classList.remove('active'));
-            this.classList.add('active');
-        });
-    });
-
-    // Scroll Spy
+    const navLinks = document.querySelectorAll('.nav-link');
     window.addEventListener('scroll', () => {
         let current = '';
         sections.forEach(section => {
-            if (scrollY >= section.offsetTop - 200) {
-                current = section.getAttribute('id');
-            }
+            if (scrollY >= section.offsetTop - 150) current = section.getAttribute('id');
         });
-        navItems.forEach(link => {
+        navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href').includes(current)) {
-                link.classList.add('active');
-            }
+            if (link.getAttribute('href').includes(current)) link.classList.add('active');
         });
     });
 
-    // Initialize with Selected
+    // Default Init
     filter('selected', document.querySelector('.filter-btn.active'));
 </script>
 
