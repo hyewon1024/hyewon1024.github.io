@@ -500,7 +500,7 @@
 
             <div class="filter-tabs" id="yeargroup-tabs">
               <button class="filter-btn active" data-yeargroup="all">All years</button>
-              <button class="filter-btn" data-yeargroup="recent">Recent 5 years</button>
+              <button class="filter-btn" data-yeargroup="recent">Recent 3 years</button>
               <button class="filter-btn" data-yeargroup="older">Older</button>
             </div>
 
@@ -724,7 +724,7 @@
     /* =========================
        Publications: filter + pagination
        - Category: All / Selected
-       - Year group: All years / Recent 5 years / Older (DATE-based: today - 5 years)
+       - Year group: All years / Recent 3 years / Older (DATE-based: today - 3 years)
        - Conference: dropdown (auto options)
        - Pagination: publications only (5 per page)
     ========================= */
@@ -763,7 +763,7 @@
     function recentCutoffDate() {
       const cutoff = new Date();
       cutoff.setHours(0, 0, 0, 0);
-      cutoff.setFullYear(cutoff.getFullYear() - 5);
+      cutoff.setFullYear(cutoff.getFullYear() - 3);
       return cutoff;
     }
 
