@@ -11,14 +11,20 @@
 
   <style>
     :root {
-      /* THEME: "Intellectual Teal" */
-      --primary: #0f766e;       /* Deep Teal */
-      --primary-light: #14b8a6; /* Bright Teal */
-      --bg-body: #f1f5f9;
+      /* THEME (AISI-like): Deep Blue + Orange Accent */
+      --primary: #0b408d;        /* Logo Blue */
+      --primary-light: #1f6fdd;  /* Brighter Blue */
+      --accent: #ff3300;         /* Logo Orange */
+      --accent-soft: #fff0ea;    /* Soft Orange Background */
+
+      --bg-body: #f3f6fc;        /* Cool light background */
       --bg-paper: #ffffff;
-      --text-main: #1e293b;
-      --text-muted: #64748b;
-      --border-subtle: #e2e8f0;
+
+      --text-main: #0f172a;      /* Deep navy text */
+      --text-muted: #475569;
+
+      --border-subtle: #e5e7eb;
+
       --radius-lg: 24px;
       --radius-sm: 12px;
     }
@@ -34,22 +40,21 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* --- 1. FLOATING CONTAINER --- */
     .wrapper {
       max-width: 850px;
       margin: 2rem auto;
       background: var(--bg-paper);
       border-radius: var(--radius-lg);
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 20px 40px -10px rgba(2, 6, 23, 0.12);
       overflow: hidden;
       position: relative;
     }
 
-    /* --- 2. HERO BANNER --- */
+    /* --- HERO --- */
     .hero {
       position: relative;
       padding: 4.5rem 2rem 3rem 2rem;
-      background: radial-gradient(circle at 50% 0%, #ccfbf1 0%, #ffffff 80%);
+      background: radial-gradient(circle at 50% 0%, #eaf2ff 0%, #ffffff 75%);
       text-align: center;
     }
 
@@ -64,8 +69,8 @@
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid white;
-      box-shadow: 0 10px 15px -3px rgba(15, 118, 110, 0.2);
-      background-color: #ccfbf1;
+      box-shadow: 0 10px 15px -3px rgba(11, 64, 141, 0.22);
+      background-color: #eaf2ff;
     }
 
     .name {
@@ -78,8 +83,7 @@
     }
 
     .role { font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.2rem; }
-    .role strong { color: var(--primary); font-weight: 700; }
-
+    .role strong { color: var(--primary); font-weight: 800; }
     .degree { font-size: 1rem; color: var(--text-muted); margin-bottom: 1.5rem; }
 
     .expertise-row {
@@ -90,11 +94,16 @@
       display: inline-flex; align-items: center; gap: 6px;
       background: white; border: 1px solid var(--border-subtle);
       color: var(--text-main); padding: 6px 14px;
-      border-radius: 99px; font-size: 0.85rem; font-weight: 600;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.03); transition: all 0.2s;
+      border-radius: 99px; font-size: 0.85rem; font-weight: 700;
+      box-shadow: 0 2px 4px rgba(2,6,23,0.03);
+      transition: all 0.2s;
     }
-    .exp-tag i { color: var(--primary-light); font-size: 0.9rem; }
-    .exp-tag:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
+    .exp-tag i { color: var(--accent); font-size: 0.9rem; }
+    .exp-tag:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
 
     .social-row { display: flex; justify-content: center; gap: 1rem; }
     .social-btn {
@@ -103,11 +112,14 @@
       transition: all 0.2s; text-decoration: none; font-size: 1.1rem;
     }
     .social-btn:hover {
-      transform: translateY(-2px); border-color: var(--primary); color: white; background: var(--primary);
-      box-shadow: 0 4px 6px -1px rgba(15, 118, 110, 0.3);
+      transform: translateY(-2px);
+      border-color: var(--primary);
+      color: white;
+      background: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(11, 64, 141, 0.30);
     }
 
-    /* --- 3. STICKY NAV --- */
+    /* --- STICKY NAV --- */
     .nav-bar {
       position: sticky; top: 1rem; z-index: 100;
       margin: 0 1.5rem;
@@ -115,69 +127,98 @@
       backdrop-filter: blur(10px);
       border-radius: 16px;
       border: 1px solid rgba(255,255,255,0.5);
-      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 20px -5px rgba(2, 6, 23, 0.06);
       padding: 0.6rem;
       display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap;
     }
 
     .nav-item {
       padding: 0.5rem 1.2rem; border-radius: 10px;
-      text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem;
+      text-decoration: none; color: var(--text-muted); font-weight: 700; font-size: 0.9rem;
       transition: all 0.2s;
     }
-    .nav-item:hover { color: var(--text-main); background: #f1f5f9; }
-    .nav-item.active { background: var(--text-main); color: white; }
+    .nav-item:hover { color: var(--text-main); background: #eef2ff; }
+    .nav-item.active { background: var(--primary); color: white; }
 
-    /* --- 4. CONTENT --- */
+    /* --- CONTENT --- */
     .content { padding: 4rem 3rem; }
     section { margin-bottom: 5rem; scroll-margin-top: 5rem; }
 
     .section-header {
       display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 2rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px;
+      margin-bottom: 2rem; border-bottom: 2px solid #eef2ff; padding-bottom: 12px;
       gap: 12px; flex-wrap: wrap;
     }
-    .section-title { font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text-main); }
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
 
-    .about-text { font-size: 1.05rem; color: #374151; margin-bottom: 1rem; }
+    .about-text { font-size: 1.05rem; color: #334155; margin-bottom: 1rem; }
     .about-text a {
-      color: var(--primary); text-decoration: none; font-weight: 600;
-      border-bottom: 1px solid transparent; transition: 0.2s;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 800;
+      border-bottom: 1px solid transparent;
+      transition: 0.2s;
     }
     .about-text a:hover { border-bottom-color: var(--primary); }
 
     /* --- PUBLICATION FILTER UI --- */
     .filters {
-      display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: flex-end;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
     }
 
-    .filter-tabs { display: flex; gap: 5px; background: #f1f5f9; padding: 4px; border-radius: 99px; }
+    .filter-tabs {
+      display: flex;
+      gap: 5px;
+      background: #eef2ff;
+      padding: 4px;
+      border-radius: 99px;
+      border: 1px solid rgba(11, 64, 141, 0.10);
+    }
     .filter-btn {
-      background: transparent; border: none; padding: 6px 14px;
-      font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 600;
-      color: var(--text-muted); cursor: pointer; transition: 0.2s;
+      background: transparent;
+      border: none;
+      padding: 6px 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: 0.2s;
       border-radius: 99px;
       white-space: nowrap;
     }
     .filter-btn:hover { color: var(--primary); }
-    .filter-btn.active { background: white; color: var(--primary); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    .filter-btn.active {
+      background: white;
+      color: var(--primary);
+      box-shadow: 0 2px 4px rgba(2,6,23,0.06);
+    }
 
     .conf-select {
       border: 1px solid var(--border-subtle);
       background: white;
       border-radius: 12px;
       padding: 8px 10px;
-      font-weight: 600;
+      font-weight: 800;
       color: var(--text-muted);
       outline: none;
       cursor: pointer;
     }
-    .conf-select:focus { border-color: var(--primary-light); }
+    .conf-select:focus { border-color: rgba(11, 64, 141, 0.45); }
 
     /* --- PUBLICATION BOXES --- */
     .pub-row {
       display: flex; gap: 1.5rem; padding: 1.5rem; margin-bottom: 1.5rem;
-      background: #f8fafc;
+      background: #f6f8ff;
       border: 1px solid transparent;
       border-radius: var(--radius-sm);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -187,43 +228,61 @@
     .pub-row:hover {
       transform: translateY(-3px);
       background: white;
-      border-color: var(--primary-light);
-      box-shadow: 0 10px 25px -5px rgba(15, 118, 110, 0.15);
+      border-color: rgba(11, 64, 141, 0.35);
+      box-shadow: 0 10px 25px -5px rgba(11, 64, 141, 0.14);
     }
 
     .pub-thumb {
       width: 150px; height: 100px; flex-shrink: 0;
-      border-radius: 8px; overflow: hidden; background: #e2e8f0; border: 1px solid var(--border-subtle);
+      border-radius: 8px; overflow: hidden; background: #e5e7eb; border: 1px solid var(--border-subtle);
     }
     .pub-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
     .pub-data { flex: 1; display: flex; flex-direction: column; }
-    .pub-title { font-weight: 700; font-size: 1.1rem; line-height: 1.35; margin-bottom: 6px; color: var(--text-main); }
+    .pub-title { font-weight: 900; font-size: 1.1rem; line-height: 1.35; margin-bottom: 6px; color: var(--text-main); }
     .pub-authors { color: #475569; }
 
     .pub-meta {
-      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
       font-size: 0.85rem; font-family: 'JetBrains Mono', monospace; margin-top: 10px;
     }
-    .badge-conf { color: var(--primary); font-weight: 700; }
+    .badge-conf { color: var(--primary); font-weight: 900; }
     .badge-year {
-      color: #334155;
-      background: #e2e8f0;
+      color: #0f172a;
+      background: #eaf2ff;
       padding: 2px 8px;
       border-radius: 6px;
-      font-weight: 700;
+      font-weight: 900;
+      border: 1px solid rgba(11, 64, 141, 0.12);
     }
     .badge-award {
-      color: #b45309; font-weight: 700; display: flex; align-items: center; gap: 4px;
-      background: #fffbeb; padding: 2px 8px; border-radius: 6px;
+      color: var(--accent);
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-soft);
+      padding: 2px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 51, 0, 0.18);
     }
 
     .pub-links a {
-      color: var(--text-muted); text-decoration: none; font-weight: 600;
-      border: 1px solid var(--border-subtle); padding: 2px 8px; border-radius: 6px;
-      font-size: 0.75rem; transition: 0.2s; background: white;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 900;
+      border: 1px solid var(--border-subtle);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      transition: 0.2s;
+      background: white;
     }
-    .pub-links a:hover { border-color: var(--primary); color: white; background: var(--primary); }
+    .pub-links a:hover {
+      border-color: var(--primary);
+      color: white;
+      background: var(--primary);
+    }
 
     /* --- Pagination --- */
     #pub-pagination {
@@ -236,33 +295,33 @@
       border-radius: 10px;
       padding: 6px 12px;
       cursor: pointer;
-      font-weight: 700;
+      font-weight: 900;
       color: var(--text-muted);
       transition: 0.2s;
     }
     .page-btn:hover { border-color: var(--primary); color: var(--primary); }
-    .page-btn.active { background: var(--text-main); color: white; border-color: var(--text-main); }
+    .page-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
     .page-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
     /* --- EXPERIENCE & EDUCATION --- */
     .exp-item { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; position: relative; }
-    .exp-line { width: 2px; background: var(--border-subtle); position: absolute; top: 12px; bottom: -40px; left: 6px; }
+    .exp-line { width: 2px; background: #eaf2ff; position: absolute; top: 12px; bottom: -40px; left: 6px; }
     .exp-item:last-child .exp-line { display: none; }
     .exp-dot {
       width: 14px; height: 14px; border-radius: 50%; background: white;
       border: 3px solid var(--primary); z-index: 2; flex-shrink: 0; margin-top: 6px;
     }
-    .exp-content h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; }
-    .exp-content .org { color: var(--text-muted); font-size: 0.95rem; font-weight: 500; margin-bottom: 4px; }
-    .exp-content .time { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #9ca3af; }
+    .exp-content h3 { font-size: 1.1rem; font-weight: 900; margin-bottom: 2px; }
+    .exp-content .org { color: var(--text-muted); font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+    .exp-content .time { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #94a3b8; }
 
     .award-item {
       display: flex; gap: 1rem; align-items: baseline; margin-bottom: 1rem;
-      padding: 1rem; background: #f8fafc; border-radius: 12px; border: 1px solid transparent;
+      padding: 1rem; background: #f6f8ff; border-radius: 12px; border: 1px solid transparent;
       transition: 0.2s;
     }
-    .award-item:hover { border-color: var(--primary-light); background: white; }
-    .award-year { font-weight: 700; color: var(--primary); font-family: 'JetBrains Mono'; min-width: 50px; }
+    .award-item:hover { border-color: rgba(11, 64, 141, 0.25); background: white; }
+    .award-year { font-weight: 900; color: var(--primary); font-family: 'JetBrains Mono'; min-width: 50px; }
 
     @media (max-width: 600px) {
       .wrapper { margin: 0; border-radius: 0; box-shadow: none; }
@@ -272,7 +331,7 @@
       .pub-thumb { width: 100%; height: 160px; }
       .nav-bar {
         overflow-x: auto; justify-content: flex-start; margin: 0;
-        border-radius: 0; border: none; border-bottom: 1px solid rgba(0,0,0,0.05);
+        border-radius: 0; border: none; border-bottom: 1px solid rgba(2,6,23,0.06);
       }
       .nav-item { white-space: nowrap; }
       .filters { justify-content: flex-start; }
@@ -287,7 +346,7 @@
     <header class="hero">
       <div class="profile-wrap">
         <img src="profile.jpg" alt="Jaehyun Choi" class="profile-img"
-             onerror="this.src='https://ui-avatars.com/api/?name=JC&background=0f766e&color=fff&size=200'">
+             onerror="this.src='https://ui-avatars.com/api/?name=JC&background=0b408d&color=fff&size=200'">
       </div>
 
       <h1 class="name">Jaehyun Choi</h1>
@@ -324,7 +383,7 @@
     <main class="content">
 
       <section id="about">
-        <div class="section-title" style="margin-bottom: 1.5rem; font-family: 'Outfit'; font-weight: 700; font-size: 1.4rem;">About</div>
+        <div class="section-title" style="margin-bottom: 1.5rem; font-family: 'Outfit'; font-weight: 800; font-size: 1.4rem;">About</div>
         <div class="about-text">
           <p>
             I am a Researcher at the <a href="#" target="_blank" rel="noreferrer">Korea AI Safety Institute (AISI)</a> within ETRI.
@@ -348,34 +407,26 @@
           <h2 class="section-title">Publications</h2>
 
           <div class="filters">
-            <!-- Category: All / Selected -->
             <div class="filter-tabs" id="category-tabs">
               <button class="filter-btn active" data-category="all">All</button>
               <button class="filter-btn" data-category="selected">Selected</button>
             </div>
 
-            <!-- Year group: All years / Recent 5 years / Older -->
             <div class="filter-tabs" id="yeargroup-tabs">
               <button class="filter-btn active" data-yeargroup="all">All years</button>
               <button class="filter-btn" data-yeargroup="recent">Recent 5 years</button>
               <button class="filter-btn" data-yeargroup="older">Older</button>
             </div>
 
-            <!-- Conference dropdown -->
             <select id="conf-select" class="conf-select" aria-label="Filter by conference">
               <option value="all">All conferences</option>
-              <!-- auto-filled by JS -->
             </select>
           </div>
         </div>
 
-        <!-- IMPORTANT:
-             Add data-year and data-conf to each pub-row.
-             - data-category: "selected" for selected papers; "all" for non-selected
-             - data-year: "2025" etc
-             - data-conf: "WACV" / "NeurIPS" / "ECCV" / "CVPR" / "ICIP" ... -->
+        <!-- For precise "Recent 5 years", set data-date="YYYY-MM-DD" for each pub-row. -->
 
-        <div class="pub-row" data-category="selected" data-year="2025" data-conf="WACV">
+        <div class="pub-row" data-category="selected" data-year="2025" data-conf="WACV" data-date="2025-01-15">
           <div class="pub-thumb">
             <img src="paper1.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=WACV+25'">
           </div>
@@ -392,7 +443,7 @@
           </div>
         </div>
 
-        <div class="pub-row" data-category="selected" data-year="2024" data-conf="NeurIPS">
+        <div class="pub-row" data-category="selected" data-year="2024" data-conf="NeurIPS" data-date="2024-12-10">
           <div class="pub-thumb">
             <img src="paper2.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=NeurIPS+24'">
           </div>
@@ -410,7 +461,7 @@
           </div>
         </div>
 
-        <div class="pub-row" data-category="all" data-year="2024" data-conf="ECCV">
+        <div class="pub-row" data-category="all" data-year="2024" data-conf="ECCV" data-date="2024-10-01">
           <div class="pub-thumb">
             <img src="paper3.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=ECCV+24'">
           </div>
@@ -427,7 +478,7 @@
           </div>
         </div>
 
-        <div class="pub-row" data-category="selected" data-year="2023" data-conf="CVPR">
+        <div class="pub-row" data-category="selected" data-year="2023" data-conf="CVPR" data-date="2023-06-18">
           <div class="pub-thumb">
             <img src="paper4.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=CVPR+23'">
           </div>
@@ -445,7 +496,7 @@
           </div>
         </div>
 
-        <div class="pub-row" data-category="all" data-year="2023" data-conf="ICIP">
+        <div class="pub-row" data-category="all" data-year="2023" data-conf="ICIP" data-date="2023-10-08">
           <div class="pub-thumb">
             <img src="paper5.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=ICIP+23'">
           </div>
@@ -462,7 +513,6 @@
           </div>
         </div>
 
-        <!-- Pagination (Publications only) -->
         <div id="pub-pagination"></div>
       </section>
 
@@ -559,9 +609,9 @@
     /* =========================
        Publications: filter + pagination
        - Category: All / Selected
-       - Year group: All years / Recent 5 years / Older (auto)
+       - Year group: All years / Recent 5 years / Older (DATE-based: today - 5 years)
        - Conference: dropdown (auto options)
-       - Pagination: publications only
+       - Pagination: publications only (5 per page)
     ========================= */
 
     const pubItems = Array.from(document.querySelectorAll('.pub-row'));
@@ -579,18 +629,6 @@
       perPage: 5
     };
 
-    function getCurrentYear() {
-      return new Date().getFullYear();
-    }
-
-    function isRecent5Years(yearStr) {
-      const y = Number(yearStr);
-      if (!Number.isFinite(y)) return false;
-      const current = getCurrentYear();
-      // "recent 5 years" = current year and previous 4 years
-      return y >= (current - 4);
-    }
-
     function setActiveButton(container, btn) {
       container.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
@@ -600,7 +638,6 @@
       const confs = [...new Set(pubItems.map(el => (el.dataset.conf || '').trim()).filter(Boolean))]
         .sort((a, b) => a.localeCompare(b));
 
-      // keep the first "All conferences", then append
       confs.forEach(c => {
         const opt = document.createElement('option');
         opt.value = c;
@@ -609,15 +646,40 @@
       });
     }
 
+    // "Recent 5 years" = from (today - 5 years) up to today, precise to date
+    function recentCutoffDate() {
+      const cutoff = new Date();
+      cutoff.setHours(0, 0, 0, 0);
+      cutoff.setFullYear(cutoff.getFullYear() - 5);
+      return cutoff;
+    }
+
+    function parsePubDate(el) {
+      const ds = (el.dataset.date || '').trim();
+      if (ds) {
+        const d = new Date(ds + 'T00:00:00');
+        if (!Number.isNaN(d.getTime())) return d;
+      }
+      const y = Number(el.dataset.year);
+      if (Number.isFinite(y)) return new Date(y, 0, 1);
+      return null;
+    }
+
+    function isRecent5Years(el) {
+      const cutoff = recentCutoffDate();
+      const d = parsePubDate(el);
+      if (!d) return false;
+      return d >= cutoff;
+    }
+
     function getFilteredItems() {
       return pubItems.filter(el => {
         const catOk = (state.category === 'all') || (el.dataset.category === 'selected');
 
-        const year = el.dataset.year || '';
         const yearOk =
           (state.yearGroup === 'all') ||
-          (state.yearGroup === 'recent' && isRecent5Years(year)) ||
-          (state.yearGroup === 'older' && year && !isRecent5Years(year));
+          (state.yearGroup === 'recent' && isRecent5Years(el)) ||
+          (state.yearGroup === 'older' && !isRecent5Years(el));
 
         const conf = (el.dataset.conf || '').trim();
         const confOk = (state.conf === 'all') || (conf === state.conf);
@@ -628,7 +690,7 @@
 
     function renderPagination(totalPages) {
       paginationEl.innerHTML = '';
-      if (totalPages <= 1) return; // hide pagination if not needed
+      if (totalPages <= 1) return;
 
       const prev = document.createElement('button');
       prev.className = 'page-btn';
@@ -658,10 +720,8 @@
       const totalPages = Math.max(1, Math.ceil(filtered.length / state.perPage));
       state.page = Math.min(state.page, totalPages);
 
-      // hide all
       pubItems.forEach(el => { el.style.display = 'none'; });
 
-      // show current page slice
       const start = (state.page - 1) * state.perPage;
       const end = start + state.perPage;
       filtered.slice(start, end).forEach(el => { el.style.display = 'flex'; });
@@ -669,7 +729,6 @@
       renderPagination(totalPages);
     }
 
-    // Wire up category tabs
     categoryTabs.addEventListener('click', (e) => {
       const btn = e.target.closest('.filter-btn');
       if (!btn) return;
@@ -679,7 +738,6 @@
       renderPublications();
     });
 
-    // Wire up year group tabs
     yearGroupTabs.addEventListener('click', (e) => {
       const btn = e.target.closest('.filter-btn');
       if (!btn) return;
@@ -689,20 +747,18 @@
       renderPublications();
     });
 
-    // Wire up conference select
     confSelect.addEventListener('change', () => {
       state.conf = confSelect.value;
       state.page = 1;
       renderPublications();
     });
 
-    // Init
     buildConferenceOptions();
     renderPublications();
 
 
     /* =========================
-       Nav highlighting (your existing behavior)
+       Nav highlighting
     ========================= */
     const navItems = document.querySelectorAll('.nav-item');
     const sections = document.querySelectorAll('section');
