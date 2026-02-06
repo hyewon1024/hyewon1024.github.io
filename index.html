@@ -1,549 +1,733 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="google-site-verification" content="anzt0wvEVhz8MU-ItcHR-EFR9zF8GM1MVLpbx-l-ww4" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaehyun Choi | AI Research</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            /* THEME: "Intellectual Teal" */
-            --primary: #0f766e;       /* Deep Teal */
-            --primary-light: #14b8a6; /* Bright Teal */
-            
-            --bg-body: #f1f5f9;       /* Background slightly darker for contrast */
-            --bg-paper: #ffffff;      
-            
-            --text-main: #1e293b;     
-            --text-muted: #64748b;    
-            
-            --border-subtle: #e2e8f0;
-            
-            --radius-lg: 24px;
-            --radius-sm: 12px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="google-site-verification" content="anzt0wvEVhz8MU-ItcHR-EFR9zF8GM1MVLpbx-l-ww4" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jaehyun Choi | AI Research</title>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            line-height: 1.7;
-            padding-bottom: 5rem;
-            -webkit-font-smoothing: antialiased;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        /* --- 1. FLOATING CONTAINER --- */
-        .wrapper {
-            max-width: 850px;
-            margin: 2rem auto;
-            background: var(--bg-paper);
-            border-radius: var(--radius-lg);
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            position: relative;
-        }
+  <style>
+    :root {
+      /* THEME: "Intellectual Teal" */
+      --primary: #0f766e;       /* Deep Teal */
+      --primary-light: #14b8a6; /* Bright Teal */
+      --bg-body: #f1f5f9;
+      --bg-paper: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border-subtle: #e2e8f0;
+      --radius-lg: 24px;
+      --radius-sm: 12px;
+    }
 
-        /* --- 2. HERO BANNER --- */
-        .hero {
-            position: relative;
-            padding: 4.5rem 2rem 3rem 2rem;
-            /* Stronger Gradient to match theme */
-            background: radial-gradient(circle at 50% 0%, #ccfbf1 0%, #ffffff 80%);
-            text-align: center;
-        }
-        
-        .profile-wrap {
-            position: relative;
-            width: 130px; height: 130px;
-            margin: 0 auto 1.5rem auto;
-        }
-        
-        .profile-img {
-            width: 100%; height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid white;
-            box-shadow: 0 10px 15px -3px rgba(15, 118, 110, 0.2); /* Teal tinted shadow */
-            background-color: #ccfbf1;
-        }
-        
-        .name {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.5rem;
-            color: var(--text-main);
-        }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .role {
-            font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.2rem;
-        }
-        .role strong { color: var(--primary); font-weight: 700; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding-bottom: 5rem;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .degree {
-            font-size: 1rem; color: var(--text-muted); margin-bottom: 1.5rem;
-        }
-        
-        .expertise-row {
-            display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2rem;
-        }
-        
-        .exp-tag {
-            display: inline-flex; align-items: center; gap: 6px;
-            background: white; border: 1px solid var(--border-subtle);
-            color: var(--text-main); padding: 6px 14px; 
-            border-radius: 99px; font-size: 0.85rem; font-weight: 600;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.03); transition: all 0.2s;
-        }
-        .exp-tag i { color: var(--primary-light); font-size: 0.9rem; }
-        .exp-tag:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
+    /* --- 1. FLOATING CONTAINER --- */
+    .wrapper {
+      max-width: 850px;
+      margin: 2rem auto;
+      background: var(--bg-paper);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+    }
 
-        .social-row { display: flex; justify-content: center; gap: 1rem; }
-        .social-btn {
-            width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
-            border-radius: 50%; background: white; border: 1px solid var(--border-subtle); color: var(--text-muted);
-            transition: all 0.2s; text-decoration: none; font-size: 1.1rem;
-        }
-        .social-btn:hover {
-            transform: translateY(-2px); border-color: var(--primary); color: white; background: var(--primary);
-            box-shadow: 0 4px 6px -1px rgba(15, 118, 110, 0.3);
-        }
+    /* --- 2. HERO BANNER --- */
+    .hero {
+      position: relative;
+      padding: 4.5rem 2rem 3rem 2rem;
+      background: radial-gradient(circle at 50% 0%, #ccfbf1 0%, #ffffff 80%);
+      text-align: center;
+    }
 
-        /* --- 3. STICKY NAV --- */
-        .nav-bar {
-            position: sticky; top: 1rem; z-index: 100;
-            margin: 0 1.5rem;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.5);
-            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
-            padding: 0.6rem;
-            display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap;
-        }
+    .profile-wrap {
+      position: relative;
+      width: 130px; height: 130px;
+      margin: 0 auto 1.5rem auto;
+    }
 
-        .nav-item {
-            padding: 0.5rem 1.2rem; border-radius: 10px;
-            text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem;
-            transition: all 0.2s;
-        }
-        .nav-item:hover { color: var(--text-main); background: #f1f5f9; }
-        .nav-item.active { background: var(--text-main); color: white; }
+    .profile-img {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 10px 15px -3px rgba(15, 118, 110, 0.2);
+      background-color: #ccfbf1;
+    }
 
-        /* --- 4. CONTENT --- */
-        .content { padding: 4rem 3rem; }
-        
-        section { margin-bottom: 5rem; scroll-margin-top: 5rem; }
+    .name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
 
-        .section-header {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 2rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px;
-        }
-        .section-title { font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text-main); }
-        
-        .about-text {
-            font-size: 1.05rem; color: #374151; margin-bottom: 1rem;
-        }
-        .about-text a {
-            color: var(--primary); text-decoration: none; font-weight: 600;
-            border-bottom: 1px solid transparent; transition: 0.2s;
-        }
-        .about-text a:hover { border-bottom-color: var(--primary); }
+    .role { font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.2rem; }
+    .role strong { color: var(--primary); font-weight: 700; }
 
-        /* --- HARMONIZED PUBLICATION LIST --- */
-        
-        /* New "Pill" Filter Buttons */
-        .filter-tabs { display: flex; gap: 5px; background: #f1f5f9; padding: 4px; border-radius: 99px; }
-        .filter-btn {
-            background: transparent; border: none; padding: 6px 16px;
-            font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 600;
-            color: var(--text-muted); cursor: pointer; transition: 0.2s;
-            border-radius: 99px;
-        }
-        .filter-btn:hover { color: var(--primary); }
-        .filter-btn.active { background: white; color: var(--primary); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    .degree { font-size: 1rem; color: var(--text-muted); margin-bottom: 1.5rem; }
 
-        /* VISIBLE BOXES: Harmonized Colors */
-        .pub-row {
-            display: flex; gap: 1.5rem; padding: 1.5rem; margin-bottom: 1.5rem;
-            /* DISTINCT BACKGROUND COLOR to act as a box */
-            background: #f8fafc; 
-            border: 1px solid transparent; 
-            border-radius: var(--radius-sm);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-        
-        .pub-row:hover { 
-            transform: translateY(-3px); 
-            background: white; /* Lift up to white */
-            border-color: var(--primary-light); /* Teal Border on Hover */
-            box-shadow: 0 10px 25px -5px rgba(15, 118, 110, 0.15); /* Teal Shadow */
-        }
+    .expertise-row {
+      display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2rem;
+    }
 
-        .pub-thumb {
-            width: 150px; height: 100px; flex-shrink: 0;
-            border-radius: 8px; overflow: hidden; background: #e2e8f0; border: 1px solid var(--border-subtle);
-        }
-        .pub-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .exp-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: white; border: 1px solid var(--border-subtle);
+      color: var(--text-main); padding: 6px 14px;
+      border-radius: 99px; font-size: 0.85rem; font-weight: 600;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03); transition: all 0.2s;
+    }
+    .exp-tag i { color: var(--primary-light); font-size: 0.9rem; }
+    .exp-tag:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
 
-        .pub-data { flex: 1; display: flex; flex-direction: column; }
-        .pub-title { font-weight: 700; font-size: 1.1rem; line-height: 1.35; margin-bottom: 6px; color: var(--text-main); }
-        
-        .pub-meta { 
-            display: flex; align-items: center; gap: 12px; flex-wrap: wrap; 
-            font-size: 0.85rem; font-family: 'JetBrains Mono', monospace; margin-top: auto;
-        }
-        .badge-conf { color: var(--primary); font-weight: 700; }
-        .badge-award { 
-            color: #b45309; font-weight: 700; display: flex; align-items: center; gap: 4px; 
-            background: #fffbeb; padding: 2px 8px; border-radius: 4px;
-        }
-        
-        .pub-links a {
-            color: var(--text-muted); text-decoration: none; font-weight: 600; 
-            border: 1px solid var(--border-subtle); padding: 2px 8px; border-radius: 6px;
-            font-size: 0.75rem; transition: 0.2s; background: white;
-        }
-        .pub-links a:hover { border-color: var(--primary); color: white; background: var(--primary); }
+    .social-row { display: flex; justify-content: center; gap: 1rem; }
+    .social-btn {
+      width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
+      border-radius: 50%; background: white; border: 1px solid var(--border-subtle); color: var(--text-muted);
+      transition: all 0.2s; text-decoration: none; font-size: 1.1rem;
+    }
+    .social-btn:hover {
+      transform: translateY(-2px); border-color: var(--primary); color: white; background: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(15, 118, 110, 0.3);
+    }
 
-        /* --- EXPERIENCE & EDUCATION --- */
-        .exp-item {
-            display: flex; gap: 1.5rem; margin-bottom: 2.5rem; position: relative;
-        }
-        .exp-line {
-            width: 2px; background: var(--border-subtle); position: absolute; top: 12px; bottom: -40px; left: 6px;
-        }
-        .exp-item:last-child .exp-line { display: none; }
-        .exp-dot {
-            width: 14px; height: 14px; border-radius: 50%; background: white;
-            border: 3px solid var(--primary); z-index: 2; flex-shrink: 0; margin-top: 6px;
-        }
-        .exp-content h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; }
-        .exp-content .org { color: var(--text-muted); font-size: 0.95rem; font-weight: 500; margin-bottom: 4px; }
-        .exp-content .time { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #9ca3af; }
+    /* --- 3. STICKY NAV --- */
+    .nav-bar {
+      position: sticky; top: 1rem; z-index: 100;
+      margin: 0 1.5rem;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.5);
+      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+      padding: 0.6rem;
+      display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap;
+    }
 
-        .award-item {
-            display: flex; gap: 1rem; align-items: baseline; margin-bottom: 1rem;
-            padding: 1rem; background: #f8fafc; border-radius: 12px; border: 1px solid transparent;
-            transition: 0.2s;
-        }
-        .award-item:hover { border-color: var(--primary-light); background: white; }
-        .award-year { font-weight: 700; color: var(--primary); font-family: 'JetBrains Mono'; min-width: 50px; }
+    .nav-item {
+      padding: 0.5rem 1.2rem; border-radius: 10px;
+      text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .nav-item:hover { color: var(--text-main); background: #f1f5f9; }
+    .nav-item.active { background: var(--text-main); color: white; }
 
-        @media (max-width: 600px) {
-            .wrapper { margin: 0; border-radius: 0; box-shadow: none; }
-            .content { padding: 2rem 1.5rem; }
-            .hero { padding: 4rem 1.5rem 3rem 1.5rem; }
-            .pub-row { flex-direction: column; gap: 1rem; }
-            .pub-thumb { width: 100%; height: 160px; }
-            .nav-bar { overflow-x: auto; justify-content: flex-start; margin: 0; border-radius: 0; border: none; border-bottom: 1px solid rgba(0,0,0,0.05); }
-            .nav-item { white-space: nowrap; }
-        }
-    </style>
+    /* --- 4. CONTENT --- */
+    .content { padding: 4rem 3rem; }
+    section { margin-bottom: 5rem; scroll-margin-top: 5rem; }
+
+    .section-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 2rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px;
+      gap: 12px; flex-wrap: wrap;
+    }
+    .section-title { font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text-main); }
+
+    .about-text { font-size: 1.05rem; color: #374151; margin-bottom: 1rem; }
+    .about-text a {
+      color: var(--primary); text-decoration: none; font-weight: 600;
+      border-bottom: 1px solid transparent; transition: 0.2s;
+    }
+    .about-text a:hover { border-bottom-color: var(--primary); }
+
+    /* --- PUBLICATION FILTER UI --- */
+    .filters {
+      display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: flex-end;
+    }
+
+    .filter-tabs { display: flex; gap: 5px; background: #f1f5f9; padding: 4px; border-radius: 99px; }
+    .filter-btn {
+      background: transparent; border: none; padding: 6px 14px;
+      font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 600;
+      color: var(--text-muted); cursor: pointer; transition: 0.2s;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+    .filter-btn:hover { color: var(--primary); }
+    .filter-btn.active { background: white; color: var(--primary); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+
+    .conf-select {
+      border: 1px solid var(--border-subtle);
+      background: white;
+      border-radius: 12px;
+      padding: 8px 10px;
+      font-weight: 600;
+      color: var(--text-muted);
+      outline: none;
+      cursor: pointer;
+    }
+    .conf-select:focus { border-color: var(--primary-light); }
+
+    /* --- PUBLICATION BOXES --- */
+    .pub-row {
+      display: flex; gap: 1.5rem; padding: 1.5rem; margin-bottom: 1.5rem;
+      background: #f8fafc;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .pub-row:hover {
+      transform: translateY(-3px);
+      background: white;
+      border-color: var(--primary-light);
+      box-shadow: 0 10px 25px -5px rgba(15, 118, 110, 0.15);
+    }
+
+    .pub-thumb {
+      width: 150px; height: 100px; flex-shrink: 0;
+      border-radius: 8px; overflow: hidden; background: #e2e8f0; border: 1px solid var(--border-subtle);
+    }
+    .pub-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+    .pub-data { flex: 1; display: flex; flex-direction: column; }
+    .pub-title { font-weight: 700; font-size: 1.1rem; line-height: 1.35; margin-bottom: 6px; color: var(--text-main); }
+    .pub-authors { color: #475569; }
+
+    .pub-meta {
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      font-size: 0.85rem; font-family: 'JetBrains Mono', monospace; margin-top: 10px;
+    }
+    .badge-conf { color: var(--primary); font-weight: 700; }
+    .badge-year {
+      color: #334155;
+      background: #e2e8f0;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .badge-award {
+      color: #b45309; font-weight: 700; display: flex; align-items: center; gap: 4px;
+      background: #fffbeb; padding: 2px 8px; border-radius: 6px;
+    }
+
+    .pub-links a {
+      color: var(--text-muted); text-decoration: none; font-weight: 600;
+      border: 1px solid var(--border-subtle); padding: 2px 8px; border-radius: 6px;
+      font-size: 0.75rem; transition: 0.2s; background: white;
+    }
+    .pub-links a:hover { border-color: var(--primary); color: white; background: var(--primary); }
+
+    /* --- Pagination --- */
+    #pub-pagination {
+      display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
+      margin-top: 1.2rem;
+    }
+    .page-btn {
+      border: 1px solid var(--border-subtle);
+      background: white;
+      border-radius: 10px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--text-muted);
+      transition: 0.2s;
+    }
+    .page-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .page-btn.active { background: var(--text-main); color: white; border-color: var(--text-main); }
+    .page-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* --- EXPERIENCE & EDUCATION --- */
+    .exp-item { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; position: relative; }
+    .exp-line { width: 2px; background: var(--border-subtle); position: absolute; top: 12px; bottom: -40px; left: 6px; }
+    .exp-item:last-child .exp-line { display: none; }
+    .exp-dot {
+      width: 14px; height: 14px; border-radius: 50%; background: white;
+      border: 3px solid var(--primary); z-index: 2; flex-shrink: 0; margin-top: 6px;
+    }
+    .exp-content h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; }
+    .exp-content .org { color: var(--text-muted); font-size: 0.95rem; font-weight: 500; margin-bottom: 4px; }
+    .exp-content .time { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #9ca3af; }
+
+    .award-item {
+      display: flex; gap: 1rem; align-items: baseline; margin-bottom: 1rem;
+      padding: 1rem; background: #f8fafc; border-radius: 12px; border: 1px solid transparent;
+      transition: 0.2s;
+    }
+    .award-item:hover { border-color: var(--primary-light); background: white; }
+    .award-year { font-weight: 700; color: var(--primary); font-family: 'JetBrains Mono'; min-width: 50px; }
+
+    @media (max-width: 600px) {
+      .wrapper { margin: 0; border-radius: 0; box-shadow: none; }
+      .content { padding: 2rem 1.5rem; }
+      .hero { padding: 4rem 1.5rem 3rem 1.5rem; }
+      .pub-row { flex-direction: column; gap: 1rem; }
+      .pub-thumb { width: 100%; height: 160px; }
+      .nav-bar {
+        overflow-x: auto; justify-content: flex-start; margin: 0;
+        border-radius: 0; border: none; border-bottom: 1px solid rgba(0,0,0,0.05);
+      }
+      .nav-item { white-space: nowrap; }
+      .filters { justify-content: flex-start; }
+      .conf-select { width: 100%; }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="wrapper">
 
-<div class="wrapper">
-    
     <header class="hero">
-        <div class="profile-wrap">
-            <img src="profile.jpg" alt="Jaehyun Choi" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=JC&background=0f766e&color=fff&size=200'">
-        </div>
-        
-        <h1 class="name">Jaehyun Choi</h1>
-        
-        <div class="role">
-            Researcher at <strong>Korea AI Safety Institute</strong> (ETRI)
-        </div>
-        <div class="degree">
-            Ph.D. in Electrical Engineering
-        </div>
-        
-        <div class="expertise-row">
-            <span class="exp-tag"><i class="fas fa-shield-alt"></i> AI Safety</span>
-            <span class="exp-tag"><i class="fas fa-user-secret"></i> Deepfake Detection</span>
-            <span class="exp-tag"><i class="fas fa-database"></i> Dataset Condensation</span>
-        </div>
+      <div class="profile-wrap">
+        <img src="profile.jpg" alt="Jaehyun Choi" class="profile-img"
+             onerror="this.src='https://ui-avatars.com/api/?name=JC&background=0f766e&color=fff&size=200'">
+      </div>
 
-        <div class="social-row">
-            <a href="https://scholar.google.com/citations?user=n-OTCygAAAAJ&hl=ko&authuser=3" class="social-btn"><i class="fas fa-graduation-cap"></i></a>
-            <a href="https://github.com/PRE6ENT" class="social-btn"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/jaehyun-choi-6aa204101/" class="social-btn"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:your.email@example.com" class="social-btn"><i class="fas fa-envelope"></i></a>
-        </div>
+      <h1 class="name">Jaehyun Choi</h1>
+
+      <div class="role">
+        Researcher at <strong>Korea AI Safety Institute</strong> (ETRI)
+      </div>
+      <div class="degree">
+        Ph.D. in Electrical Engineering
+      </div>
+
+      <div class="expertise-row">
+        <span class="exp-tag"><i class="fas fa-shield-alt"></i> AI Safety</span>
+        <span class="exp-tag"><i class="fas fa-user-secret"></i> Deepfake Detection</span>
+        <span class="exp-tag"><i class="fas fa-database"></i> Dataset Condensation</span>
+      </div>
+
+      <div class="social-row">
+        <a href="https://scholar.google.com/citations?user=n-OTCygAAAAJ&hl=ko&authuser=3" class="social-btn" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+        <a href="https://github.com/PRE6ENT" class="social-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/jaehyun-choi-6aa204101/" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:your.email@example.com" class="social-btn" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
     </header>
 
     <nav class="nav-bar">
-        <a href="#about" class="nav-item active">About</a>
-        <a href="#publications" class="nav-item">Research</a>
-        <a href="#experience" class="nav-item">Experience</a>
-        <a href="#education" class="nav-item">Education</a>
-        <a href="#awards" class="nav-item">Awards</a>
+      <a href="#about" class="nav-item active">About</a>
+      <a href="#publications" class="nav-item">Research</a>
+      <a href="#experience" class="nav-item">Experience</a>
+      <a href="#education" class="nav-item">Education</a>
+      <a href="#awards" class="nav-item">Awards</a>
     </nav>
 
     <main class="content">
 
-        <section id="about">
-            <div class="section-title" style="margin-bottom: 1.5rem; font-family: 'Outfit'; font-weight: 700; font-size: 1.4rem;">About</div>
-            <div class="about-text">
-                <p>
-                    I am a Researcher at the <a href="#" target="_blank">Korea AI Safety Institute (AISI)</a> within ETRI. 
-                    I received my Ph.D. in Electrical Engineering from <a href="http://siit.kaist.ac.kr/" target="_blank">KAIST</a> in 2026, where I was advised by Prof. Junmo Kim.
-                </p>
-                <br>
-                <p>
-                    My research interests lie in <strong>distribution matching</strong> (dataset condensation and domain adaptation/generalization), <strong>AI Safety</strong> (Explainable Deepfake Detection), and generative models.
-                </p>
-                <br>
-                <p>
-                    During my M.S., I was a member of the <a href="https://sites.google.com/site/vclabskku/" target="_blank">VC Lab at SKKU</a>, supervised by Prof. Jae-Pil Heo. I am actively seeking to apply my research in practical settings and contribute to innovative AI safety standards.
-                </p>
-            </div>
-        </section>
+      <section id="about">
+        <div class="section-title" style="margin-bottom: 1.5rem; font-family: 'Outfit'; font-weight: 700; font-size: 1.4rem;">About</div>
+        <div class="about-text">
+          <p>
+            I am a Researcher at the <a href="#" target="_blank" rel="noreferrer">Korea AI Safety Institute (AISI)</a> within ETRI.
+            I received my Ph.D. in Electrical Engineering from <a href="http://siit.kaist.ac.kr/" target="_blank" rel="noreferrer">KAIST</a> in 2026, where I was advised by Prof. Junmo Kim.
+          </p>
+          <br>
+          <p>
+            My research interests lie in <strong>distribution matching</strong> (dataset condensation and domain adaptation/generalization),
+            <strong>AI Safety</strong> (Explainable Deepfake Detection), and generative models.
+          </p>
+          <br>
+          <p>
+            During my M.S., I was a member of the <a href="https://sites.google.com/site/vclabskku/" target="_blank" rel="noreferrer">VC Lab at SKKU</a>, supervised by Prof. Jae-Pil Heo.
+            I am actively seeking to apply my research in practical settings and contribute to innovative AI safety standards.
+          </p>
+        </div>
+      </section>
 
-        <section id="publications">
-            <div class="section-header">
-                <h2 class="section-title">Publications</h2>
-                <div class="filter-tabs">
-                    <button class="filter-btn active" onclick="filter('all', this)">All</button>
-                    <button class="filter-btn" onclick="filter('selected', this)">Selected</button>
-                </div>
-            </div>
+      <section id="publications">
+        <div class="section-header">
+          <h2 class="section-title">Publications</h2>
 
-            <div class="pub-row" data-category="selected">
-                <div class="pub-thumb">
-                    <img src="paper1.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=WACV+25'">
-                </div>
-                <div class="pub-data">
-                    <div class="pub-title">AH-OCDA: Amplitude-based Curriculum Learning and Hopfield Segmentation Model</div>
-                    <div class="pub-authors"><strong>Jaehyun Choi*</strong>, Junwon Ko*, Dong-Jae Lee*, Junmo Kim</div>
-                    <div class="pub-meta">
-                        <span class="badge-conf">WACV 2025</span>
-                        <div class="pub-links">
-                            <a href="#">PDF</a> <a href="#">CODE</a>
-                        </div>
-                    </div>
-                </div>
+          <div class="filters">
+            <!-- Category: All / Selected -->
+            <div class="filter-tabs" id="category-tabs">
+              <button class="filter-btn active" data-category="all">All</button>
+              <button class="filter-btn" data-category="selected">Selected</button>
             </div>
 
-            <div class="pub-row" data-category="selected">
-                <div class="pub-thumb">
-                    <img src="paper2.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=NeurIPS+24'">
-                </div>
-                <div class="pub-data">
-                    <div class="pub-title">Unlocking Capabilities of Masked Generative Models via Self-Guidance</div>
-                    <div class="pub-authors">Jiwan Hur, D. Lee, G. Han, <strong>J. Choi</strong>, J. Kim</div>
-                    <div class="pub-meta">
-                        <span class="badge-conf">NeurIPS 2024</span>
-                        <span class="badge-award"><i class="fas fa-trophy"></i> Bronze Prize</span>
-                        <div class="pub-links">
-                            <a href="#">PDF</a> <a href="#">CODE</a>
-                        </div>
-                    </div>
-                </div>
+            <!-- Year group: All years / Recent 5 years / Older -->
+            <div class="filter-tabs" id="yeargroup-tabs">
+              <button class="filter-btn active" data-yeargroup="all">All years</button>
+              <button class="filter-btn" data-yeargroup="recent">Recent 5 years</button>
+              <button class="filter-btn" data-yeargroup="older">Older</button>
             </div>
 
-            <div class="pub-row" data-category="all">
-                <div class="pub-thumb">
-                    <img src="paper3.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=ECCV+24'">
-                </div>
-                <div class="pub-data">
-                    <div class="pub-title">Learning Neural Deformation Representation for 4D Dynamic Shape Generation</div>
-                    <div class="pub-authors">G. Han, J. Hur, <strong>J. Choi</strong>, J. Kim</div>
-                    <div class="pub-meta">
-                        <span class="badge-conf">ECCV 2024</span>
-                        <div class="pub-links">
-                            <a href="#">PDF</a> <a href="#">CODE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Conference dropdown -->
+            <select id="conf-select" class="conf-select" aria-label="Filter by conference">
+              <option value="all">All conferences</option>
+              <!-- auto-filled by JS -->
+            </select>
+          </div>
+        </div>
 
-            <div class="pub-row" data-category="selected">
-                <div class="pub-thumb">
-                    <img src="paper4.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=CVPR+23'">
-                </div>
-                <div class="pub-data">
-                    <div class="pub-title">Fix the Noise: Disentangling Source Feature for Controllable Translation</div>
-                    <div class="pub-authors">D. Lee, J. Lee, D. Kim, <strong>J. Choi</strong>, J. Kim</div>
-                    <div class="pub-meta">
-                        <span class="badge-conf">CVPR 2023</span>
-                        <span class="badge-award"><i class="fas fa-trophy"></i> Best Paper</span>
-                        <div class="pub-links">
-                            <a href="#">PDF</a> <a href="#">CODE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- IMPORTANT:
+             Add data-year and data-conf to each pub-row.
+             - data-category: "selected" for selected papers; "all" for non-selected
+             - data-year: "2025" etc
+             - data-conf: "WACV" / "NeurIPS" / "ECCV" / "CVPR" / "ICIP" ... -->
 
-             <div class="pub-row" data-category="all">
-                <div class="pub-thumb">
-                    <img src="paper5.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=ICIP+23'">
-                </div>
-                <div class="pub-data">
-                    <div class="pub-title">Data Poisoning Attack Aiming the Vulnerability of Continual Learning</div>
-                    <div class="pub-authors">G. Han*, <strong>J. Choi*</strong>, H. Hong, J. Kim</div>
-                    <div class="pub-meta">
-                        <span class="badge-conf">ICIP 2023</span>
-                        <div class="pub-links">
-                            <a href="#">PDF</a> <a href="#">CODE</a>
-                        </div>
-                    </div>
-                </div>
+        <div class="pub-row" data-category="selected" data-year="2025" data-conf="WACV">
+          <div class="pub-thumb">
+            <img src="paper1.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=WACV+25'">
+          </div>
+          <div class="pub-data">
+            <div class="pub-title">AH-OCDA: Amplitude-based Curriculum Learning and Hopfield Segmentation Model</div>
+            <div class="pub-authors"><strong>Jaehyun Choi*</strong>, Junwon Ko*, Dong-Jae Lee*, Junmo Kim</div>
+            <div class="pub-meta">
+              <span class="badge-conf">WACV</span>
+              <span class="badge-year">2025</span>
+              <div class="pub-links">
+                <a href="#">PDF</a> <a href="#">CODE</a>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
 
-        <section id="experience">
-            <div class="section-header">
-                <h2 class="section-title">Experience</h2>
+        <div class="pub-row" data-category="selected" data-year="2024" data-conf="NeurIPS">
+          <div class="pub-thumb">
+            <img src="paper2.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=NeurIPS+24'">
+          </div>
+          <div class="pub-data">
+            <div class="pub-title">Unlocking Capabilities of Masked Generative Models via Self-Guidance</div>
+            <div class="pub-authors">Jiwan Hur, D. Lee, G. Han, <strong>J. Choi</strong>, J. Kim</div>
+            <div class="pub-meta">
+              <span class="badge-conf">NeurIPS</span>
+              <span class="badge-year">2024</span>
+              <span class="badge-award"><i class="fas fa-trophy"></i> Bronze Prize</span>
+              <div class="pub-links">
+                <a href="#">PDF</a> <a href="#">CODE</a>
+              </div>
             </div>
-            
-            <div class="exp-item">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-                <div class="exp-content">
-                    <h3>Researcher @ Korea AISI (ETRI)</h3>
-                    <div class="org">Electronics and Telecommunications Research Institute</div>
-                    <div class="time">Jun 2025 - Present</div>
-                </div>
-            </div>
+          </div>
+        </div>
 
-            <div class="exp-item">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-                <div class="exp-content">
-                    <h3>Ph.D. Researcher</h3>
-                    <div class="org">KAIST (SIIT Lab)</div>
-                    <div class="time">Aug 2021 - Feb 2026</div>
-                </div>
+        <div class="pub-row" data-category="all" data-year="2024" data-conf="ECCV">
+          <div class="pub-thumb">
+            <img src="paper3.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=ECCV+24'">
+          </div>
+          <div class="pub-data">
+            <div class="pub-title">Learning Neural Deformation Representation for 4D Dynamic Shape Generation</div>
+            <div class="pub-authors">G. Han, J. Hur, <strong>J. Choi</strong>, J. Kim</div>
+            <div class="pub-meta">
+              <span class="badge-conf">ECCV</span>
+              <span class="badge-year">2024</span>
+              <div class="pub-links">
+                <a href="#">PDF</a> <a href="#">CODE</a>
+              </div>
             </div>
+          </div>
+        </div>
 
-            <div class="exp-item">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-                <div class="exp-content">
-                    <h3>Research Assistant @ ETRI</h3>
-                    <div class="org">Internship</div>
-                    <div class="time">Aug 2022 - Dec 2022</div>
-                </div>
+        <div class="pub-row" data-category="selected" data-year="2023" data-conf="CVPR">
+          <div class="pub-thumb">
+            <img src="paper4.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=CVPR+23'">
+          </div>
+          <div class="pub-data">
+            <div class="pub-title">Fix the Noise: Disentangling Source Feature for Controllable Translation</div>
+            <div class="pub-authors">D. Lee, J. Lee, D. Kim, <strong>J. Choi</strong>, J. Kim</div>
+            <div class="pub-meta">
+              <span class="badge-conf">CVPR</span>
+              <span class="badge-year">2023</span>
+              <span class="badge-award"><i class="fas fa-trophy"></i> Best Paper</span>
+              <div class="pub-links">
+                <a href="#">PDF</a> <a href="#">CODE</a>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
 
-        <section id="education">
-            <div class="section-header">
-                <h2 class="section-title">Education</h2>
+        <div class="pub-row" data-category="all" data-year="2023" data-conf="ICIP">
+          <div class="pub-thumb">
+            <img src="paper5.jpg" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=ICIP+23'">
+          </div>
+          <div class="pub-data">
+            <div class="pub-title">Data Poisoning Attack Aiming the Vulnerability of Continual Learning</div>
+            <div class="pub-authors">G. Han*, <strong>J. Choi*</strong>, H. Hong, J. Kim</div>
+            <div class="pub-meta">
+              <span class="badge-conf">ICIP</span>
+              <span class="badge-year">2023</span>
+              <div class="pub-links">
+                <a href="#">PDF</a> <a href="#">CODE</a>
+              </div>
             </div>
-            
-            <div class="exp-item">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-                <div class="exp-content">
-                    <h3>Ph.D. in Electrical Engineering</h3>
-                    <div class="org">Korea Advanced Institute of Science and Technology (KAIST)</div>
-                    <div class="time">Aug 2021 - Feb 2026</div>
-                </div>
-            </div>
-            
-            <div class="exp-item">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-                <div class="exp-content">
-                    <h3>M.S. in Artificial Intelligence</h3>
-                    <div class="org">Sungkyunkwan University (SKKU)</div>
-                    <div class="time">Aug 2019 - Aug 2021</div>
-                </div>
-            </div>
+          </div>
+        </div>
 
-            <div class="exp-item">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-                <div class="exp-content">
-                    <h3>B.S. in Electrical Engineering</h3>
-                    <div class="org">State University of New York at Buffalo</div>
-                    <div class="time">Aug 2012 - Feb 2019</div>
-                </div>
-            </div>
-        </section>
+        <!-- Pagination (Publications only) -->
+        <div id="pub-pagination"></div>
+      </section>
 
-        <section id="awards">
-            <div class="section-header">
-                <h2 class="section-title">Honors & Awards</h2>
-            </div>
-            <div class="award-item">
-                <div class="award-year">2025</div>
-                <div>
-                    <strong>Bronze Prize</strong>, Samsung HumanTech Paper Awards
-                </div>
-            </div>
-            <div class="award-item">
-                <div class="award-year">2022</div>
-                <div>
-                    <strong>Best Paper Award</strong>, CVPR Workshop on AI for Content Creation
-                </div>
-            </div>
-        </section>
+      <section id="experience">
+        <div class="section-header">
+          <h2 class="section-title">Experience</h2>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-line"></div>
+          <div class="exp-content">
+            <h3>Researcher @ Korea AISI (ETRI)</h3>
+            <div class="org">Electronics and Telecommunications Research Institute</div>
+            <div class="time">Jun 2025 - Present</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-line"></div>
+          <div class="exp-content">
+            <h3>Ph.D. Researcher</h3>
+            <div class="org">KAIST (SIIT Lab)</div>
+            <div class="time">Aug 2021 - Feb 2026</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-line"></div>
+          <div class="exp-content">
+            <h3>Research Assistant @ ETRI</h3>
+            <div class="org">Internship</div>
+            <div class="time">Aug 2022 - Dec 2022</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education">
+        <div class="section-header">
+          <h2 class="section-title">Education</h2>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-line"></div>
+          <div class="exp-content">
+            <h3>Ph.D. in Electrical Engineering</h3>
+            <div class="org">Korea Advanced Institute of Science and Technology (KAIST)</div>
+            <div class="time">Aug 2021 - Feb 2026</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-line"></div>
+          <div class="exp-content">
+            <h3>M.S. in Artificial Intelligence</h3>
+            <div class="org">Sungkyunkwan University (SKKU)</div>
+            <div class="time">Aug 2019 - Aug 2021</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-line"></div>
+          <div class="exp-content">
+            <h3>B.S. in Electrical Engineering</h3>
+            <div class="org">State University of New York at Buffalo</div>
+            <div class="time">Aug 2012 - Feb 2019</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="awards">
+        <div class="section-header">
+          <h2 class="section-title">Honors & Awards</h2>
+        </div>
+        <div class="award-item">
+          <div class="award-year">2025</div>
+          <div><strong>Bronze Prize</strong>, Samsung HumanTech Paper Awards</div>
+        </div>
+        <div class="award-item">
+          <div class="award-year">2022</div>
+          <div><strong>Best Paper Award</strong>, CVPR Workshop on AI for Content Creation</div>
+        </div>
+      </section>
 
     </main>
-</div>
+  </div>
 
-<script>
-    // 1. FILTER FUNCTION
-    function filter(category, btn) {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        document.querySelectorAll('.pub-row').forEach(item => {
-            if (category === 'all') {
-                item.style.display = 'flex';
-            } else {
-                if (item.getAttribute('data-category') === 'selected') {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            }
-        });
+  <script>
+    /* =========================
+       Publications: filter + pagination
+       - Category: All / Selected
+       - Year group: All years / Recent 5 years / Older (auto)
+       - Conference: dropdown (auto options)
+       - Pagination: publications only
+    ========================= */
+
+    const pubItems = Array.from(document.querySelectorAll('.pub-row'));
+    const paginationEl = document.getElementById('pub-pagination');
+    const confSelect = document.getElementById('conf-select');
+
+    const categoryTabs = document.getElementById('category-tabs');
+    const yearGroupTabs = document.getElementById('yeargroup-tabs');
+
+    const state = {
+      category: 'all',     // 'all' | 'selected'
+      yearGroup: 'all',    // 'all' | 'recent' | 'older'
+      conf: 'all',         // 'all' | 'CVPR' | ...
+      page: 1,
+      perPage: 3
+    };
+
+    function getCurrentYear() {
+      return new Date().getFullYear();
     }
 
-    // 2. NAV HIGHLIGHTING
+    function isRecent5Years(yearStr) {
+      const y = Number(yearStr);
+      if (!Number.isFinite(y)) return false;
+      const current = getCurrentYear();
+      // "recent 5 years" = current year and previous 4 years
+      return y >= (current - 4);
+    }
+
+    function setActiveButton(container, btn) {
+      container.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function buildConferenceOptions() {
+      const confs = [...new Set(pubItems.map(el => (el.dataset.conf || '').trim()).filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b));
+
+      // keep the first "All conferences", then append
+      confs.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c;
+        opt.textContent = c;
+        confSelect.appendChild(opt);
+      });
+    }
+
+    function getFilteredItems() {
+      return pubItems.filter(el => {
+        const catOk = (state.category === 'all') || (el.dataset.category === 'selected');
+
+        const year = el.dataset.year || '';
+        const yearOk =
+          (state.yearGroup === 'all') ||
+          (state.yearGroup === 'recent' && isRecent5Years(year)) ||
+          (state.yearGroup === 'older' && year && !isRecent5Years(year));
+
+        const conf = (el.dataset.conf || '').trim();
+        const confOk = (state.conf === 'all') || (conf === state.conf);
+
+        return catOk && yearOk && confOk;
+      });
+    }
+
+    function renderPagination(totalPages) {
+      paginationEl.innerHTML = '';
+      if (totalPages <= 1) return; // hide pagination if not needed
+
+      const prev = document.createElement('button');
+      prev.className = 'page-btn';
+      prev.textContent = 'Prev';
+      prev.disabled = state.page === 1;
+      prev.onclick = () => { state.page -= 1; renderPublications(); };
+      paginationEl.appendChild(prev);
+
+      for (let p = 1; p <= totalPages; p++) {
+        const b = document.createElement('button');
+        b.className = 'page-btn' + (p === state.page ? ' active' : '');
+        b.textContent = p;
+        b.onclick = () => { state.page = p; renderPublications(); };
+        paginationEl.appendChild(b);
+      }
+
+      const next = document.createElement('button');
+      next.className = 'page-btn';
+      next.textContent = 'Next';
+      next.disabled = state.page === totalPages;
+      next.onclick = () => { state.page += 1; renderPublications(); };
+      paginationEl.appendChild(next);
+    }
+
+    function renderPublications() {
+      const filtered = getFilteredItems();
+      const totalPages = Math.max(1, Math.ceil(filtered.length / state.perPage));
+      state.page = Math.min(state.page, totalPages);
+
+      // hide all
+      pubItems.forEach(el => { el.style.display = 'none'; });
+
+      // show current page slice
+      const start = (state.page - 1) * state.perPage;
+      const end = start + state.perPage;
+      filtered.slice(start, end).forEach(el => { el.style.display = 'flex'; });
+
+      renderPagination(totalPages);
+    }
+
+    // Wire up category tabs
+    categoryTabs.addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      state.category = btn.dataset.category;
+      state.page = 1;
+      setActiveButton(categoryTabs, btn);
+      renderPublications();
+    });
+
+    // Wire up year group tabs
+    yearGroupTabs.addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      state.yearGroup = btn.dataset.yeargroup;
+      state.page = 1;
+      setActiveButton(yearGroupTabs, btn);
+      renderPublications();
+    });
+
+    // Wire up conference select
+    confSelect.addEventListener('change', () => {
+      state.conf = confSelect.value;
+      state.page = 1;
+      renderPublications();
+    });
+
+    // Init
+    buildConferenceOptions();
+    renderPublications();
+
+
+    /* =========================
+       Nav highlighting (your existing behavior)
+    ========================= */
     const navItems = document.querySelectorAll('.nav-item');
     const sections = document.querySelectorAll('section');
-    
-    // Click Handler
+
     navItems.forEach(item => {
-        item.addEventListener('click', function() {
-            navItems.forEach(nav => nav.classList.remove('active'));
-            this.classList.add('active');
-        });
+      item.addEventListener('click', function() {
+        navItems.forEach(nav => nav.classList.remove('active'));
+        this.classList.add('active');
+      });
     });
 
-    // Scroll Spy
     window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            if (scrollY >= section.offsetTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
-        navItems.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').includes(current)) {
-                link.classList.add('active');
-            }
-        });
+      let current = '';
+      sections.forEach(section => {
+        if (scrollY >= section.offsetTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+      navItems.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
+      });
     });
-
-    // Initialize with ALL as default
-    filter('all', document.querySelector('.filter-btn.active'));
-</script>
-
+  </script>
 </body>
 </html>
