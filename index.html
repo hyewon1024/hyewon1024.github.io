@@ -292,6 +292,29 @@
       border: 1px solid rgba(255, 51, 0, 0.18);
       font-family: var(--font-main);
     }
+    .badge-if {
+      color: #0f172a;
+      background: #ffffff;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 900;
+      border: 1px solid rgba(11, 64, 141, 0.12);
+      font-family: var(--font-mono);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .badge-if .if-label {
+      color: #475569;
+      font-weight: 900;
+    }
+    
+    .badge-if .if-value {
+      color: var(--primary);
+      font-weight: 900;
+    }
+
 
     .pub-links a {
       color: var(--text-muted);
@@ -570,6 +593,27 @@
               <span class="badge-year">2023</span>
               <div class="pub-links">
                 <a href="#">PDF</a> <a href="#">CODE</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-row" data-category="all" data-year="2022" data-conf="CVPR" data-date="2022-12-01">
+          <div class="pub-thumb">
+            <img src="/figures/22_Access_PGE.png" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=Access+22'">
+          </div>
+          <div class="pub-data">
+            <div class="pub-title">Pivot-Guided Embedding for Domain Generalization</div>
+            <div class="pub-authors">Hyun Seok Seong, <strong>J. Choi</strong>, Woojin Jeong, Jae-Pil Heo</div>
+            <div class="pub-meta">
+              <span class="badge-conf">Access</span>
+              <span class="badge-year">2022</span>
+              <span class="badge-if" title="Journal Impact Factor (JCR 2024)">
+                <span class="if-label">IF</span>
+                <span class="if-value">3.5</span>
+              </span>
+              <div class="pub-links">
+                <a href="https://ieeexplore.ieee.org/document/9967985">PAPER</a> <a href="https://github.com/PRE6ENT/PGE_DG/?tab=readme-ov-file">CODE</a>
               </div>
             </div>
           </div>
