@@ -280,6 +280,17 @@
       font-weight: 900;
       border: 1px solid rgba(11, 64, 141, 0.12);
     }
+    .badge-subvenue {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.85em;
+      line-height: 1;
+      border: 1px dashed rgba(0,0,0,0.25);
+      color: rgba(0,0,0,0.65);
+      background: rgba(0,0,0,0.03);
+      margin-left: 6px;
+    }
     .badge-award {
       color: var(--accent);
       font-weight: 900;
@@ -504,8 +515,8 @@
               <button class="filter-btn" data-yeargroup="older">Older</button>
             </div>
 
-            <select id="conf-select" class="conf-select" aria-label="Filter by conference">
-              <option value="all">All conferences</option>
+            <select id="conf-select" class="conf-select" aria-label="Filter by conference/journals">
+              <option value="all">Conference/Journal</option>
             </select>
           </div>
         </div>
@@ -573,7 +584,8 @@
             <div class="pub-meta">
               <span class="badge-conf">CVPR</span>
               <span class="badge-year">2023</span>
-              <span class="badge-award"><i class="fas fa-trophy"></i> Best Paper</span>
+              <span class="badge-subvenue">Also: AI for Content Creation @ CVPR Workshop, 2022</span>
+              <span class="badge-award"><i class="fas fa-trophy"></i>Best Paper</span>
               <div class="pub-links">
                 <a href="#">PDF</a> <a href="#">CODE</a>
               </div>
@@ -593,6 +605,23 @@
               <span class="badge-year">2023</span>
               <div class="pub-links">
                 <a href="#">PDF</a> <a href="#">CODE</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pub-row" data-category="all" data-year="2023" data-conf="WACV" data-date="2023-01-07">
+          <div class="pub-thumb">
+            <img src="/figures/23_WACV_ISTY.png" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=WACV+23'">
+          </div>
+          <div class="pub-data">
+            <div class="pub-title">I See-Through You: A Framework for Removing Foreground Occlusion in Both Sparse and Dense Light Field Images</div>
+            <div class="pub-authors">Jiwan Hur*, Jae Young Lee*, <strong>Jaehyun Choi</strong>, Junmo Kim</div>
+            <div class="pub-meta">
+              <span class="badge-conf">WACV</span>
+              <span class="badge-year">2023</span>
+              <div class="pub-links">
+                <a href="https://openaccess.thecvf.com/content/WACV2023/papers/Hur_I_See-Through_You_A_Framework_for_Removing_Foreground_Occlusion_in_WACV_2023_paper.pdf">PDF</a> <a href="https://github.com/PRE6ENT/ISTY/">CODE</a>
               </div>
             </div>
           </div>
@@ -730,7 +759,7 @@
         </div>
         <div class="award-item">
           <div class="award-year">2022</div>
-          <div><strong>Best Paper Award</strong>, CVPR Workshop on AI for Content Creation</div>
+          <div><strong>Best Paper Award</strong>, CVPR Workshop on AI for Content Creation Sponsored by Google</div>
         </div>
       </section>
 
@@ -755,7 +784,9 @@
   // 1) Name -> personal site URL
   const AUTHOR_LINKS = {
     "Hyun Seok Seong": "https://hynnsk.github.io/",
-    "Jiwan Hur": "https://jiwanhur.github.io/"
+    "Hyun Seok Seong*": "https://hynnsk.github.io/",
+    "Jiwan Hur": "https://jiwanhur.github.io/",
+    "Jiwan Hur*": "https://jiwanhur.github.io/"
     // Add more like:
     // "Jaehyun Choi": "https://....",
   };
