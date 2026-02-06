@@ -745,96 +745,151 @@
        - Conference: dropdown (auto options)
        - Pagination: publications only (5 per page)
     ========================= */
-    // 1) Name -> personal site URL
-    const AUTHOR_LINKS = {
-      "Hyun Seok Seong": "https://hynnsk.github.io/",
-      "Jiwan Hur": "https://jiwanhur.github.io/"
-    };
+/* =========================
+   Author linkify (Option B)
+   - Keeps your existing HTML (incl. <strong>)
+   - Replaces matching author names with subtle links
+   - Adds minimal CSS automatically (so links aren’t vivid blue)
+========================= */
+
+  // 1) Name -> personal site URL
+  const AUTHOR_LINKS = {
+    "Hyun Seok Seong": "https://hynnsk.github.io/",
+    "Jiwan Hur": "https://jiwanhur.github.io/"
+    // Add more like:
+    // "Jaehyun Choi": "https://....",
+  };
   
-    function escapeRegExp(s) {
-      return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    }
+  // Inject subtle link CSS once
+  function injectAuthorLinkStyles() {
+    if (document.getElementById("author-linkify-styles")) return;
   
-    // Build a regex that matches any author name.
-    // Sort by length so longer names match first (helps avoid partial overlaps).
-    const AUTHOR_NAMES = Object.keys(AUTHOR_LINKS).sort((a, b) => b.length - a.length);
-    const AUTHOR_ALT = AUTHOR_NAMES.map(escapeRegExp).join("|");
+    const style = document.createElement("style");
+    style.id = "author-linkify-styles";
+    style.textContent = `
+      .pub-authors .author-link {
+        color: inherit;
+        text-decoration: underline;
+        text-decoration-color: rgba(0, 0, 0, 0.25);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 2px;
+      }
+      .pub-authors .author-link::after {
+        content: "↗";
+        font-size: 0.85em;
+        margin-left: 0.15em;
+        opacity: 0.35;
+      }
+      .pub-authors .author-link:hover,
+      .pub-authors .author-link:focus-visible {
+        text-decoration-color: rgba(0, 0, 0, 0.6);
+      }
+      .pub-authors .author-link:hover::after,
+      .pub-authors .author-link:focus-visible::after {
+        opacity: 0.6;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+  
+  function escapeRegExp(s) {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+  
+  // Build a regex that matches any author name.
+  // Sort by length so longer names match first (helps avoid partial overlaps).
+  function buildNameRegex() {
+    const names = Object.keys(AUTHOR_LINKS).filter(Boolean).sort((a, b) => b.length - a.length);
+    if (names.length === 0) return null;
+  
+    const alt = names.map(escapeRegExp).join("|");
   
     // Match names with safe-ish boundaries for author lists:
     // prefix: start OR whitespace/comma/semicolon/open-paren
     // suffix: end OR whitespace/comma/semicolon/close-paren/period
-    const NAME_RE = new RegExp(`(^|[\\s,;\\(])(${AUTHOR_ALT})(?=$|[\\s,;\\)\\.])`, "g");
+    return new RegExp(`(^|[\\s,;\\(])(${alt})(?=$|[\\s,;\\)\\.])`, "g");
+  }
   
-    function linkifyTextNode(textNode) {
-      const text = textNode.nodeValue;
-      if (!text || !NAME_RE.test(text)) return;
+  function linkifyTextNode(textNode, NAME_RE) {
+    const text = textNode.nodeValue;
+    if (!text) return;
   
-      NAME_RE.lastIndex = 0; // reset for iteration
-      const frag = document.createDocumentFragment();
+    NAME_RE.lastIndex = 0;
+    if (!NAME_RE.test(text)) return;
   
-      let lastIndex = 0;
-      let m;
+    NAME_RE.lastIndex = 0; // reset for iteration
+    const frag = document.createDocumentFragment();
   
-      while ((m = NAME_RE.exec(text)) !== null) {
-        const prefix = m[1];         // delimiter char or ""
-        const name = m[2];           // matched author name
-        const matchStart = m.index;  // where the whole match begins
-        const nameStart = matchStart + prefix.length;
+    let lastIndex = 0;
+    let m;
   
-        // Add text up to the start of the name (including the prefix delimiter)
-        frag.append(document.createTextNode(text.slice(lastIndex, nameStart)));
+    while ((m = NAME_RE.exec(text)) !== null) {
+      const prefix = m[1];         // delimiter char or ""
+      const name = m[2];           // matched author name
+      const matchStart = m.index;  // where the whole match begins
+      const nameStart = matchStart + prefix.length;
   
-        // Add the linked name
-        const a = document.createElement("a");
-        a.href = AUTHOR_LINKS[name];
-        a.textContent = name;
-        a.target = "_blank";
-        a.rel = "noopener noreferrer";
-        frag.append(a);
+      // Add text up to the start of the name (including the prefix delimiter)
+      frag.append(document.createTextNode(text.slice(lastIndex, nameStart)));
   
-        lastIndex = nameStart + name.length;
-      }
+      // Add the linked name (subtle styling via class)
+      const a = document.createElement("a");
+      a.href = AUTHOR_LINKS[name];
+      a.textContent = name;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.className = "author-link";
+      a.title = `${name}'s personal site`;
+      frag.append(a);
   
-      // Add remaining tail text
-      frag.append(document.createTextNode(text.slice(lastIndex)));
-  
-      textNode.parentNode.replaceChild(frag, textNode);
+      lastIndex = nameStart + name.length;
     }
-
-    function linkifyAuthors(rootEl) {
-      const walker = document.createTreeWalker(
-        rootEl,
-        NodeFilter.SHOW_TEXT,
-        {
-          acceptNode(node) {
-            // ignore empty text
-            if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
   
-            const parent = node.parentNode;
-            if (!parent) return NodeFilter.FILTER_REJECT;
+    // Add remaining tail text
+    frag.append(document.createTextNode(text.slice(lastIndex)));
   
-            // skip inside existing links (avoid nested <a>)
-            if (parent.closest && parent.closest("a")) return NodeFilter.FILTER_REJECT;
+    textNode.parentNode.replaceChild(frag, textNode);
+  }
   
-            // skip scripts/styles just in case
-            if (parent.closest && parent.closest("script,style")) return NodeFilter.FILTER_REJECT;
+  function linkifyAuthors(rootEl, NAME_RE) {
+    const walker = document.createTreeWalker(
+      rootEl,
+      NodeFilter.SHOW_TEXT,
+      {
+        acceptNode(node) {
+          if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
   
-            return NodeFilter.FILTER_ACCEPT;
-          }
+          const parent = node.parentNode;
+          if (!parent) return NodeFilter.FILTER_REJECT;
+  
+          // skip inside existing links (avoid nested <a>)
+          if (parent.closest && parent.closest("a")) return NodeFilter.FILTER_REJECT;
+  
+          // skip scripts/styles just in case
+          if (parent.closest && parent.closest("script,style")) return NodeFilter.FILTER_REJECT;
+  
+          return NodeFilter.FILTER_ACCEPT;
         }
-      );
+      }
+    );
   
-      // Collect first, then replace (so DOM changes don’t confuse the walker)
-      const nodes = [];
-      let n;
-      while ((n = walker.nextNode())) nodes.push(n);
+    // Collect first, then replace (DOM changes won’t confuse the walker)
+    const nodes = [];
+    let n;
+    while ((n = walker.nextNode())) nodes.push(n);
   
-      nodes.forEach(linkifyTextNode);
-    }
+    nodes.forEach(node => linkifyTextNode(node, NAME_RE));
+  }
   
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll(".pub-authors").forEach(linkifyAuthors);
-    });
+  document.addEventListener("DOMContentLoaded", () => {
+    injectAuthorLinkStyles();
+  
+    const NAME_RE = buildNameRegex();
+    if (!NAME_RE) return;
+  
+    document.querySelectorAll(".pub-authors").forEach(el => linkifyAuthors(el, NAME_RE));
+  });
+
 
     
     const pubItems = Array.from(document.querySelectorAll('.pub-row'));
