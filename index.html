@@ -597,18 +597,35 @@
             </div>
           </div>
         </div>
+        
+        <div class="pub-row" data-category="all" data-year="2023" data-conf="WACV" data-date="2023-01-07">
+          <div class="pub-thumb">
+            <img src="/figures/23_WACV_ISTY.png" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=WACV+23'">
+          </div>
+          <div class="pub-data">
+            <div class="pub-title">I See-Through You: A Framework for Removing Foreground Occlusion in Both Sparse and Dense Light Field Images</div>
+            <div class="pub-authors">Jiwan Hur*, Jae Young Lee*, <strong>Jaehyun Choi</strong>, Junmo Kim</div>
+            <div class="pub-meta">
+              <span class="badge-conf">WACV</span>
+              <span class="badge-year">2023</span>
+              <div class="pub-links">
+                <a href="https://openaccess.thecvf.com/content/WACV2023/papers/Hur_I_See-Through_You_A_Framework_for_Removing_Foreground_Occlusion_in_WACV_2023_paper.pdf">PDF</a> <a href="https://github.com/PRE6ENT/ISTY/">CODE</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <div class="pub-row" data-category="all" data-year="2022" data-conf="CVPR" data-date="2022-12-01">
+        <div class="pub-row" data-category="all" data-year="2022" data-conf="Access" data-date="2022-12-01">
           <div class="pub-thumb">
             <img src="/figures/22_Access_PGE.png" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=Access+22'">
           </div>
           <div class="pub-data">
             <div class="pub-title">Pivot-Guided Embedding for Domain Generalization</div>
-            <div class="pub-authors">Hyun Seok Seong, <strong>J. Choi</strong>, Woojin Jeong, Jae-Pil Heo</div>
+            <div class="pub-authors">Hyun Seok Seong, <strong>Jaehyun Choi</strong>, Woojin Jeong, Jae-Pil Heo</div>
             <div class="pub-meta">
               <span class="badge-conf">Access</span>
               <span class="badge-year">2022</span>
-              <span class="badge-if" title="Journal Impact Factor (JCR 2024)">
+              <span class="badge-if"">
                 <span class="if-label">IF</span>
                 <span class="if-value">3.5</span>
               </span>
@@ -728,7 +745,99 @@
        - Conference: dropdown (auto options)
        - Pagination: publications only (5 per page)
     ========================= */
+    // 1) Name -> personal site URL
+    const AUTHOR_LINKS = {
+      "Hyun Seok Seong": "https://hynnsk.github.io/",
+      "Jiwan Hur": "https://jiwanhur.github.io/",
+      "
+    };
+  
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
+  
+    // Build a regex that matches any author name.
+    // Sort by length so longer names match first (helps avoid partial overlaps).
+    const AUTHOR_NAMES = Object.keys(AUTHOR_LINKS).sort((a, b) => b.length - a.length);
+    const AUTHOR_ALT = AUTHOR_NAMES.map(escapeRegExp).join("|");
+  
+    // Match names with safe-ish boundaries for author lists:
+    // prefix: start OR whitespace/comma/semicolon/open-paren
+    // suffix: end OR whitespace/comma/semicolon/close-paren/period
+    const NAME_RE = new RegExp(`(^|[\\s,;\\(])(${AUTHOR_ALT})(?=$|[\\s,;\\)\\.])`, "g");
+  
+    function linkifyTextNode(textNode) {
+      const text = textNode.nodeValue;
+      if (!text || !NAME_RE.test(text)) return;
+  
+      NAME_RE.lastIndex = 0; // reset for iteration
+      const frag = document.createDocumentFragment();
+  
+      let lastIndex = 0;
+      let m;
+  
+      while ((m = NAME_RE.exec(text)) !== null) {
+        const prefix = m[1];         // delimiter char or ""
+        const name = m[2];           // matched author name
+        const matchStart = m.index;  // where the whole match begins
+        const nameStart = matchStart + prefix.length;
+  
+        // Add text up to the start of the name (including the prefix delimiter)
+        frag.append(document.createTextNode(text.slice(lastIndex, nameStart)));
+  
+        // Add the linked name
+        const a = document.createElement("a");
+        a.href = AUTHOR_LINKS[name];
+        a.textContent = name;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        frag.append(a);
+  
+        lastIndex = nameStart + name.length;
+      }
+  
+      // Add remaining tail text
+      frag.append(document.createTextNode(text.slice(lastIndex)));
+  
+      textNode.parentNode.replaceChild(frag, textNode);
+    }
 
+    function linkifyAuthors(rootEl) {
+      const walker = document.createTreeWalker(
+        rootEl,
+        NodeFilter.SHOW_TEXT,
+        {
+          acceptNode(node) {
+            // ignore empty text
+            if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+  
+            const parent = node.parentNode;
+            if (!parent) return NodeFilter.FILTER_REJECT;
+  
+            // skip inside existing links (avoid nested <a>)
+            if (parent.closest && parent.closest("a")) return NodeFilter.FILTER_REJECT;
+  
+            // skip scripts/styles just in case
+            if (parent.closest && parent.closest("script,style")) return NodeFilter.FILTER_REJECT;
+  
+            return NodeFilter.FILTER_ACCEPT;
+          }
+        }
+      );
+  
+      // Collect first, then replace (so DOM changes don’t confuse the walker)
+      const nodes = [];
+      let n;
+      while ((n = walker.nextNode())) nodes.push(n);
+  
+      nodes.forEach(linkifyTextNode);
+    }
+  
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".pub-authors").forEach(linkifyAuthors);
+    });
+
+    
     const pubItems = Array.from(document.querySelectorAll('.pub-row'));
     const paginationEl = document.getElementById('pub-pagination');
     const confSelect = document.getElementById('conf-select');
