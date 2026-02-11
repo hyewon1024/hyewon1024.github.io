@@ -103,6 +103,20 @@
       display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2rem;
     }
 
+    .site-footer{
+      padding: 1.25rem 1.5rem 2.5rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .site-footer .footer-inner{
+      max-width: 850px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    
+
     .exp-tag {
       display: inline-flex; align-items: center; gap: 6px;
       background: white; border: 1px solid var(--border-subtle);
@@ -522,6 +536,57 @@
         </div>
 
         <!-- Example papers -->
+        <div class="pub-row" data-category="all" data-year="2025" data-conf="NeurIPS" data-date="2025-12-05">
+          <div class="pub-thumb">
+            <img src="/figures/" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=NeurIPS+25'">
+          </div>
+          <div class="pub-data">
+            <div class="pub-title">Frequency-Aware Token Reduction for Efficient Vision Transformer</div>
+            <div class="pub-authors">Dong-Jae Lee, Jiwan Hur, <strong>Jaehyun Choi</strong>, Jaemyung Yu, Junmo Kim</div>
+            <div class="pub-meta">
+              <span class="badge-conf">NeurIPS</span>
+              <span class="badge-year">2025</span>
+              <div class="pub-links">
+                <a href="https://openreview.net/pdf?id=Dr06Wjh45k">PAPER</a><a href="https://github.com/jhtwosun/frequency-aware-token-pruning">CODE</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pub-row" data-category="all" data-year="2025" data-conf="MICCAI Workshop" data-date="2025-09-27">
+          <div class="pub-thumb">
+            <img src="/figures/" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=MICCAI Workshop+25'">
+          </div>
+          <div class="pub-data">
+            <div class="pub-title">PSGM-TR: A Transformer-Based Approach for Pulmonary Segment Segmentation Using Gaussian Mixture Models</div>
+            <div class="pub-authors">Seunghee Koh, Chanho Lee, <strong>Jaehyun Choi</strong>, Minseo Kim, Youngno Yoon, Changyoung Lee, Junmo Kim</div>
+            <div class="pub-meta">
+              <span class="badge-conf">MICCAI Workshop</span>
+              <span class="badge-year">2025</span>
+              <div class="pub-links">
+                <a href="https://link.springer.com/chapter/10.1007/978-3-032-06774-6_2">PAPER</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pub-row" data-category="selected" data-year="2025" data-conf="WACV" data-date="2025-03-04">
+          <div class="pub-thumb">
+            <img src="/figures/" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=WACV+25'">
+          </div>
+          <div class="pub-data">
+            <div class="pub-title">AH-OCDA: Amplitude-based Curriculum Learning and Hopfield Segmentation Model for Open Compound Domain Adaptation</div>
+            <div class="pub-authors"><strong>Jaehyun Choi</strong>*, Junwon Ko*, Dong-Jae Lee*, Junmo Kim</div>
+            <div class="pub-meta">
+              <span class="badge-conf">WACV</span>
+              <span class="badge-year">2025</span>
+              <div class="pub-links">
+                <a href="https://openaccess.thecvf.com/content/WACV2025/papers/Choi_AH-OCDA_Amplitude-Based_Curriculum_Learning_and_Hopfield_Segmentation_Model_for_Open_WACV_2025_paper.pdf">PAPER</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <div class="pub-row" data-category="all" data-year="2024" data-conf="NeurIPS" data-date="2024-12-15">
           <div class="pub-thumb">
             <img src="/figures/" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=NeurIPS+24'">
@@ -539,7 +604,7 @@
           </div>
         </div>
         
-        <div class="pub-row" data-category="all" data-year="2024" data-conf="NeurIPS" data-date="2024-12-15">
+        <div class="pub-row" data-category="selected" data-year="2024" data-conf="NeurIPS" data-date="2024-12-15">
           <div class="pub-thumb">
             <img src="/figures/" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=NeurIPS+24'">
           </div>
@@ -754,7 +819,7 @@
           </div>
         </div>
         
-        <div class="pub-row" data-category="all" data-year="2023" data-conf="CVPR" data-date="2023-06-22">
+        <div class="pub-row" data-category="selected" data-year="2023" data-conf="CVPR" data-date="2023-06-22">
           <div class="pub-thumb">
             <img src="/figures/23_CVPR_FixTheNoise.png" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=CVPR+23'">
           </div>
@@ -911,6 +976,14 @@
 
     </main>
   </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      © <span id="year"></span> Jaehyun Choi.
+      <span class="footer-sep">·</span>
+      This website design/code is by Jaehyun Choi. If you reuse it, please include attribution.
+    </div>
+  </footer>
 
   <script>
     /* =========================
@@ -1237,6 +1310,7 @@
         if (link.getAttribute('href').includes(current)) link.classList.add('active');
       });
     });
+  document.getElementById("2026").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
