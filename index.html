@@ -78,13 +78,16 @@
     }
 
     .profile-img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       border-radius: 50%;
-      object-fit: cover;
+      object-fit: contain;
+      object-position: center;
       border: 4px solid white;
       box-shadow: 0 10px 15px -3px rgba(11, 64, 141, 0.22);
       background-color: #eaf2ff;
     }
+
 
     .name {
       font-family: var(--font-main);
@@ -1000,7 +1003,7 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      © <span id="year"></span> Jaehyun Choi.
+      © <span id="2026"></span> Jaehyun Choi.
       <span class="footer-sep">·</span>
       This website design/code is by Jaehyun Choi. If you reuse it, please include attribution.
     </div>
@@ -1025,6 +1028,8 @@
   const AUTHOR_LINKS = {
     "Hyun Seok Seong": "https://hynnsk.github.io/",
     "Hyun Seok Seong*": "https://hynnsk.github.io/",
+    "Jaemyung Yu": "https://sites.google.com/view/jaemyungyu",
+    "Jaemyung Yu*": "https://sites.google.com/view/jaemyungyu",
     "Jiwan Hur": "https://jiwanhur.github.io/",
     "Jiwan Hur*": "https://jiwanhur.github.io/"
     // Add more like:
@@ -1175,7 +1180,7 @@
       yearGroup: 'all',
       conf: 'all',
       page: 1,
-      perPage: 5
+      perPage: 10
     };
 
     function setActiveButton(container, btn) {
