@@ -13,11 +13,11 @@
   <meta charset="UTF-8" />
   <meta name="google-site-verification" content="anzt0wvEVhz8MU-ItcHR-EFR9zF8GM1MVLpbx-l-ww4" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jaehyun Choi | AI Research</title>
+  <title>Hyewon Choi | ACSS </title>
   <link rel="icon" href="/icon.png" sizes="any">
 
   <!-- Pretendard (CDN) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Keep JetBrains Mono for small code-like meta text -->
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -26,17 +26,16 @@
 
   <style>
     :root {
-      /* THEME (AISI-like): Deep Blue + Orange Accent */
-      --primary: #0b408d;
-      --primary-light: #1f6fdd;
-      --accent: #ff3300;
-      --accent-soft: #fff0ea;
+      --primary: #0ea5e9;       /* indigo */
+      --primary-light: #67e8f9;
+      --accent: #ff3300;         /* purple accent */
+      --accent-soft: #f3f0ff;
 
-      --bg-body: #f3f6fc;
+      --bg-body: #f8fafc;        /* soft gray */
       --bg-paper: #ffffff;
 
-      --text-main: #0f172a;
-      --text-muted: #475569;
+      --text-main: #111827;
+      --text-muted: #806f6b;
 
       --border-subtle: #e5e7eb;
 
@@ -44,8 +43,7 @@
       --radius-sm: 12px;
 
       /* Fonts */
-      --font-main: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   Roboto, "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      --font-main: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
                    "Courier New", monospace;
     }
@@ -76,7 +74,7 @@
     .hero {
       position: relative;
       padding: 4.5rem 2rem 3rem 2rem;
-      background: radial-gradient(circle at 50% 0%, #eaf2ff 0%, #ffffff 75%);
+      background: radial-gradient(circle at 50% 0%, #dbdee1 0%, #ffffff 75%);
       text-align: center;
     }
 
@@ -477,30 +475,26 @@
 
     <header class="hero">
       <div class="profile-wrap">
-        <img src="/figures/pic.jpeg" alt="Jaehyun Choi" class="profile-img"
-             onerror="this.src='https://ui-avatars.com/api/?name=JC&background=0b408d&color=fff&size=200'">
+        <img src="/figures/profile.jpg" alt="Your Name" class="profile-img"
+             onerror="this.src='https://ui-avatars.com/api/?name=HW&background=4f46e5&color=fff&size=200'">
       </div>
-
-      <h1 class="name">Jaehyun Choi</h1>
+      <h1 class="name">Hyewon Choi</h1>
 
       <div class="role">
-        Researcher at <strong>Korea AI Safety Institute (AISI), ETRI</strong>
-      </div>
-      <div class="degree">
-        Ph.D. in Electrical Engineering
+        M.S. Student in Electrical Engineering, <strong>KAIST</strong>
       </div>
 
       <div class="expertise-row">
-        <span class="exp-tag"><i class="fas fa-shield-alt"></i> AI Safety</span>
-        <span class="exp-tag"><i class="fas fa-user-secret"></i> Deepfake Detection</span>
-        <span class="exp-tag"><i class="fas fa-database"></i> Dataset Condensation</span>
+        <span class="exp-tag"><i class="fas fa-brain"></i> Sample-Efficient RL</span>
+        <span class="exp-tag"><i class="fas fa-exclamation-triangle"></i> Failure Detection</span>
+        <span class="exp-tag"><i class="fas fa-shield-alt"></i> Trustworthy Learning</span>
       </div>
 
       <div class="social-row">
-        <a href="https://scholar.google.com/citations?user=n-OTCygAAAAJ&hl=ko&authuser=3" class="social-btn" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-        <a href="https://github.com/PRE6ENT" class="social-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/jaehyun-choi-6aa204101/" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:pre6ent@etri.re.kr" class="social-btn" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <!-- <a href="https://scholar.google.com/citations?user=n-OTCygAAAAJ&hl=ko&authuser=3" class="social-btn" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a> -->
+        <a href="https://github.com/hyewon1024" class="social-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="www.linkedin.com/in/혜원-최-b040aa262" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="chw110825@kaist.ac.kr" class="social-btn" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
     </header>
 
@@ -510,6 +504,7 @@
       <a href="#experience" class="nav-item">Experience</a>
       <a href="#education" class="nav-item">Education</a>
       <a href="#awards" class="nav-item">Awards</a>
+      <a href="#projects" class="nav-item">Projects</a>
     </nav>
 
     <main class="content">
@@ -518,18 +513,14 @@
         <div class="section-title" style="margin-bottom: 1.5rem; font-weight: 900; font-size: 1.4rem;">About</div>
         <div class="about-text">
           <p>
-            I am a researcher at the <a href="https://www.aisi.re.kr/kor" target="_blank" rel="noreferrer">Korea AI Safety Institute (AISI)</a> within ETRI, working on explainable and robust deepfake detection.
+            I am currently a M.S. student in the School of Electrical Engineering at KAIST and a member of the <a href="http://acss.kaist.ac.kr/" target="_blank" rel="noreferrer">Autonomous Control & Stochastic Systems (ACSS) Lab</a>. 
           </p>
           <br>
           <p>
-            I received my Ph.D. in Electrical Engineering from <a href="https://ee.kaist.ac.kr/en/" target="_blank" rel="noreferrer">KAIST</a> in 2026, where I was advised by <a href="https://scholar.google.com/citations?user=GdQtWNQAAAAJ&hl=en&oi=ao" target="_blank" rel="noreferrer">Prof. Junmo Kim</a> (<a href="https://siit.kaist.ac.kr/" target="_blank" rel="noreferrer">SIIT Lab</a>),
-            and my M.S. in Artificial Intelligence from <a href="https://ai.skku.edu/ai/index.do" target="_blank" rel="noreferrer">SKKU</a> in 2021, where I was advised by <a href="https://scholar.google.com/citations?user=VXyJ_ssAAAAJ&hl=ko&authuser=1" target="_blank" rel="noreferrer">Prof. Jae-Pil Heo</a> (<a href="https://sites.google.com/site/vclabskku/" target="_blank" rel="noreferrer">VC Lab</a>).
-            During graduate studies, my research focused on dataset condensation, domain adaptation/generalization, and generative models.
+            My research aims to develop <strong>sample-efficient and trustworthy learning for robotic manipulation</strong>, enabling robot behaviors that are both rapidly adaptable and reliable in real-world environments. I focus on <strong>leveraging symmetry</strong> to improve data efficiency and on <strong>uncertainty quantification and failure detection </strong>to support safe learning-based action planning,
+            ultimately bridging low-level control and high-level decision making.
           </p>
           <br>
-          <p>
-            If you're interested in collaborating, feel free to reach out! 🙃
-          </p>
         </div>
       </section>
 
@@ -555,566 +546,140 @@
             </select>
           </div>
         </div>
+        
+        <!--PUBLICATIONS (fill later) -->
+        <!--
+        <div class="pub-row"
+            data-category="all"
+            data-year="2026"
+            data-conf="Conference Name"
+            data-date="2026-01-01">
 
-        <!-- Example papers -->
-        <div class="pub-row" data-category="all" data-year="2026" data-conf="Pattern Recognition" data-date="2026-08-01">
           <div class="pub-thumb">
-            <img src="/figures/" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=Pattern Recognition+26'">
+            <img src="/figures/paper.png">
           </div>
+
           <div class="pub-data">
-            <div class="pub-title">Boundary-recovering network for temporal action detection</div>
-            <div class="pub-authors">Jihwan Kim, <strong>Jaehyun Choi</strong>, Yerim Jeon, Jae-Pil Heo</div>
+            <div class="pub-title">Paper Title</div>
+
+            <div class="pub-authors">
+              Author1, Author2, <strong>Your Name</strong>
+            </div>
+
             <div class="pub-meta">
-              <span class="badge-conf">Pattern Recognition</span>
+              <span class="badge-conf">Conference</span>
               <span class="badge-year">2026</span>
-              <span class="badge-if">
-                <span class="if-label">IF</span>
-                <span class="if-value">7.6</span>
-              </span>
+
               <div class="pub-links">
-                <a href="https://www.sciencedirect.com/science/article/abs/pii/S0031320326001044">PAPER</a>
+                <a href="#">PAPER</a>
+                <a href="#">CODE</a>
               </div>
             </div>
-          </div>
-        </div>
-        
-        <div class="pub-row" data-category="preprint" data-year="2026" data-conf="arXiv" data-date="2026-01-28">
-          <div class="pub-thumb">
-            <img src="/figures/" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=arXiv+26'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">Dissect and Prune: Enhancing Robustness in AI-Generated Image Detection</div>
-            <div class="pub-authors">Dahye Kim, <strong>Jaehyun Choi</strong>, Hyun Seok Seong, Seongho Kim, Donghun Lee, Sungwon Yi, Jang-Ho Choi</div>
-            <div class="pub-meta">
-              <span class="badge-conf">arXiv</span>
-              <span class="badge-year">2026</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="pub-row" data-category="preprint" data-year="2026" data-conf="arXiv" data-date="2026-01-20">
-          <div class="pub-thumb">
-            <img src="/figures/" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=arXiv+26'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">PSGMM++: Pulmonary Segment Segmentation with Anatomical Insights</div>
-            <div class="pub-authors">Seunghee Koh, Chanho Lee, <strong>Jaehyun Choi</strong>, Jae Young Lee, Minseo Kim, Youngno Yoon, Changyoung Lee, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">arXiv</span>
-              <span class="badge-year">2026</span>
-            </div>
-          </div>
-        </div>
 
-        <div class="pub-row" data-category="all" data-year="2025" data-conf="NeurIPS" data-date="2025-12-05">
-          <div class="pub-thumb">
-            <img src="/figures/" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=NeurIPS+25'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">Frequency-Aware Token Reduction for Efficient Vision Transformer</div>
-            <div class="pub-authors">Dong-Jae Lee, Jiwan Hur, <strong>Jaehyun Choi</strong>, Jaemyung Yu, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">NeurIPS</span>
-              <span class="badge-year">2025</span>
-              <div class="pub-links">
-                <a href="https://openreview.net/pdf?id=Dr06Wjh45k">PAPER</a><a href="https://github.com/jhtwosun/frequency-aware-token-pruning">CODE</a>
-              </div>
-            </div>
           </div>
         </div>
-        
-        <div class="pub-row" data-category="preprint" data-year="2025" data-conf="arXiv" data-date="2025-11-13">
-          <div class="pub-thumb">
-            <img src="/figures/" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=arXiv+25'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">Cross-Layer Relational Representation Modeling for Few-Shot AI-Generated Image Detection</div>
-            <div class="pub-authors">Hyun Seok Seong, <strong>Jaehyun Choi</strong>, Jang-Ho Choi, Dahye Kim, Sungwon Yi, Seongho Kim, Donghun Lee, Jae-Pil Heo</div>
-            <div class="pub-meta">
-              <span class="badge-conf">arXiv</span>
-              <span class="badge-year">2025</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="pub-row" data-category="preprint" data-year="2025" data-conf="arXiv" data-date="2025-11-13">
-          <div class="pub-thumb">
-            <img src="/figures/" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=arXiv+25'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">Beyond Semantics: Disentangling Information Scope in Sparse Autoencoders for CLIP</div>
-            <div class="pub-authors">Yusung Ro, <strong>Jaehyun Choi</strong>, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">arXiv</span>
-              <span class="badge-year">2025</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-row" data-category="all" data-year="2025" data-conf="MICCAI Workshop" data-date="2025-09-27">
-          <div class="pub-thumb">
-            <img src="/figures/" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=MICCAI Workshop+25'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">PSGM-TR: A Transformer-Based Approach for Pulmonary Segment Segmentation Using Gaussian Mixture Models</div>
-            <div class="pub-authors">Seunghee Koh, Chanho Lee, <strong>Jaehyun Choi</strong>, Minseo Kim, Youngno Yoon, Changyoung Lee, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">MICCAI Workshop</span>
-              <span class="badge-year">2025</span>
-              <div class="pub-links">
-                <a href="https://link.springer.com/chapter/10.1007/978-3-032-06774-6_2">PAPER</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="pub-row" data-category="selected preprint" data-year="2025" data-conf="arXiv" data-date="2025-05-28">
-          <div class="pub-thumb">
-            <img src="/figures/" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=arXiv+25'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">PRISM: Video Dataset Condensation with Progressive Refinement and Insertion for Sparse Motion</div>
-            <div class="pub-authors"><strong>Jaehyun Choi</strong>, Jiwan Hur, Gyojin Han, Jaemyung Yu, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">arXiv</span>
-              <span class="badge-year">2025</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="pub-row" data-category="selected preprint" data-year="2025" data-conf="arXiv" data-date="2025-05-28">
-          <div class="pub-thumb">
-            <img src="/figures/" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=arXiv+25'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">DAM: Domain-Aware Module for Multi-Domain Dataset Condensation</div>
-            <div class="pub-authors"><strong>Jaehyun Choi</strong>, Gyojin Han, Dong-Jae Lee, Sunghyun Baek, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">arXiv</span>
-              <span class="badge-year">2025</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-row" data-category="selected" data-year="2025" data-conf="WACV" data-date="2025-03-04">
-          <div class="pub-thumb">
-            <img src="/figures/" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=WACV+25'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">AH-OCDA: Amplitude-based Curriculum Learning and Hopfield Segmentation Model for Open Compound Domain Adaptation</div>
-            <div class="pub-authors"><strong>Jaehyun Choi</strong>*, Junwon Ko*, Dong-Jae Lee*, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">WACV</span>
-              <span class="badge-year">2025</span>
-              <div class="pub-links">
-                <a href="https://openaccess.thecvf.com/content/WACV2025/papers/Choi_AH-OCDA_Amplitude-Based_Curriculum_Learning_and_Hopfield_Segmentation_Model_for_Open_WACV_2025_paper.pdf">PAPER</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-row" data-category="all" data-year="2024" data-conf="NeurIPS" data-date="2024-12-15">
-          <div class="pub-thumb">
-            <img src="/figures/" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=NeurIPS+24'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">Self-supervised Transformation Learning for Equivariant Representations</div>
-            <div class="pub-authors">Jaemyung Yu, <strong>Jaehyun Choi</strong>, Dong-Jae Lee, HyeongGwon Hong, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">NeurIPS</span>
-              <span class="badge-year">2024</span>
-              <div class="pub-links">
-                <a href="https://proceedings.neurips.cc/paper_files/paper/2024/file/972cd27c994a806e187ef1c2f5254059-Paper-Conference.pdf">PAPER</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-row" data-category="selected" data-year="2024" data-conf="NeurIPS" data-date="2024-12-15">
-          <div class="pub-thumb">
-            <img src="/figures/" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=NeurIPS+24'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">Unlocking the Capabilities of Masked Generative Models for Image Synthesis via Self-Guidance</div>
-            <div class="pub-authors">Jiwan Hur, Dong-Jae Lee, Gyojin Han, <strong>Jaehyun Choi</strong>, Yunho Jeon, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">NeurIPS</span>
-              <span class="badge-year">2024</span>
-              <span class="badge-award"><i class="fas fa-trophy"></i>Samsung Humantech Paper</span>
-              <div class="pub-links">
-                <a href="https://proceedings.neurips.cc/paper_files/paper/2024/file/ecd92623ac899357312aaa8915853699-Paper-Conference.pdf">PAPER</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-row" data-category="all" data-year="2024" data-conf="MICCAI Workshop" data-date="2024-10-10">
-          <div class="pub-thumb">
-            <img src="/figures/" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=MICCAI Workshop+24'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">PSGMM: Pulmonary Segment Segmentation Based on Gaussian Mixture Model</div>
-            <div class="pub-authors">Seunghee Koh, Chanho Lee, Jae Young Lee, <strong>Jaehyun Choi</strong>, Youngno Yoon, Changyoung Lee, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">MICCAI Workshop</span>
-              <span class="badge-year">2024</span>
-              <div class="pub-links">
-                <a href="https://link.springer.com/chapter/10.1007/978-3-031-75291-9_2">PAPER</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-row" data-category="all" data-year="2024" data-conf="ECCV" data-date="2024-10-04">
-          <div class="pub-thumb">
-            <img src="/figures/24_ECCV_HAN.png" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=ECCV+24'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">Learning Neural Deformation Representation for 4D Dynamic Shape Generation</div>
-            <div class="pub-authors">Gyojin Han, Jiwan Hur, <strong>Jaehyun Choi</strong>, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">ECCV</span>
-              <span class="badge-year">2024</span>
-              <div class="pub-links">
-                <a href="https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/09107.pdf">PAPER</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-row" data-category="all" data-year="2024" data-conf="ICASSP" data-date="2024-04-19">
-          <div class="pub-thumb">
-            <img src="/figures/24_ICASSP_JYL.png" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=ICASSP+24'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">Stereo-Matching Knowledge Distilled Monocular Depth Estimation Filtered by Multiple Disparity Consistency</div>
-            <div class="pub-authors">Woonghyun Ka*, Jae Young Lee*, <strong>Jaehyun Choi</strong>, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">ICASSP</span>
-              <span class="badge-year">2024</span>
-              <div class="pub-links">
-                <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10448168">PAPER</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-row" data-category="all" data-year="2024" data-conf="AAAI" data-date="2024-02-27">
-          <div class="pub-thumb">
-            <img src="/figures/24_AAAI_KA.png" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=AAAI+24'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">Modeling Stereo-Confidence Out of the End-to-End Stereo-Matching Network via Disparity Plane Sweep</div>
-            <div class="pub-authors">Jae Young Lee*, Woonghyun Ka*, <strong>Jaehyun Choi</strong>, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">AAAI</span>
-              <span class="badge-year">2024</span>
-              <div class="pub-links">
-                <a href="https://ojs.aaai.org/index.php/AAAI/article/view/28071/28148">PAPER</a><a href="https://github.com/kwh950724/DPS-Confidence">CODE</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-row" data-category="all" data-year="2024" data-conf="WACV" data-date="2024-01-08">
-          <div class="pub-thumb">
-            <img src="/figures/24_WACV_SDFT.png" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=WACV+24'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">Expanding Expressiveness of Diffusion Models with Limited Data via Self-Distillation based Fine-Tuning</div>
-            <div class="pub-authors">Jiwan Hur, <strong>Jaehyun Choi</strong>, Gyojin Han, Dong-Jae Lee, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">WACV</span>
-              <span class="badge-year">2024</span>
-              <div class="pub-links">
-                <a href="https://openaccess.thecvf.com/content/WACV2024/papers/Hur_Expanding_Expressiveness_of_Diffusion_Models_With_Limited_Data_via_Self-Distillation_WACV_2024_paper.pdf">PAPER</a><a href="https://github.com/JiwanHur/SDFT">CODE</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-row" data-category="all" data-year="2023" data-conf="BMVC" data-date="2023-11-24">
-          <div class="pub-thumb">
-            <img src="/figures/23_BMVC_JYL.png" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=BMVC+23'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">Few-Shot Anomaly Detection with Adversarial Loss for Robust Feature Representations</div>
-            <div class="pub-authors">Jae Young Lee, Wonjun Lee, <strong>Jaehyun Choi</strong>, Yongkwi Lee, Young Seong Yoon</div>
-            <div class="pub-meta">
-              <span class="badge-conf">BMVC</span>
-              <span class="badge-year">2023</span>
-              <div class="pub-links">
-                <a href="https://papers.bmvc2023.org/0202.pdf">PAPER</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-row" data-category="selected" data-year="2023" data-conf="Pattern Recognition Letters" data-date="2023-11-01">
-          <div class="pub-thumb">
-            <img src="/figures/23_PRL_TCX.png" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=Pattern Recognition Letters+23'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">TCX: Texture and channel swappings for domain generalization</div>
-            <div class="pub-authors"><strong>Jaehyun Choi</strong>, Hyun Seok Seong, Sanguk Park, Jae-Pil Heo</div>
-            <div class="pub-meta">
-              <span class="badge-conf">Pattern Recognition Letters</span>
-              <span class="badge-year">2023</span>
-              <span class="badge-if">
-                <span class="if-label">IF</span>
-                <span class="if-value">5.1</span>
-              </span>
-              <div class="pub-links">
-                <a href="https://www.sciencedirect.com/science/article/pii/S0167865523002787">PAPER</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-row" data-category="all" data-year="2023" data-conf="ICIP" data-date="2023-10-11">
-          <div class="pub-thumb">
-            <img src="/figures/23_ICIP_Han2.png" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=ICIP+23'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">Data Poisoning Attack Aiming the Vulnerability of Continual Learning</div>
-            <div class="pub-authors">Gyojin Han, <strong>Jaehyun Choi</strong>, Heyong Gwon Hong, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">ICIP</span>
-              <span class="badge-year">2023</span>
-              <span class="badge-subvenue">NeurIPS Workshop (2022)</span>
-              <div class="pub-links">
-                <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10222168">PAPER</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-row" data-category="all" data-year="2023" data-conf="ICIP" data-date="2023-10-11">
-          <div class="pub-thumb">
-            <img src="/figures/23_ICIP_Han1.png" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=ICIP+23'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">Deep Cross-Modal Steganography using Neural Representations</div>
-            <div class="pub-authors">Gyojin Han, Dong-Jae Lee, Jiwan Hur, <strong>Jaehyun Choi</strong>, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">ICIP</span>
-              <span class="badge-year">2023</span>
-              <span class="badge-award"><i class="fas fa-trophy"></i>Oral</span>
-              <div class="pub-links">
-                <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10222113">PAPER</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-row" data-category="selected preprint" data-year="2023" data-conf="arXiv" data-date="2023-09-29">
-          <div class="pub-thumb">
-            <img src="/figures/" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=arXiv+23'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">Unveiling Temporal Telltales: Are Unconditional Video Generation Models Implicitly Encoding Temporal Information?</div>
-            <div class="pub-authors"><strong>Jaehyun Choi</strong>, Gyojin Han, Jiwan Hur, Jae Young Lee, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">arXiv</span>
-              <span class="badge-year">2023</span>
-              <div class="pub-links">
-                <a href="https://openreview.net/forum?id=p6UwN2Rxhx">PAPER</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-row" data-category="all" data-year="2023" data-conf="Pattern Recognition Letters" data-date="2023-07-01">
-          <div class="pub-thumb">
-            <img src="/figures/23_PRL_JYL.png" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=Pattern Recognition Letters+23'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">Multi-scale foreground-background separation for light field depth estimation with deep convolutional networks</div>
-            <div class="pub-authors">Jae Young Lee, Jiwan Hur, <strong>Jaehyun Choi</strong>, Rae-Hong Park, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">Pattern Recognition Letters</span>
-              <span class="badge-year">2023</span>
-              <span class="badge-if">
-                <span class="if-label">IF</span>
-                <span class="if-value">5.1</span>
-              </span>
-              <div class="pub-links">
-                <a href="https://www.sciencedirect.com/science/article/pii/S016786552300137X">PAPER</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-row" data-category="all" data-year="2023" data-conf="CVPR" data-date="2023-06-22">
-          <div class="pub-thumb">
-            <img src="/figures/23_CVPR_RLB-MI.png" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=CVPR+23'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">Reinforcement Learning-Based Black-Box Model Inversion Attacks</div>
-            <div class="pub-authors">Gyojin Han, <strong>Jaehyun Choi</strong>, Haeil Lee, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">CVPR</span>
-              <span class="badge-year">2023</span>
-              <div class="pub-links">
-                <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Han_Reinforcement_Learning-Based_Black-Box_Model_Inversion_Attacks_CVPR_2023_paper.pdf">PAPER</a> <a href="https://github.com/PRE6ENT/RLB-MI/">CODE</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-row" data-category="selected" data-year="2023" data-conf="CVPR" data-date="2023-06-22">
-          <div class="pub-thumb">
-            <img src="/figures/23_CVPR_FixTheNoise.png" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=CVPR+23'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">Fix the Noise: Disentangling Source Feature for Controllable Translation</div>
-            <div class="pub-authors">Dongyeun Lee, Jae Young Lee, Doyeon Kim, <strong>Jaehyun Choi</strong>, Jaejun Yoo, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">CVPR</span>
-              <span class="badge-year">2023</span>
-              <span class="badge-subvenue">CVPR Workshop (2022)</span>
-              <span class="badge-award"><i class="fas fa-trophy"></i>Best Paper</span>
-              <div class="pub-links">
-                <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Lee_Fix_the_Noise_Disentangling_Source_Feature_for_Controllable_Domain_Translation_CVPR_2023_paper.pdf">PAPER</a> <a href="https://github.com/PRE6ENT/FixNoise/">CODE</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-row" data-category="all" data-year="2023" data-conf="WACV" data-date="2023-01-07">
-          <div class="pub-thumb">
-            <img src="/figures/23_WACV_ISTY.png" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=WACV+23'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">I See-Through You: A Framework for Removing Foreground Occlusion in Both Sparse and Dense Light Field Images</div>
-            <div class="pub-authors">Jiwan Hur*, Jae Young Lee*, <strong>Jaehyun Choi</strong>, Junmo Kim</div>
-            <div class="pub-meta">
-              <span class="badge-conf">WACV</span>
-              <span class="badge-year">2023</span>
-              <div class="pub-links">
-                <a href="https://openaccess.thecvf.com/content/WACV2023/papers/Hur_I_See-Through_You_A_Framework_for_Removing_Foreground_Occlusion_in_WACV_2023_paper.pdf">PAPER</a> <a href="https://github.com/PRE6ENT/ISTY/">CODE</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-row" data-category="all" data-year="2022" data-conf="Access" data-date="2022-12-01">
-          <div class="pub-thumb">
-            <img src="/figures/22_Access_PGE.png" onerror="this.src='https://placehold.co/300x200/f3f4f6/9ca3af?text=Access+22'">
-          </div>
-          <div class="pub-data">
-            <div class="pub-title">Pivot-Guided Embedding for Domain Generalization</div>
-            <div class="pub-authors">Hyun Seok Seong, <strong>Jaehyun Choi</strong>, Woojin Jeong, Jae-Pil Heo</div>
-            <div class="pub-meta">
-              <span class="badge-conf">Access</span>
-              <span class="badge-year">2022</span>
-              <span class="badge-if">
-                <span class="if-label">IF</span>
-                <span class="if-value">3.5</span>
-              </span>
-              <div class="pub-links">
-                <a href="https://ieeexplore.ieee.org/document/9967985">PAPER</a> <a href="https://github.com/PRE6ENT/PGE_DG/?tab=readme-ov-file">CODE</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        -->
         <div id="pub-pagination"></div>
       </section>
-
       <section id="experience">
         <div class="section-header">
           <h2 class="section-title">Experience</h2>
         </div>
 
+        <!-- Samsung Semiconductor Research -->
         <div class="exp-item">
           <div class="exp-dot"></div>
           <div class="exp-line"></div>
           <div class="exp-content">
-            <h3>Researcher</h3>
-            <div class="org">Korea AI Safety Institute (AISI), ETRI</div>
-            <div class="time">Jan 2026 - Present</div>
+            <h3>Process Development Engineer, NAND Flash</h3>
+            <div class="org">Samsung Semiconductor Research</div>
+            <div class="time">Oct 2023 – Dec 2024</div>
+            <div style="margin-top:8px; color:#475569; font-size:0.95rem;">
+              Worked on large-scale semiconductor manufacturing systems, focusing on 
+              <strong>data-driven process monitoring</strong>, 
+              <strong>defect analysis</strong>, and 
+              uncertainty-aware process control.
+            </div>
           </div>
         </div>
 
+        <!-- SK hynix -->
         <div class="exp-item">
           <div class="exp-dot"></div>
           <div class="exp-line"></div>
           <div class="exp-content">
-            <h3>Research Assistant</h3>
-            <div class="org">Korea AI Safety Institute (AISI), ETRI</div>
-            <div class="time">Jun 2025 - Dec 2025</div>
+            <h3>Winter Intern, Mobile Packaging Device</h3>
+            <div class="org">SK hynix</div>
+            <div class="time">Jan 2022 – Feb 2022</div>
+            <div style="margin-top:8px; color:#475569; font-size:0.95rem;">
+              Performed experimental verification and optimization analysis of wafer warpage, 
+              gaining experience in physical system modeling and precision optimization.
+            </div>
           </div>
         </div>
 
-        <div class="exp-item">
-          <div class="exp-dot"></div>
-          <div class="exp-line"></div>
-          <div class="exp-content">
-            <h3>Research Assistant</h3>
-            <div class="org">ETRI (Electronics and Telecommunications Research Institute)</div>
-            <div class="time">Aug 2022 - Dec 2022</div>
-          </div>
-        </div>
       </section>
-
       <section id="education">
         <div class="section-header">
           <h2 class="section-title">Education</h2>
         </div>
-
         <div class="exp-item">
           <div class="exp-dot"></div>
           <div class="exp-line"></div>
           <div class="exp-content">
             <h3>Korea Advanced Institute of Science and Technology (KAIST)</h3>
-            <div class="org">Ph.D. in Electrical Engineering (Advisor: <a href="https://scholar.google.com/citations?user=GdQtWNQAAAAJ&hl=en&oi=ao" target="_blank" rel="noreferrer">Junmo Kim</a>)</div>
-            <div class="time">Aug 2021 - Feb 2026</div>
+            <div class="org">
+              M.S. in Electrical Engineering, Autonomous Control & Stochastic Systems (ACSS) Lab (Current)
+            </div>
+            <div class="time">2024 – Present</div>
           </div>
         </div>
-
         <div class="exp-item">
           <div class="exp-dot"></div>
           <div class="exp-line"></div>
           <div class="exp-content">
-            <h3>Sungkyunkwan University (SKKU)</h3>
-            <div class="org">M.S. in Artificial Intelligence (Advisor: <a href="https://scholar.google.com/citations?user=VXyJ_ssAAAAJ&hl=ko&authuser=1" target="_blank" rel="noreferrer">Jae-Pil Heo</a>)</div>
-            <div class="time">Aug 2019 - May 2021</div>
-          </div>
-        </div>
-
-        <div class="exp-item">
-          <div class="exp-dot"></div>
-          <div class="exp-line"></div>
-          <div class="exp-content">
-            <h3>State University of New York at Buffalo</h3>
-            <div class="org">B.S. in Electrical Engineering (Minor: Computer Science)</div>
-            <div class="time">Aug 2012 - Feb 2019</div>
-          </div>
-        </div>
-
-        <div class="exp-item">
-          <div class="exp-dot"></div>
-          <div class="exp-line"></div>
-          <div class="exp-content">
-            <h3>Bellarmine Preparatory School</h3>
-            <div class="time">Aug 2009 - May 2012</div>
+            <h3>Korea Advanced Institute of Science and Technology (KAIST)</h3>
+            <div class="org">
+              B.S. in Electrical Engineering & Chemical Biomolecular Engineering (Double Major)
+            </div>
+            <div class="time">Feb 2019 – Aug 2023 </div>
           </div>
         </div>
       </section>
+      <section id="projects">
+        <div class="section-header">
+          <h2 class="section-title">Projects</h2>
+        </div>
 
-      <section id="awards">
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-line"></div>
+
+          <div class="exp-content">
+            <h3>Failure-Aware Imitation Learning for Robotic Manipulation</h3>
+            <div class="org">
+              ETRI
+            </div>
+
+            <div class="time">2025</div>
+            <div style="margin-top:8px; color:#475569; font-size:0.95rem;">
+            Developed <strong>Balanced DAgger</strong> in collaboration with <strong>ETRI</strong>, a framework integrating <strong>RND</strong> and <strong>Conformal Prediction</strong> to enhance robotic safety. Optimized an uncertainty quantifier to mitigate overgeneralization and validated superior pick-and-place performance through <strong>Isaac Sim</strong> environments.
+          </div>
+          <div style="margin-top:6px; color:#64748b; font-size:0.85rem; font-style:italic; display:flex; align-items:center;">
+              <span style="margin-right:4px;">🏆</span> 
+              Best Paper Award, KSCI Conference 2026
+          </div>
+          </div>
+        </div>
+      </section>      
+      <!-- <section id="awards">
         <div class="section-header">
           <h2 class="section-title">Honors & Awards</h2>
         </div>
         <div class="award-item">
           <div class="award-year">2025</div>
           <div><strong>Bronze Prize</strong>, Samsung HumanTech Paper Awards</div>
-        </div>
-        <div class="award-item">
-          <div class="award-year">2022</div>
-          <div><strong>Best Paper Award</strong>, CVPR Workshop on AI for Content Creation (Sponsored by Google)</div>
-        </div>
+        </div> -->
       </section>
 
     </main>
