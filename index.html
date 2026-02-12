@@ -63,7 +63,7 @@
     }
 
     .wrapper {
-      max-width: 980px;
+      max-width: 900px;
       margin: 2rem auto;
       background: var(--bg-paper);
       border-radius: var(--radius-lg);
@@ -213,21 +213,24 @@
 
     /* --- FILTER UI --- */
     .filters {
-      width: 100%;
+      width: 100%;                /* <-- take full row under title */
       display: flex;
       gap: 10px;
-      flex-wrap: nowrap;          /* <-- was wrap */
+      flex-wrap: wrap;
       align-items: center;
-      justify-content: flex-start;
-      overflow-x: auto;           /* <-- if screen is too narrow, scroll instead of wrapping */
-      -webkit-overflow-scrolling: touch;
+      justify-content: flex-start; /* <-- left align tabs/dropdown */
     }
+
+    .conf-select { margin-left: auto; }
     
-    .filter-tabs,
-    .conf-select {
-      flex-shrink: 0;             /* <-- prevent squishing */
+    .filter-tabs {
+      display: flex;
+      gap: 5px;
+      background: #eef2ff;
+      padding: 4px;
+      border-radius: 99px;
+      border: 1px solid rgba(11, 64, 141, 0.10);
     }
-    
     .filter-btn {
       background: transparent;
       border: none;
@@ -374,13 +377,6 @@
       color: white;
       background: var(--primary);
     }
-    .pub-count {
-      margin-left: 10px;
-      font-family: var(--font-mono);
-      font-size: 0.9rem;
-      font-weight: 900;
-      color: var(--text-muted);
-    }
 
     /* --- Pagination --- */
     #pub-pagination {
@@ -473,34 +469,6 @@
       .pub-title { font-size: 1.02rem; }
       .pub-meta { gap: 8px; }
     }
-
-    const pubCountEl = document.getElementById('pub-count');
-
-    // Put your journal venue names here (based on data-conf)
-    const JOURNAL_VENUES = new Set([
-      "Pattern Recognition",
-      "Pattern Recognition Letters",
-      "Access"
-    ]);
-    
-    function isJournal(el) {
-      // Option A (recommended): if you later add data-venue="journal"
-      const venue = (el.dataset.venue || "").trim().toLowerCase();
-      if (venue) return venue === "journal";
-    
-      // Option B: infer from data-conf
-      const conf = (el.dataset.conf || "").trim();
-      return JOURNAL_VENUES.has(conf);
-    }
-    
-    function updatePubCount(filtered) {
-      const total = filtered.length;
-      const journal = filtered.filter(isJournal).length;
-      const conference = total - journal; // everything else counts as "conference" (incl. arXiv)
-    
-      pubCountEl.textContent = `${total} (conference: ${conference}, journal: ${journal})`;
-    }
-
   </style>
 </head>
 
@@ -567,7 +535,7 @@
 
       <section id="publications">
         <div class="section-header">
-          <h2 class="section-title">Publications <span id="pub-count" class="pub-count"></span> </h2>
+          <h2 class="section-title">Publications</h2>
 
           <div class="filters">
             <div class="filter-tabs" id="category-tabs">
@@ -1428,22 +1396,17 @@
 
     function renderPublications() {
       const filtered = getFilteredItems();
-    
-      // ✅ update the header count based on filtered set (not paginated)
-      updatePubCount(filtered);
-    
       const totalPages = Math.max(1, Math.ceil(filtered.length / state.perPage));
       state.page = Math.min(state.page, totalPages);
-    
+
       pubItems.forEach(el => { el.style.display = 'none'; });
-    
+
       const start = (state.page - 1) * state.perPage;
       const end = start + state.perPage;
       filtered.slice(start, end).forEach(el => { el.style.display = 'flex'; });
-    
+
       renderPagination(totalPages);
     }
-
 
     categoryTabs.addEventListener('click', (e) => {
       const btn = e.target.closest('.filter-btn');
