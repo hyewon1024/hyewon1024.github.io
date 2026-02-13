@@ -160,10 +160,7 @@
       font-size: 1.5rem; font-weight: 800; color: var(--primary);
       margin-bottom: 2.5rem; display: flex; align-items: center; gap: 1rem;
     }
-    .section-title::after {
-      content: ''; position: absolute; left: 0; bottom: -6px;
-      width: 30px; height: 3px; background: var(--accent);
-    }
+    .title-icon{width:36px;height:36px;background:var(--primary);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}.title-icon i{color:#fff;font-size:.9rem}
     .about-card {
       background: #f8fafc;
       padding: 2.5rem;
@@ -253,8 +250,10 @@
     .page-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
     .page-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-    .site-footer { text-align: center; padding: 4rem 2rem; color: #94a3b8; font-size: 0.9rem; }
-
+    .site-footer { text-align: center; padding: 4rem 2rem; color: rgba(100, 116, 139, 0.6); font-size: 0.9rem; }
+    .site-footer:hover .footer-inner {
+      opacity: 1;
+    }
     @media (max-width: 768px) {
       .hero { flex-direction: column; text-align: center; padding: 4rem 2rem; gap: 2rem; }
       .hero-content { align-items: center; text-align: center; }
@@ -458,9 +457,9 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      © <span id="2026"></span> Hyewon Choi.
+      © <span id="year"></span> Hyewon Choi.
       <span class="footer-sep">·</span>
-      This website design/code is by Jaehyun Choi. If you reuse it, please include attribution.
+      Design inspired by J.Choi
     </div>
   </footer>
 
