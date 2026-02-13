@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) / GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZ7FTRYYRD"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -16,480 +15,277 @@
   <title>Hyewon Choi | ACSS </title>
   <link rel="icon" href="/icon.png" sizes="any">
 
-  <!-- Pretendard (CDN) -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Keep JetBrains Mono for small code-like meta text -->
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
-      --primary: #0ea5e9;       /* indigo */
-      --primary-light: #67e8f9;
-      --accent: #ff3300;         /* purple accent */
-      --accent-soft: #f3f0ff;
-
-      --bg-body: #f8fafc;        /* soft gray */
+      --primary: #0f172a;
+      --accent: #ff3300;
+      --bg-body: #f8fafc;
       --bg-paper: #ffffff;
-
-      --text-main: #111827;
-      --text-muted: #806f6b;
-
-      --border-subtle: #e5e7eb;
-
+      --text-main: #1e293b;
+      --text-muted: #64748b;
       --radius-lg: 24px;
-      --radius-sm: 12px;
-
-      /* Fonts */
-      --font-main: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-                   "Courier New", monospace;
+      --radius-md: 16px;
+      --radius-sm: 8px;
+      --font-main: "Inter", "Pretendard", -apple-system, sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: var(--font-main);
       background-color: var(--bg-body);
       color: var(--text-main);
-      line-height: 1.7;
+      line-height: 1.8;
       padding-bottom: 5rem;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+      word-break: keep-all;
     }
 
     .wrapper {
-      max-width: 875px;
-      margin: 2rem auto;
+      max-width: 1000px;
+      margin: 0 auto;
       background: var(--bg-paper);
       border-radius: var(--radius-lg);
-      box-shadow: 0 20px 40px -10px rgba(2, 6, 23, 0.12);
+      box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.08);
       overflow: hidden;
-      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.6);
     }
 
-    /* --- HERO --- */
     .hero {
-      position: relative;
-      padding: 4.5rem 2rem 3rem 2rem;
-      background: radial-gradient(circle at 50% 0%, #dbdee1 0%, #ffffff 75%);
-      text-align: center;
+      padding: 5rem 4rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 4rem;
+      background: linear-gradient(to bottom right, #ffffff, #f8fafc);
+      border-bottom: 1px solid #f1f5f9;
     }
 
-    /* Slightly smaller + guaranteed "no crop" appearance */
-    .profile-wrap {
+    .profile-wrap { 
+      width: 190px; 
+      flex-shrink: 0;
       position: relative;
-      width: 120px; height: 120px;
-      margin: 0 auto 1.5rem auto;
+    }
+
+    .profile-wrap::after {
+      content: '';
+      position: absolute;
+      inset: -10px;
+      border: 2px solid #e2e8f0;
+      border-radius: calc(var(--radius-lg) + 4px);
+      z-index: 0;
     }
 
     .profile-img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      display: block;
-      object-fit: contain;
-      object-position: center;
-      border: 4px solid white;
-      box-shadow: 0 10px 15px -3px rgba(11, 64, 141, 0.22);
-      background-color: #ffffff
+      position: relative;
+      z-index: 1;
+      width: 100%; 
+      height: auto;
+      aspect-ratio: 1 / 1.25;
+      border-radius: var(--radius-lg);
+      object-fit: cover;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .profile-img:hover { transform: scale(1.02); }
+
+    .hero-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      align-items: flex-start;
     }
 
-    .name {
-      font-family: var(--font-main);
-      font-size: 2.5rem;
-      font-weight: 900;
-      letter-spacing: -0.02em;
+    .name { 
+      font-size: 3.5rem; 
+      font-weight: 800; 
+      color: var(--primary); 
+      letter-spacing: -0.05em; 
+      line-height: 0.9;
       margin-bottom: 0.5rem;
-      color: var(--text-main);
     }
 
-    .role { font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.2rem; font-weight: 600; }
-    .role strong { color: var(--primary); font-weight: 900; }
-    .degree { font-size: 1rem; color: var(--text-muted); margin-bottom: 1.5rem; font-weight: 500; }
+    .role { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500; }
+    .role strong { color: var(--primary); font-weight: 800; }
 
     .expertise-row {
-      display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2rem;
-    }
-
-    .site-footer{
-      padding: 1.25rem 1.5rem 2.5rem 1.5rem;
-      text-align: center;
-      color: var(--text-muted);
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-    .site-footer .footer-inner{
-      max-width: 850px;
-      margin: 0 auto;
-      opacity: 0.9;
+      display: flex; justify-content: flex-start; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.5rem;
     }
 
     .exp-tag {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: white; border: 1px solid var(--border-subtle);
-      color: var(--text-main); padding: 6px 14px;
-      border-radius: 99px; font-size: 0.85rem; font-weight: 800;
-      box-shadow: 0 2px 4px rgba(2,6,23,0.03);
-      transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #f1f5f9; color: var(--text-main); padding: 6px 14px;
+      border-radius: 100px; font-size: 0.8rem; font-weight: 600;
     }
-    .exp-tag i { color: var(--accent); font-size: 0.9rem; }
-    .exp-tag:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
-
-    .social-row { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-    .social-btn {
-      width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
-      border-radius: 50%; background: white; border: 1px solid var(--border-subtle); color: var(--text-muted);
-      transition: all 0.2s; text-decoration: none; font-size: 1.1rem;
-    }
-    .social-btn:hover {
-      transform: translateY(-2px);
-      border-color: var(--primary);
-      color: white;
-      background: var(--primary);
-      box-shadow: 0 4px 6px -1px rgba(11, 64, 141, 0.30);
-    }
-
-    /* --- STICKY NAV --- */
-    .nav-bar {
-      position: sticky;
-      top: 1rem;
-      z-index: 100;
-      margin: 0 1.5rem;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.5);
-      box-shadow: 0 10px 20px -5px rgba(2, 6, 23, 0.06);
-      padding: 0.6rem;
-      display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap;
-    }
-
-    .nav-item {
-      padding: 0.5rem 1.2rem; border-radius: 10px;
-      text-decoration: none; color: var(--text-muted); font-weight: 800; font-size: 0.9rem;
-      transition: all 0.2s;
-      white-space: nowrap;
-      font-family: var(--font-main);
-    }
-    .nav-item:hover { color: var(--text-main); background: #eef2ff; }
-    .nav-item.active { background: var(--primary); color: white; }
-
-    /* --- CONTENT --- */
-    .content { padding: 4rem 3rem; }
-    section { margin-bottom: 5rem; scroll-margin-top: 6rem; }
-
-    .section-header {
-      display: flex;
-      flex-direction: column;     /* <-- stack title then filters */
-      align-items: flex-start;    /* <-- left align */
-      gap: 14px;
     
-      margin-bottom: 2rem;
-      border-bottom: 2px solid #eef2ff;
-      padding-bottom: 12px;
+    .exp-tag i {
+      color: var(--accent);
     }
+    .social-row { display: flex; justify-content: flex-start; gap: 0.75rem; margin-top: 0.5rem; }
+    .social-btn {
+      width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
+      border-radius: 100px; background: white; color: var(--primary);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #f1f5f9;
+      transition: 0.3s; text-decoration: none; font-size: 1.1rem;
+    }
+    .social-btn:hover { background: var(--primary); color: white; transform: translateY(-2px); }
+
+    .nav-bar {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid #f1f5f9;
+      padding: 0 4.5rem;
+      display: flex; justify-content: flex-start; gap: 0.5rem;
+      height: 60px;
+      align-items: center;
+    }
+    .nav-item {
+      padding: 0.5rem 1rem; border-radius: 100px;
+      text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem;
+      transition: 0.3s;
+    }
+    .nav-item:hover { color: var(--text-main);  background: #f1f5f9;}
+    .nav-item.active { color: var(--primary); font-weight: 800; background: #e2e8f0; }
+
+    .content { padding: 4rem; }
+    section { margin-bottom: 6rem; scroll-margin-top: 6rem; }
 
     .section-title {
-      font-family: var(--font-main);
-      font-size: 1.4rem;
-      font-weight: 900;
-      color: var(--text-main);
+      font-size: 1.5rem; font-weight: 800; color: var(--primary);
+      margin-bottom: 2.5rem; display: flex; align-items: center; gap: 1rem;
     }
-
-    .about-text { font-size: 1.05rem; color: #334155; margin-bottom: 1rem; font-weight: 500; }
-    .about-text a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 900;
-      border-bottom: 1px solid transparent;
-      transition: 0.2s;
+    .section-title::after {
+      content: ''; position: absolute; left: 0; bottom: -6px;
+      width: 30px; height: 3px; background: var(--accent);
     }
-    .about-text a:hover { border-bottom-color: var(--primary); }
-
-    /* --- FILTER UI --- */
-    .filters {
-      width: 100%;                /* <-- take full row under title */
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: flex-start; /* <-- left align tabs/dropdown */
+    .about-card {
+      background: #f8fafc;
+      padding: 2.5rem;
+      border-radius: var(--radius-md);
+      border-left: 5px solid var(--primary);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--primary-light);
     }
-
-    .conf-select { margin-left: auto; }
     
+    .about-card a { color: var(--accent); text-decoration: none; font-weight: 600; border-bottom: 2px solid transparent; transition: 0.2s; }
+    .about-card a:hover { border-color: var(--accent); }
+
+    .filters {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
     .filter-tabs {
       display: flex;
-      gap: 5px;
-      background: #eef2ff;
-      padding: 4px;
-      border-radius: 99px;
-      border: 1px solid rgba(11, 64, 141, 0.10);
+      gap: 0.5rem;
+      flex-wrap: wrap;
     }
     .filter-btn {
-      background: transparent;
-      border: none;
-      padding: 6px 14px;
-      font-family: var(--font-main);
+      padding: 6px 16px;
+      border-radius: 100px;
+      border: 1px solid #e2e8f0;
+      background: white;
       font-size: 0.85rem;
-      font-weight: 900;
+      font-weight: 600;
       color: var(--text-muted);
       cursor: pointer;
       transition: 0.2s;
-      border-radius: 99px;
-      white-space: nowrap;
     }
-    .filter-btn:hover { color: var(--primary); }
+    .filter-btn:hover { background: #f8fafc; }
     .filter-btn.active {
-      background: white;
-      color: var(--primary);
-      box-shadow: 0 2px 4px rgba(2,6,23,0.06);
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
     }
-
     .conf-select {
-      border: 1px solid var(--border-subtle);
-      background: white;
-      border-radius: 12px;
-      padding: 8px 10px;
-      font-weight: 900;
-      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      font-size: 0.85rem;
+      color: var(--text-main);
       outline: none;
-      cursor: pointer;
-      font-family: var(--font-main);
+      max-width: 250px;
     }
-    .conf-select:focus { border-color: rgba(11, 64, 141, 0.45); }
 
-    /* --- PUBLICATION BOXES --- */
+    .exp-list { position: relative; }
+    .exp-item { position: relative; padding-left: 3rem; margin-bottom: 3.5rem; }
+    .exp-dot { 
+        position: absolute; left: 0; top: 6px; width: 14px; height: 14px; 
+        background: white; border: 3px solid var(--accent); border-radius: 50%; z-index: 2; 
+    }
+    .exp-line { position: absolute; left: 6px; top: 20px; width: 2px; height: calc(100% + 2rem); background: #e2e8f0; }
+    .exp-item:last-child .exp-line { display: none; }
+    .exp-content h3 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 0.4rem; letter-spacing: -0.02em; }
+    .exp-content .org { font-weight: 600; color: var(--primary); margin-bottom: 0.4rem; font-size: 1rem; }
+    .exp-content .time { font-size: 0.9rem; color: var(--text-muted); font-weight: 600; background: #f1f5f9; padding: 3px 10px; border-radius: 6px; display: inline-block; margin-bottom: 0.8rem; }
+    .exp-desc { color: #475569; font-size: 1rem; line-height: 1.6; }
+
     .pub-row {
-      display: flex; gap: 1.5rem; padding: 1.5rem; margin-bottom: 1.5rem;
-      background: #f6f8ff;
-      border: 1px solid transparent;
-      border-radius: var(--radius-sm);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-    }
-
-    .pub-row:hover {
-      transform: translateY(-3px);
-      background: white;
-      border-color: rgba(11, 64, 141, 0.35);
-      box-shadow: 0 10px 25px -5px rgba(11, 64, 141, 0.14);
+      display: flex; gap: 2rem; padding: 1.5rem 0; margin-bottom: 1rem;
+      border-bottom: 1px solid #f8fafc; transition: 0.3s;
     }
 
     .pub-thumb {
-      width: 150px; height: 100px; flex-shrink: 0;
-      border-radius: 8px; overflow: hidden; background: #e5e7eb; border: 1px solid var(--border-subtle);
+      width: 140px; height: 90px; flex-shrink: 0;
+      border-radius: var(--radius-sm); overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
     .pub-thumb img { width: 100%; height: 100%; object-fit: cover; }
-
-    .pub-data { flex: 1; display: flex; flex-direction: column; min-width: 0; }
-    .pub-title {
-      font-weight: 950;
-      font-size: 1.1rem;
-      line-height: 1.35;
-      margin-bottom: 6px;
-      color: var(--text-main);
-      word-break: break-word;
-      overflow-wrap: anywhere;
-      font-family: var(--font-main);
-    }
-    .pub-authors { color: #475569; word-break: break-word; overflow-wrap: anywhere; font-weight: 600; }
-
-    .pub-meta {
-      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-      font-size: 0.85rem;
-      font-family: var(--font-mono);
-      margin-top: 10px;
-    }
-    .badge-conf { color: var(--primary); font-weight: 900; }
-    .badge-year {
-      color: #0f172a;
-      background: #eaf2ff;
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-weight: 900;
-      border: 1px solid rgba(11, 64, 141, 0.12);
-    }
-    .badge-subvenue {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 0.85em;
-      line-height: 1;
-      border: 1px dashed rgba(0,0,0,0.25);
-      color: rgba(0,0,0,0.65);
-      background: rgba(0,0,0,0.03);
-      margin-left: 6px;
-    }
-    .badge-award {
-      color: var(--accent);
-      font-weight: 900;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--accent-soft);
-      padding: 2px 8px;
-      border-radius: 6px;
-      border: 1px solid rgba(255, 51, 0, 0.18);
-      font-family: var(--font-main);
-    }
-    .badge-if {
-      color: #0f172a;
-      background: #ffffff;
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-weight: 900;
-      border: 1px solid rgba(11, 64, 141, 0.12);
-      font-family: var(--font-mono);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .badge-if .if-label {
-      color: #475569;
-      font-weight: 900;
-    }
-    .badge-if .if-value {
-      color: var(--primary);
-      font-weight: 900;
-    }
-
-    .pub-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-weight: 900;
-      border: 1px solid var(--border-subtle);
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      transition: 0.2s;
-      background: white;
-      display: inline-block;
-      font-family: var(--font-main);
-    }
-    .pub-links a:hover {
-      border-color: var(--primary);
-      color: white;
-      background: var(--primary);
-    }
-
-    /* --- Pagination --- */
-    #pub-pagination {
-      display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
-      margin-top: 1.2rem;
-    }
-    .page-btn {
-      border: 1px solid var(--border-subtle);
-      background: white;
-      border-radius: 10px;
-      padding: 6px 12px;
-      cursor: pointer;
-      font-weight: 900;
-      color: var(--text-muted);
-      transition: 0.2s;
-      font-family: var(--font-main);
-    }
-    .page-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .pub-data { flex: 1; }
+    .pub-title { font-size: 1.1rem; font-weight: 700; color: var(--primary); line-height: 1.4; margin-bottom: 0.5rem; }
+    .pub-authors { font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem; }
+    .pub-meta { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .badge-conf { font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; }
+    .badge-year { font-size: 0.75rem; font-weight: 600; color: var(--text-muted); }
+    .pub-links { display: flex; gap: 0.75rem; }
+    .pub-links a { font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-decoration: none; border-bottom: 1px solid transparent; }
+    .pub-links a:hover { color: var(--primary); border-color: var(--primary); }
+    #pub-pagination { display: flex; justify-content: center; gap: 0.5rem; margin-top: 3rem; }
+    .page-btn { padding: 8px 14px; border: 1px solid #e2e8f0; background: white; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s; }
     .page-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
     .page-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-    /* --- EXPERIENCE & EDUCATION --- */
-    .exp-item { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; position: relative; }
-    .exp-line { width: 2px; background: #eaf2ff; position: absolute; top: 12px; bottom: -40px; left: 6px; }
-    .exp-item:last-child .exp-line { display: none; }
-    .exp-dot {
-      width: 14px; height: 14px; border-radius: 50%; background: white;
-      border: 3px solid var(--primary); z-index: 2; flex-shrink: 0; margin-top: 6px;
-    }
-    .exp-content h3 { font-size: 1.1rem; font-weight: 950; margin-bottom: 2px; }
-    .exp-content .org { color: var(--text-muted); font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
-    .exp-content .time { font-family: var(--font-mono); font-size: 0.8rem; color: #94a3b8; }
+    .site-footer { text-align: center; padding: 4rem 2rem; color: #94a3b8; font-size: 0.9rem; }
 
-    .award-item {
-      display: flex; gap: 1rem; align-items: baseline; margin-bottom: 1rem;
-      padding: 1rem; background: #f6f8ff; border-radius: 12px; border: 1px solid transparent;
-      transition: 0.2s;
-    }
-    .award-item:hover { border-color: rgba(11, 64, 141, 0.25); background: white; }
-    .award-year { font-weight: 950; color: var(--primary); font-family: var(--font-mono); min-width: 50px; }
-
-    /* =========================
-       MOBILE IMPROVEMENTS
-    ========================= */
-    @media (max-width: 600px) {
-      body { padding-bottom: 3rem; }
-
-      .wrapper {
-        margin: 0;
-        border-radius: 0;
-        box-shadow: none;
-      }
-
-      .hero { padding: 3.25rem 1.25rem 2.25rem 1.25rem; }
-      .name { font-size: 2.1rem; }
-      .role { font-size: 1rem; }
-      .degree { font-size: 0.95rem; }
-
-      .profile-wrap { width: 110px; height: 110px; }
-
-      .nav-bar {
-        top: 0;
-        margin: 0;
-        border-radius: 0;
-        border: none;
-        border-bottom: 1px solid rgba(2,6,23,0.08);
-        box-shadow: 0 8px 20px -14px rgba(2, 6, 23, 0.25);
-        padding: 0.55rem 0.75rem;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        -webkit-overflow-scrolling: touch;
-      }
-      .nav-item { padding: 0.45rem 0.9rem; }
-
-      .content { padding: 2rem 1.25rem; }
-      section { scroll-margin-top: 4.25rem; }
-
-      .filters {
-        width: 100%;
-        justify-content: flex-start;
-        gap: 8px;
-      }
-      .filter-tabs { width: 100%; justify-content: space-between; }
-      .filter-btn { flex: 1; text-align: center; padding: 8px 10px; }
-      .conf-select { width: 100%; }
-
-      .pub-row { flex-direction: column; gap: 1rem; padding: 1.1rem; }
-      .pub-thumb { width: 100%; height: 170px; }
-      .pub-title { font-size: 1.02rem; }
-      .pub-meta { gap: 8px; }
+    @media (max-width: 768px) {
+      .hero { flex-direction: column; text-align: center; padding: 4rem 2rem; gap: 2rem; }
+      .hero-content { align-items: center; text-align: center; }
+      .expertise-row, .social-row { justify-content: center; }
+      .content { padding: 3rem 1.5rem; }
+      .nav-bar { padding: 0.75rem 1rem; justify-content: center; overflow-x: auto; white-space: nowrap; }
+      .pub-row { flex-direction: column; gap: 1rem; }
+      .pub-thumb { width: 100%; height: 180px; }
+      .filters { align-items: center; text-align: center; }
+      .filter-tabs { justify-content: center; }
     }
   </style>
 </head>
-
 <body>
   <div class="wrapper">
-
     <header class="hero">
       <div class="profile-wrap">
-        <img src="/figures/profile.jpg" alt="Your Name" class="profile-img"
+        <img src="/figures/selfi.jpg" alt="Hyewon choi" class="profile-img"
              onerror="this.src='https://ui-avatars.com/api/?name=HW&background=4f46e5&color=fff&size=200'">
       </div>
-      <h1 class="name">Hyewon Choi</h1>
-
-      <div class="role">
-        M.S. Student in Electrical Engineering, <strong>KAIST</strong>
-      </div>
+      <div class="hero-content">
+        <h1 class="name">Hyewon Choi</h1>
+        <div class="role">
+          M.S. Student in Electrical Engineering, <strong>KAIST</strong>
+        </div>
 
       <div class="expertise-row">
         <span class="exp-tag"><i class="fas fa-brain"></i> Reinforcement Learning</span>
         <span class="exp-tag"><i class="fas fa-exclamation-triangle"></i> Failure Detection</span>
         <span class="exp-tag"><i class="fas fa-shield-alt"></i> Trustworthy Learning</span>
       </div>
-
       <div class="social-row">
         <!-- <a href="https://scholar.google.com/citations?user=n-OTCygAAAAJ&hl=ko&authuser=3" class="social-btn" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a> -->
         <a href="https://github.com/hyewon1024" class="social-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -508,96 +304,73 @@
     </nav>
 
     <main class="content">
-
       <section id="about">
-        <div class="section-title" style="margin-bottom: 1.5rem; font-weight: 900; font-size: 1.4rem;">About</div>
-        <div class="about-text">
+        <h2 class="section-title"><div class="title-icon"><i class="fas fa-user"></i></div>About</h2>
+        <div class="about-card">
           <p>
             I am currently a M.S. student in the School of Electrical Engineering at KAIST and a member of the <a href="http://acss.kaist.ac.kr/" target="_blank" rel="noreferrer">Autonomous Control & Stochastic Systems (ACSS) Lab</a>. 
           </p>
           <br>
           <p>
-            My research aims to develop <strong>sample-efficient and trustworthy learning for robotic manipulation</strong>, enabling robot behaviors that are both rapidly adaptable and reliable in real-world environments. I focus on <strong>leveraging symmetry</strong> to improve data efficiency and on <strong>uncertainty quantification and failure detection </strong>to support safe learning-based action planning,
+            My research aims to develop <strong>sample-efficient and trustworthy learning for robotic manipulation</strong>, enabling robot behaviors that are both rapidly adaptable and reliable in real-world environments. I focus on <strong>leveraging symmetry</strong> to improve data efficiency and on <strong>uncertainty quantification </strong>to support safe learning-based action planning,
             ultimately bridging low-level control and high-level decision making.
           </p>
-          <br>
         </div>
       </section>
-
       <section id="publications">
-        <div class="section-header">
-          <h2 class="section-title">Publications</h2>
-
-          <div class="filters">
-            <div class="filter-tabs" id="category-tabs">
-              <button class="filter-btn active" data-category="all">All</button>
-              <button class="filter-btn" data-category="selected">Selected</button>
-              <button class="filter-btn" data-category="preprint">Preprint</button>
-            </div>
-
-            <div class="filter-tabs" id="yeargroup-tabs">
-              <button class="filter-btn active" data-yeargroup="all">All years</button>
-              <button class="filter-btn" data-yeargroup="recent">Recent 3 years</button>
-              <button class="filter-btn" data-yeargroup="older">Older</button>
-            </div>
-
-            <select id="conf-select" class="conf-select" aria-label="Filter by conference/journals">
-              <option value="all">Conference/Journal</option>
-            </select>
+        <h2 class="section-title"><div class="title-icon"><i class="fas fa-book-open"></i></div>Research</h2>
+        <div class="filters">
+          <div class="filter-tabs" id="category-tabs">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="selected">Selected</button>
+            <button class="filter-btn" data-category="preprint">Preprint</button>
           </div>
+          <div class="filter-tabs" id="yeargroup-tabs">
+            <button class="filter-btn active" data-yeargroup="all">All years</button>
+            <button class="filter-btn" data-yeargroup="recent">Recent 3 years</button>
+            <button class="filter-btn" data-yeargroup="older">Older</button>
+          </div>
+          <select id="conf-select" class="conf-select" aria-label="Filter by conference/journals">
+            <option value="all">Conference/Journal</option>
+          </select>
         </div>
         
-        <!--PUBLICATIONS (fill later) -->
-        <!--
-        <div class="pub-row"
-            data-category="all"
-            data-year="2026"
-            data-conf="Conference Name"
-            data-date="2026-01-01">
-
-          <div class="pub-thumb">
-            <img src="/figures/paper.png">
-          </div>
-
-          <div class="pub-data">
-            <div class="pub-title">Paper Title</div>
-
-            <div class="pub-authors">
-              Author1, Author2, <strong>Your Name</strong>
+        <div id="publications-list">
+          <!-- Placeholder Paper -->
+          <div class="pub-row" data-category="all selected" data-year="2026" data-conf="Sample Conference" data-date="2026-01-01">
+            <div class="pub-thumb">
+              <img src="https://via.placeholder.com/140x90?text=Paper+Image" alt="Paper Image">
             </div>
-
-            <div class="pub-meta">
-              <span class="badge-conf">Conference</span>
-              <span class="badge-year">2026</span>
-
-              <div class="pub-links">
-                <a href="#">PAPER</a>
-                <a href="#">CODE</a>
+            <div class="pub-data">
+              <div class="pub-title">Paper Title (Example Placeholder)</div>
+              <div class="pub-authors">Author 1, <strong>Hyewon Choi</strong>, Author 3</div>
+              <div class="pub-meta">
+                <span class="badge-conf">Sample Conference</span>
+                <span class="badge-year">2026</span>
+                <div class="pub-links">
+                  <a href="#">PAPER</a>
+                  <a href="#">CODE</a>
+                </div>
               </div>
             </div>
-
           </div>
         </div>
-        -->
         <div id="pub-pagination"></div>
       </section>
-      <section id="experience">
-        <div class="section-header">
-          <h2 class="section-title">Experience</h2>
-        </div>
 
-        <!-- Samsung Semiconductor Research -->
-        <div class="exp-item">
-          <div class="exp-dot"></div>
-          <div class="exp-line"></div>
-          <div class="exp-content">
-            <h3>Process Development Engineer, NAND Flash</h3>
-            <div class="org">Samsung Semiconductor Research</div>
-            <div class="time">Oct 2023 – Dec 2024</div>
-            <div style="margin-top:8px; color:#475569; font-size:0.95rem;">
-              Worked on large-scale semiconductor manufacturing systems, focusing on 
+      <section id="experience">
+        <h2 class="section-title"><div class="title-icon"><i class="fas fa-briefcase"></i></div>Professional Experience</h2>
+        <div class="exp-list">
+          <div class="exp-item">
+            <div class="exp-dot"></div>
+            <div class="exp-line"></div>
+            <div class="exp-content">
+              <h3>Process Development Engineer (VNAND Flash)</h3>
+              <div class="org">Samsung Semiconductor Research</div>
+              <div class="time">Oct 2023 – Dec 2024</div>
+              <div class="exp-desc">Worked on large-scale semiconductor manufacturing systems, focusing on 
               <strong>data-driven process monitoring</strong>, 
-              <strong>defect analysis</strong>, and 
+              <strong>defect analysis of VNAND peripheral circuit</strong>, and 
               uncertainty-aware process control.
             </div>
           </div>
@@ -611,18 +384,18 @@
             <h3>Winter Intern, Mobile Packaging Device</h3>
             <div class="org">SK hynix</div>
             <div class="time">Jan 2022 – Feb 2022</div>
-            <div style="margin-top:8px; color:#475569; font-size:0.95rem;">
-              Performed experimental verification and optimization analysis of wafer warpage, 
+            <div class="exp-desc">Performed experimental verification and optimization analysis of wafer warpage, 
               gaining experience in physical system modeling and precision optimization.
+            </div>
+            <div style="margin-top:6px; color:#64748b; font-size:0.85rem; font-style:italic; display:flex; align-items:center;">
+                <span style="margin-right:4px;">🏆</span> 
+                Awarded Top Honor – 2022 Winter Internship Project Presentation (SK hynix)
             </div>
           </div>
         </div>
-
       </section>
       <section id="education">
-        <div class="section-header">
-          <h2 class="section-title">Education</h2>
-        </div>
+        <h2 class="section-title"><div class="title-icon"><i class="fas fa-graduation-cap"></i></div>Education</h2>
         <div class="exp-item">
           <div class="exp-dot"></div>
           <div class="exp-line"></div>
@@ -647,10 +420,7 @@
         </div>
       </section>
       <section id="projects">
-        <div class="section-header">
-          <h2 class="section-title">Projects</h2>
-        </div>
-
+        <h2 class="section-title"><div class="title-icon"><i class="fas fa-project-diagram"></i></div>Projects</h2>
         <div class="exp-item">
           <div class="exp-dot"></div>
           <div class="exp-line"></div>
@@ -663,7 +433,13 @@
 
             <div class="time">2025</div>
             <div style="margin-top:8px; color:#475569; font-size:0.95rem;">
-            Developed <strong>Balanced DAgger</strong> in collaboration with <strong>ETRI</strong>, a framework integrating <strong>RND</strong> and <strong>Conformal Prediction</strong> to enhance robotic safety. Optimized an uncertainty quantifier to mitigate overgeneralization and validated superior pick-and-place performance through <strong>Isaac Sim</strong> environments.
+            Developed <strong>Balanced DAgger</strong> in collaboration with 
+            <strong>
+              <a href="https://www.etri.re.kr" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style="color:inherit; text-decoration:none;">
+                ETRI</a></strong>, a framework integrating <strong>RND</strong> and <strong>Conformal Prediction</strong> to enhance robotic safety. Optimized RND uncertainty quantifier to mitigate overgeneralization and validated pick-and-place performance through <strong>Isaac Sim</strong> environments.
           </div>
           <div style="margin-top:6px; color:#64748b; font-size:0.85rem; font-style:italic; display:flex; align-items:center;">
               <span style="margin-right:4px;">🏆</span> 
@@ -672,9 +448,7 @@
           </div>
         </div>
       <!-- <section id="awards">
-        <div class="section-header">
-          <h2 class="section-title">Honors & Awards</h2>
-        </div>
+        <h2 class="section-title"><div class="title-icon"><i class="fas fa-trophy"></i></div>Awards</h2>
         <div class="award-item">
           <div class="award-year">2025</div>
           <div><strong>Bronze Prize</strong>, Samsung HumanTech Paper Awards</div>
@@ -684,7 +458,7 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      © <span id="2026"></span> Jaehyun Choi.
+      © <span id="2026"></span> Hyewon Choi.
       <span class="footer-sep">·</span>
       This website design/code is by Jaehyun Choi. If you reuse it, please include attribution.
     </div>
@@ -708,12 +482,6 @@
 
     // 1) Name -> personal site URL
     const AUTHOR_LINKS = {
-      "Hyun Seok Seong": "https://hynnsk.github.io/",
-      "Hyun Seok Seong*": "https://hynnsk.github.io/",
-      "Jaemyung Yu": "https://sites.google.com/view/jaemyungyu",
-      "Jaemyung Yu*": "https://sites.google.com/view/jaemyungyu",
-      "Jiwan Hur": "https://jiwanhur.github.io/",
-      "Jiwan Hur*": "https://jiwanhur.github.io/"
       // Add more like:
       // "Jaehyun Choi": "https://....",
     };
@@ -721,31 +489,12 @@
     // Inject subtle link CSS once
     function injectAuthorLinkStyles() {
       if (document.getElementById("author-linkify-styles")) return;
-
       const style = document.createElement("style");
       style.id = "author-linkify-styles";
       style.textContent = `
-        .pub-authors .author-link {
-          color: inherit;
-          text-decoration: underline;
-          text-decoration-color: rgba(0, 0, 0, 0.25);
-          text-decoration-thickness: 1px;
-          text-underline-offset: 2px;
-        }
-        .pub-authors .author-link::after {
-          content: "↗";
-          font-size: 0.85em;
-          margin-left: 0.15em;
-          opacity: 0.35;
-        }
-        .pub-authors .author-link:hover,
-        .pub-authors .author-link:focus-visible {
-          text-decoration-color: rgba(0, 0, 0, 0.6);
-        }
-        .pub-authors .author-link:hover::after,
-        .pub-authors .author-link:focus-visible::after {
-          opacity: 0.6;
-        }
+        .pub-authors .author-link { color: inherit; text-decoration: underline; text-decoration-color: rgba(0, 0, 0, 0.25); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+        .pub-authors .author-link::after { content: "↗"; font-size: 0.85em; margin-left: 0.15em; opacity: 0.35; }
+        .pub-authors .author-link:hover { text-decoration-color: rgba(0, 0, 0, 0.6); }
       `;
       document.head.appendChild(style);
     }
@@ -957,27 +706,25 @@
     }
 
     function renderPublications() {
-      const filtered = getFilteredItems();
-      const totalPages = Math.max(1, Math.ceil(filtered.length / state.perPage));
-      state.page = Math.min(state.page, totalPages);
+    const filtered = getFilteredItems();
 
-      pubItems.forEach(el => { el.style.display = 'none'; });
+    pubItems.forEach(el => el.style.display = 'none');
+    
+    const start = (state.page - 1) * state.perPage;
+    const paginatedItems = filtered.slice(start, start + state.perPage);
+    
+    paginatedItems.forEach(el => el.style.display = 'flex');
 
-      const start = (state.page - 1) * state.perPage;
-      const end = start + state.perPage;
-      filtered.slice(start, end).forEach(el => { el.style.display = 'flex'; });
-
-      renderPagination(totalPages);
-    }
-
-    categoryTabs.addEventListener('click', (e) => {
-      const btn = e.target.closest('.filter-btn');
-      if (!btn) return;
-      state.category = btn.dataset.category;
-      state.page = 1;
-      setActiveButton(categoryTabs, btn);
-      renderPublications();
-    });
+    renderPagination(Math.ceil(filtered.length / state.perPage));
+  }
+  categoryTabs.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    state.category = btn.dataset.category;
+    state.page = 1;
+    setActiveButton(categoryTabs, btn);
+    renderPublications();
+  });
 
     yearGroupTabs.addEventListener('click', (e) => {
       const btn = e.target.closest('.filter-btn');
