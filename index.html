@@ -281,9 +281,9 @@
         </div>
 
       <div class="expertise-row">
-        <span class="exp-tag"><i class="fas fa-brain"></i> Reinforcement Learning</span>
-        <span class="exp-tag"><i class="fas fa-exclamation-triangle"></i> Failure Detection</span>
-        <span class="exp-tag"><i class="fas fa-shield-alt"></i> Trustworthy Learning</span>
+        <span class="exp-tag"><i class="fas fa-shield-alt"></i> Trustworthy Autonomy</span>
+        <span class="exp-tag"><i class="fas fa-exclamation-triangle"></i> Uncertainty Quantification</span>
+        <span class="exp-tag"><i class="fas fa-lock"></i> Safe Control</span>
       </div>
       <div class="social-row">
         <!-- <a href="https://scholar.google.com/citations?user=n-OTCygAAAAJ&hl=ko&authuser=3" class="social-btn" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a> -->
@@ -296,10 +296,10 @@
     <nav class="nav-bar">
       <a href="#about" class="nav-item active">About</a>
       <a href="#publications" class="nav-item">Research</a>
+      <a href="#projects" class="nav-item">Projects</a>
       <a href="#experience" class="nav-item">Experience</a>
       <a href="#education" class="nav-item">Education</a>
       <a href="#awards" class="nav-item">Awards</a>
-      <a href="#projects" class="nav-item">Projects</a>
     </nav>
 
     <main class="content">
@@ -311,8 +311,7 @@
           </p>
           <br>
           <p>
-            My research aims to develop <strong>sample-efficient and trustworthy learning for robotic manipulation</strong>, enabling robot behaviors that are both rapidly adaptable and reliable in real-world environments. I focus on <strong>leveraging symmetry</strong> to improve data efficiency and on <strong>uncertainty quantification </strong>to support safe learning-based action planning,
-            ultimately bridging low-level control and high-level decision making.
+            My research focuses on <strong>trustworthy autonomy for learning-based robotic systems</strong>. I study how to quantify when robot policies become unreliable under distribution shift, and how this uncertainty can be incorporated into <strong>safe planning and control</strong>. More recently, I have been investigating <strong>Vision-Language-Action policies</strong> by treating their hidden representations as dynamical states and designing interventions that steer policy behavior with closed-loop safety guarantees.
           </p>
         </div>
       </section>
@@ -355,6 +354,51 @@
           </div> -->
         </div>
         <div id="pub-pagination"></div>
+      </section>
+
+      <section id="projects">
+        <h2 class="section-title"><div class="title-icon"><i class="fas fa-project-diagram"></i></div>Projects</h2>
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-line"></div>
+
+          <div class="exp-content">
+            <h3>Control-Theoretic Latent Intervention for Vision-Language-Action Policies</h3>
+            <div class="org">
+              Ongoing Research
+            </div>
+
+            <div style="margin-top:8px; color:#475569; font-size:0.95rem;">
+            Model VLA hidden representations as dynamical states and activation interventions as control inputs. Identify latent dynamics and physical feature observers from rollouts, and use conformal calibration of model mismatch to construct closed-loop steering policies with trajectory-level safety constraints.
+          </div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-line"></div>
+
+          <div class="exp-content">
+            <h3>Failure-Aware Imitation Learning for Robotic Manipulation</h3>
+            <div class="org">
+              ETRI
+            </div>
+
+            <div class="time">2025</div>
+            <div style="margin-top:8px; color:#475569; font-size:0.95rem;">
+            Developed <strong>Balanced DAgger</strong> in collaboration with
+            <strong>
+              <a href="https://www.etri.re.kr"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="color:inherit; text-decoration:none;">
+                ETRI</a></strong>, a framework integrating <strong>RND</strong> and <strong>Conformal Prediction</strong> to enhance robotic safety. Optimized RND uncertainty quantifier to mitigate overgeneralization and validated pick-and-place performance through <strong>Isaac Sim</strong> environments.
+          </div>
+          <div style="margin-top:6px; color:#64748b; font-size:0.85rem; font-style:italic; display:flex; align-items:center;">
+              <span style="margin-right:4px;">🏆</span>
+              Best Paper Award, KSCI Conference 2026
+          </div>
+          </div>
+        </div>
       </section>
 
       <section id="experience">
@@ -418,34 +462,6 @@
           </div>
         </div>
       </section>
-      <section id="projects">
-        <h2 class="section-title"><div class="title-icon"><i class="fas fa-project-diagram"></i></div>Projects</h2>
-        <div class="exp-item">
-          <div class="exp-dot"></div>
-          <div class="exp-line"></div>
-
-          <div class="exp-content">
-            <h3>Failure-Aware Imitation Learning for Robotic Manipulation</h3>
-            <div class="org">
-              ETRI
-            </div>
-
-            <div class="time">2025</div>
-            <div style="margin-top:8px; color:#475569; font-size:0.95rem;">
-            Developed <strong>Balanced DAgger</strong> in collaboration with 
-            <strong>
-              <a href="https://www.etri.re.kr" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                style="color:inherit; text-decoration:none;">
-                ETRI</a></strong>, a framework integrating <strong>RND</strong> and <strong>Conformal Prediction</strong> to enhance robotic safety. Optimized RND uncertainty quantifier to mitigate overgeneralization and validated pick-and-place performance through <strong>Isaac Sim</strong> environments.
-          </div>
-          <div style="margin-top:6px; color:#64748b; font-size:0.85rem; font-style:italic; display:flex; align-items:center;">
-              <span style="margin-right:4px;">🏆</span> 
-              Best Paper Award, KSCI Conference 2026
-          </div>
-          </div>
-        </div>
       <!-- <section id="awards">
         <h2 class="section-title"><div class="title-icon"><i class="fas fa-trophy"></i></div>Awards</h2>
         <div class="award-item">
