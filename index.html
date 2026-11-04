@@ -242,23 +242,23 @@
     }
     
     .rnd-publication .pub-thumb {
-      flex: 0 0 35%;
-      height: auto;
-      align-self: stretch;
-      container-type: size;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
+      /* square; JS sets --rnd-image-size to the text block height */
+      flex: 0 0 var(--rnd-image-size, 220px);
+      width: var(--rnd-image-size, 220px);
+      height: var(--rnd-image-size, 220px);
+      align-self: flex-start;
+      background: #fff;
       box-shadow: none;
     }
-    
+
     .rnd-publication .pub-thumb img {
-      width: min(100cqw, 100cqh);
-      height: auto;
-      aspect-ratio: 1;
+      display: block;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
+      object-position: center;
     }
-    
+
     .rnd-publication .pub-data {
       min-width: 0;
     }
@@ -288,6 +288,8 @@
       .nav-bar { padding: 0.75rem 1rem; justify-content: center; overflow-x: auto; white-space: nowrap; }
       .pub-row { flex-direction: column; gap: 1rem; }
       .pub-thumb { width: 100%; height: 180px; }
+      .pub-row.rnd-publication { flex-direction: column; }
+      .rnd-publication .pub-thumb { flex: none; width: min(100%, 320px); height: auto; aspect-ratio: 1 / 1; align-self: center; }
       .filters { align-items: center; text-align: center; }
       .filter-tabs { justify-content: center; }
     }
@@ -854,5 +856,26 @@
     // Footer year (keeping your id="2026")
     document.getElementById("2026").textContent = new Date().getFullYear();
   </script>
+  <script>
+    /* Keep the RND publication image square and as tall as its text block */
+    (function () {
+      const row = document.querySelector(".rnd-publication");
+      if (!row) return;
+      const text = row.querySelector(".pub-data");
+      const resize = () => {
+        if (window.matchMedia("(max-width: 768px)").matches) {
+          row.style.removeProperty("--rnd-image-size");
+          return;
+        }
+        const h = text.getBoundingClientRect().height;
+        const max = row.clientWidth * 0.4;
+        row.style.setProperty("--rnd-image-size", Math.round(Math.min(h, max)) + "px");
+      };
+      new ResizeObserver(() => requestAnimationFrame(resize)).observe(text);
+      window.addEventListener("resize", resize);
+      resize();
+    })();
+  </script>
+
 </body>
 </html>
