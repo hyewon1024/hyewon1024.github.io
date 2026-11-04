@@ -136,6 +136,54 @@ body {
     line-height: 1.6;
 }
 
+/* NeurIPS RND publication layout */
+.pub-row.rnd-publication {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.rnd-publication .pub-thumb {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.rnd-publication .pub-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #f8fafc;
+}
+
+.rnd-publication .pub-data {
+  min-width: 0;
+}
+
+.rnd-publication .pub-data p {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #475569;
+}
+
+@media (max-width: 768px) {
+  .pub-row.rnd-publication {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .rnd-publication .pub-thumb {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
