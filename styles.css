@@ -5,6 +5,37 @@
     box-sizing: border-box;
 }
 
+<script>
+  const rndPublication = document.querySelector(".rnd-publication");
+
+  if (rndPublication) {
+    const publicationText = rndPublication.querySelector(".pub-data");
+
+    const resizePublicationImage = () => {
+      if (window.matchMedia("(max-width: 768px)").matches) return;
+
+      const rowWidth = rndPublication.clientWidth;
+      const gap = parseFloat(getComputedStyle(rndPublication).columnGap) || 0;
+      const textHeight = publicationText.getBoundingClientRect().height;
+      const maxImageSize = (rowWidth - gap) * 0.42;
+      const imageSize = Math.min(textHeight, maxImageSize);
+
+      rndPublication.style.setProperty(
+        "--rnd-image-size",
+        `${imageSize}px`
+      );
+    };
+
+    const observer = new ResizeObserver(() => {
+      requestAnimationFrame(resizePublicationImage);
+    });
+
+    observer.observe(publicationText);
+    window.addEventListener("resize", resizePublicationImage);
+    resizePublicationImage();
+  }
+</script>
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
