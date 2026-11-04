@@ -316,24 +316,54 @@
         </div>
       </section>
       <section id="publications">
-        <h2 class="section-title"><div class="title-icon"><i class="fas fa-book-open"></i></div>Research</h2>
-        <div class="filters">
-          <div class="filter-tabs" id="category-tabs">
-            <button class="filter-btn active" data-category="all">All</button>
-            <button class="filter-btn" data-category="selected">Selected</button>
-            <button class="filter-btn" data-category="preprint">Preprint</button>
+                <h2 class="section-title"><div class="title-icon"><i class="fas fa-book-open"></i></div>Research</h2>
+                <div class="filters">
+                  <div class="filter-tabs" id="category-tabs">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="selected">Selected</button>
+                    <button class="filter-btn" data-category="preprint">Preprint</button>
+                  </div>
+                  <div class="filter-tabs" id="yeargroup-tabs">
+                    <button class="filter-btn active" data-yeargroup="all">All years</button>
+                    <button class="filter-btn" data-yeargroup="recent">Recent 3 years</button>
+                    <button class="filter-btn" data-yeargroup="older">Older</button>
+                  </div>
+                  <select id="conf-select" class="conf-select" aria-label="Filter by conference/journals">
+                    <option value="all">Conference/Journal</option>
+                  </select>
+                </div>
+                
+                <div id="publications-list">
+                  <div class="pub-row" data-category="selected" data-year="2026" data-conf="NeurIPS">
+          <div class="pub-thumb">
+            <img src="figures/overgen.png"
+                 alt="Mitigating Overgeneralization in RND via Spectral Target Design">
           </div>
-          <div class="filter-tabs" id="yeargroup-tabs">
-            <button class="filter-btn active" data-yeargroup="all">All years</button>
-            <button class="filter-btn" data-yeargroup="recent">Recent 3 years</button>
-            <button class="filter-btn" data-yeargroup="older">Older</button>
-          </div>
-          <select id="conf-select" class="conf-select" aria-label="Filter by conference/journals">
-            <option value="all">Conference/Journal</option>
-          </select>
-        </div>
         
-        <div id="publications-list">
+          <div class="pub-data">
+            <div class="pub-title">
+              Mitigating Overgeneralization in RND via Spectral Target Design
+            </div>
+            <div class="pub-authors">
+              Minseok Jeong*, Yechan Lee*, <strong>Hyewon Choi</strong>, Jeongyong Yang, SooJean Han
+            </div>
+            <div class="pub-meta">
+              <span class="badge-conf">NeurIPS</span>
+              <span class="badge-year">2026</span>
+              <div class="pub-links">
+                <a href="https://neurips.cc/virtual/2026/loc/sydney/poster/148343">Poster</a>
+                <a href="https://github.com/tuuktuc86/RFF-RND">Code</a>
+              </div>
+            </div>
+            <p>
+              Random Network Distillation can assign low novelty scores even to inputs far
+              from the training data (overgeneralization). We explain this failure through
+              the interaction between the target and predictor kernels, and use random
+              Fourier features to control the spatial scale at which RND distinguishes
+              familiar from novel inputs.
+            </p>
+          </div>
+        </div>
           <!-- Placeholder Paper -->
           <!-- <div class="pub-row" data-category="all selected" data-year="2026" data-conf="Sample Conference" data-date="2026-01-01">
             <div class="pub-thumb">
